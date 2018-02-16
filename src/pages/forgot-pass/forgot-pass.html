@@ -1,0 +1,31 @@
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+    <ion-title>forgot-pass</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg">
+    <div padding>
+        <p text-center class="white">Forgot Password</p>
+        <div>
+            <p class="white">Lorem Ipsum is simply dummy text of the printing and
+               typesetting industry. Lorem Ipsum has been the industry's 
+               standard dummy text ever since
+            </p>
+        </div>
+        <div>
+            <form >
+                <ion-item>
+                  <ion-input type="email" placeholder="Email"></ion-input>
+                </ion-item>
+                <button ion-button full class="" type="submit" (click)="doForgot()">Forgot Password</button>
+            </form>
+        </div>
+     </div>
+</ion-content>

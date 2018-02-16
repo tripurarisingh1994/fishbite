@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>what-location</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div>
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col col-7>
+            <p>Location Privacy</p>
+          </ion-col>
+          <ion-col col-5>
+              <ion-item>
+                  <ion-select [(ngModel)]="location">
+                    <ion-option value="public">Public</ion-option>
+                    <ion-option value="t">Test</ion-option>
+                  </ion-select>
+                </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="map">
+
+    </div>
+    <div>
+        <ion-list>
+            <ion-item>
+              <ion-label>Pepperoni</ion-label>
+              <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+            </ion-item>
+       
+              <ion-item>
+                <ion-label>Pepperoni</ion-label>
+                <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+              </ion-item>
+       </ion-list>
+    </div>
+  </div>
+</ion-content>

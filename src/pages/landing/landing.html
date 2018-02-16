@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Landing</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg">
+  <div class="logo">
+    <img src="../../assets/imgs/fishlogo.png" alt="Logo" height="80" width="150">
+  </div>
+  <div class="logoftext">
+    Discover 1.8 milion fishing locations at home and around the world
+  </div>
+   <div padding class="landing-spcr">
+    <button ion-button icon-start full class="fb">
+      <ion-icon name="logo-facebook"></ion-icon>
+        Continue with Facebook
+    </button>
+    <button ion-button icon-start full class="google">
+      <ion-icon class="gplus" name="logo-googleplus"></ion-icon>
+        Continue with Google
+    </button>
+        <ion-grid >
+          <ion-row class="inpolink">
+            <ion-col col-auto >
+               <button ion-button clear color="light" class="refbtn" (click)="goSignup()">Signup with Email |</button>
+            </ion-col>
+            <ion-col col-auto>
+              <button ion-button clear color="light" class="refbtn" (click)="goLogin()">Login</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+   </div>
+</ion-content>

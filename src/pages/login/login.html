@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content class="bg">
+   <div padding>
+      <p text-center class="white">Login</p>
+      <div>
+          <p class="logtext">Discover 1.8 milion fishing locations , fish techniques, the anglers , ,fishing industry business and everything that goes with fishing , at home and around the world
+          </p>
+          <button ion-button icon-start full class="fb">
+              <ion-icon name="logo-facebook"></ion-icon>
+                Continue with Facebook
+            </button>
+          <button ion-button icon-start full class="google">
+              <ion-icon class="gplus" name="logo-googleplus"></ion-icon>
+                Continue with Google
+          </button>
+      </div>
+      <div>
+          <form >
+              <ion-item>
+                <ion-input type="text" placeholder="Username or Email"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-input type="password" placeholder="Password"></ion-input>
+                </ion-item>
+              <button ion-button full class="logbtn" type="submit" (click)="doLogin()">Continue</button>
+          </form>
+      </div>
+      <div>
+          <button ion-button clear color="light" class="forget" (click)="goForgot()">
+            Forgot your password?
+          </button>
+      </div>
+   </div>
+</ion-content>

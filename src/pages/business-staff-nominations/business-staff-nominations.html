@@ -1,0 +1,139 @@
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>business-staff-nominations</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+      <div>
+          <div>
+              <form >
+                  <ion-item>
+                    <ion-input type="text" placeholder="Business Name"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-input type="text" placeholder="Business Address"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Contact/ Owner"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="email" placeholder="Email"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                          <ion-input type="text" placeholder="Web Address"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Ph/ mobile"></ion-input>
+                  </ion-item>
+              </form>
+          </div>
+
+          <div>
+              <ion-list radio-group>
+                  <ion-list-header>
+                      Nominate
+                  </ion-list-header>
+                
+                  <ion-item>
+                    <ion-label>Shops</ion-label>
+                    <ion-radio checked="true" value="shops"></ion-radio>
+                  </ion-item>
+                
+                  <ion-item>
+                    <ion-label>Staff</ion-label>
+                    <ion-radio value="staff"></ion-radio>
+                  </ion-item>
+                
+                  <ion-item>
+                    <ion-label>Ambassadors</ion-label>
+                    <ion-radio value="ambassadors"></ion-radio>
+                  </ion-item>
+                </ion-list>
+            </div>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col col-10>
+                Staff
+            </ion-col>
+            <ion-col col-2>
+              <button ion-button small icon-only><ion-icon name="add-circle"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <div>
+            <form >
+                <ion-item>
+                  <ion-input type="text" placeholder="Mobile phone number"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input type="text" placeholder="Email"></ion-input>
+                  </ion-item>
+            </form>      
+        </div>
+
+        <div>
+          <div>
+              <p><ion-icon name="logo-facebook"></ion-icon> find on facebook</p>
+          </div>      
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-9>
+                    <ion-item>
+                      <ion-label>Nominate business share app link</ion-label>
+                      <ion-checkbox color="dark" checked="true"></ion-checkbox>
+                    </ion-item>  
+                  </ion-col>
+                  <ion-col col-3>
+                      <button ion-button small>Prepay</button>
+                  </ion-col>
+                </ion-row>
+                <ion-buttons start>
+                    <button ion-button small>Submit</button>
+                </ion-buttons>
+              </ion-grid>
+          </div>
+
+          <form>
+              <ion-item>
+                  <ion-input type="text" placeholder="Mobile phone number"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input type="email" placeholder="Email"></ion-input>
+                  </ion-item>
+          </form>
+
+          <div>
+              <div>
+                  <p><ion-icon name="logo-facebook"></ion-icon> find on facebook</p>
+              </div>      
+                  <ion-grid>
+                    <ion-row>
+                      <ion-col col-9>
+                        <ion-item>
+                          <ion-label>Nominate business share app link</ion-label>
+                          <ion-checkbox color="dark" checked="true"></ion-checkbox>
+                        </ion-item>  
+                      </ion-col>
+                      <ion-col col-3>
+                          <button ion-button small>Prepay</button>
+                      </ion-col>
+                    </ion-row>
+                    <ion-buttons start>
+                        <button ion-button small>Submit</button>
+                    </ion-buttons>
+                    <ion-buttons end>
+                        <button ion-button small clear>BACK TO MAIN PAGE</button>
+                    </ion-buttons>
+                  </ion-grid>
+              </div>
+    
+    </div>
+</ion-content>

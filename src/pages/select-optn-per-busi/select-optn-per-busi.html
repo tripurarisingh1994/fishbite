@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Select Personal or Business</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg">
+    <div padding>
+        <div class="sop-text">
+            <p padding>Select your Option for Registration
+               personal or business
+            </p>        
+        </div>
+        <div>
+            <ion-grid>
+                <ion-row>
+                  <ion-col>
+                     <button ion-button  color="light" (click)="goPersonalRegistration()">Personal</button>
+                  </ion-col>
+                  <ion-col>
+                    <button ion-button  color="light" (click)="goBusinessRegistration()">Business</button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+        </div>
+    </div>
+</ion-content>

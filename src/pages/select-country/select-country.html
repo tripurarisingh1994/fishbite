@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>select-country</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-item>
+    <ion-label>Country</ion-label>
+    <ion-select [(ngModel)]="country" (ngModelChange)="goPesrsonOrBusin($event)">
+      <ion-option value="india">India</ion-option>
+      <ion-option value="india">India</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-content>

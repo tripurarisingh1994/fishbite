@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>select-language</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-item>
+    <ion-label>Language</ion-label>
+    <ion-select [(ngModel)]="language" (ngModelChange)="goCountry($event)">
+      <ion-option value="english">English</ion-option>
+      <ion-option value="hindi">Hindi</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-content>

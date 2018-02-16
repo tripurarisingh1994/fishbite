@@ -1,0 +1,65 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Signup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="bg">
+    <div padding>
+        <h4 text-center class="white">Signup</h4>
+        <div class="signup">
+            <p class="white">Lorem Ipsum is simply dummy text of the printing and
+               typesetting industry. Lorem Ipsum has been the industry's 
+               standard dummy text ever since
+            </p>
+        </div>
+        <div>
+            <form >
+                <ion-item>
+                  <ion-input type="text" placeholder="Firstname"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input type="text" placeholder="Lastname"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-input type="text" placeholder="Mobile"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-input type="email" placeholder="Email"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                        <ion-label>Gender</ion-label>
+                        <ion-select>
+                          <ion-option value="f">Female</ion-option>
+                          <ion-option value="m">Male</ion-option>
+                        </ion-select>
+                      </ion-item>
+                  <ion-item>
+                        <ion-input type="password" placeholder="Password"></ion-input>
+                  </ion-item>
+                  <ion-item>
+                      <ion-input type="password" placeholder="Confirm Password"></ion-input>
+                </ion-item>
+                <button ion-button full class="" type="submit">Create Account</button>
+            </form>
+        </div>
+        <div>
+            <ion-grid>
+                <ion-row>
+                  <ion-col>
+                     <p>Already a member?</p>
+                  </ion-col>
+                  <ion-col>
+                    <button ion-button clear color="light" (click)="goLogin()">Login</button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+        </div>
+     </div>
+</ion-content>
