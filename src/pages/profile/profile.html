@@ -1,159 +1,174 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-      </button>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>profile</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="map"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="options"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-    <div>
-        <ion-card>
-            <img src="../../assets/imgs/profile.jpg">
+  <div>
+    <ion-card>
+      <img class="profile_pic" src="assets/imgs/fishman.jpg">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="assets/imgs/profile.jpg">
+        </ion-avatar>
+        <h2>Marty McFly</h2>
+        <button ion-button item-end>Edit Profile</button>
+      </ion-item>
+
+      <ion-card-content>
+        <!-- <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p> -->
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <div>Following&nbsp;&nbsp;&nbsp;</div>
+            <div>12</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <div>Followers&nbsp;&nbsp;&nbsp;</div>
+            <div> 4</div>
+          </button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+  </div>
+  <div>
+    <ion-segment [(ngModel)]="segm1" color="dark">
+      <ion-segment-button value="staff">
+        <!-- <ion-icon name="camera"></ion-icon> -->
+        Staff
+      </ion-segment-button>
+      <ion-segment-button value="ambassodor">
+        <!-- <ion-icon name="bookmark"></ion-icon> -->
+        Ambassodor
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="segm1">
+    <div *ngSwitchCase="'staff'">
+      <div>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-card>
+                <div text-center>Baits</div>
+                <div text-center>4</div>
+              </ion-card>
+            </ion-col>
+            <ion-col>
+              <ion-card>
+                <div text-center>Catches</div>
+                <div text-center>4</div>
+              </ion-card>
+            </ion-col>
+            <ion-col>
+              <ion-card>
+                <div text-center>Snapshots</div>
+                <div text-center>11</div>
+              </ion-card>
+            </ion-col>
+            <ion-col>
+              <ion-card>
+                <div text-center>Waterways</div>
+                <div text-center>3</div>
+              </ion-card>
+            </ion-col>
+            <ion-col>
+              <ion-card>
+                <div text-center>Trip</div>
+                <div text-center>9</div>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+      <div>
+        <ion-segment [(ngModel)]="segm2" color="dark">
+          <ion-segment-button value="logcatch">
+            <!-- <ion-icon name="camera"></ion-icon> -->
+            Log Catch
+          </ion-segment-button>
+          <ion-segment-button value="addpost">
+            <!-- <ion-icon name="camera"></ion-icon> -->
+            Add Post
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+      <div [ngSwitch]="segm2">
+        <div *ngSwitchCase="'logcatch'">
+          <ion-card>
             <ion-item>
-                <ion-avatar item-start>
-                  <img src="../../assets/imgs/profile.jpg">
-                </ion-avatar>
-                <h2>Marty McFly</h2>
-                <button ion-button item-end>Edit Profile</button>
-              </ion-item>
+              <ion-avatar item-start>
+                <img src="assets/imgs/profile.jpg">
+              </ion-avatar>
+              <h2>Marty McFly</h2>
+              <p>November 5, 1955</p>
+            </ion-item>
+
+            <img class="share_pic" src="assets/imgs/fishman.jpg">
 
             <ion-card-content>
-              <!-- <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p> -->
+              <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?!
+                Whoa. This is heavy.</p>
             </ion-card-content>
-          
+
             <ion-row>
               <ion-col>
                 <button ion-button icon-left clear small>
-                  <div>Following&nbsp;&nbsp;&nbsp;</div>
-                  <div>12</div>
+                  <ion-icon name="thumbs-up"></ion-icon>
+                  <div>12 Likes</div>
                 </button>
               </ion-col>
               <ion-col>
                 <button ion-button icon-left clear small>
-                  <div>Followers&nbsp;&nbsp;&nbsp;</div>
-                  <div>  4</div>
+                  <ion-icon name="text"></ion-icon>
+                  <div>4 Comments</div>
                 </button>
               </ion-col>
+              <ion-col center text-center>
+                <ion-note>
+                  11h ago
+                </ion-note>
+              </ion-col>
             </ion-row>
-          
-          </ion-card>
-    </div>
-    <div>
-        <ion-segment [(ngModel)]="segm1" color="dark">
-            <ion-segment-button value="staff">
-              <!-- <ion-icon name="camera"></ion-icon> -->
-              Staff
-            </ion-segment-button>
-            <ion-segment-button value="ambassodor">
-              <!-- <ion-icon name="bookmark"></ion-icon> -->
-              Ambassodor
-            </ion-segment-button>
-          </ion-segment>
-    </div>
-          <div [ngSwitch]="segm1">
-              <div *ngSwitchCase="'staff'">
-                  <div>
-                    <ion-grid>
-                      <ion-row>
-                        <ion-col>
-                          <ion-card>
-                              <div text-center>Baits</div> 
-                              <div text-center>4</div>
-                          </ion-card>
-                        </ion-col>
-                        <ion-col>
-                            <ion-card>
-                                <div text-center>Catches</div> 
-                                <div text-center>4</div>
-                            </ion-card>
-                          </ion-col>
-                          <ion-col>
-                              <ion-card>
-                                  <div text-center>Snapshots</div> 
-                                  <div text-center>11</div>
-                              </ion-card>
-                            </ion-col>
-                            <ion-col>
-                                <ion-card>
-                                    <div text-center>Waterways</div> 
-                                    <div text-center>3</div>
-                                </ion-card>
-                              </ion-col>
-                              <ion-col>
-                                  <ion-card>
-                                      <div text-center>Trip</div> 
-                                      <div text-center>9</div>
-                                  </ion-card>
-                                </ion-col>
-                      </ion-row>
-                    </ion-grid>
-                  </div>
-                  <div>
-                      <ion-segment [(ngModel)]="segm2" color="dark">
-                          <ion-segment-button value="logcatch">
-                            <!-- <ion-icon name="camera"></ion-icon> -->
-                            Log Catch
-                          </ion-segment-button>
-                          <ion-segment-button value="addpost">
-                            <!-- <ion-icon name="camera"></ion-icon> -->
-                            Add Post
-                          </ion-segment-button>
-                        </ion-segment>
-                  </div>
-                  <div  [ngSwitch]="segm2">
-                     <div *ngSwitchCase="'logcatch'">
-                       <ion-card>
-                          <ion-item>
-                            <ion-avatar item-start>
-                              <img src="../../assets/imgs/profile.jpg">
-                            </ion-avatar>
-                            <h2>Marty McFly</h2>
-                            <p>November 5, 1955</p>
-                          </ion-item>
-                        
-                          <img src="../../assets/imgs/profile.jpg">
-                        
-                          <ion-card-content>
-                            <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-                          </ion-card-content>
-                        
-                          <ion-row>
-                            <ion-col>
-                              <button ion-button icon-left clear small>
-                                <ion-icon name="thumbs-up"></ion-icon>
-                                <div>12 Likes</div>
-                              </button>
-                            </ion-col>
-                            <ion-col>
-                              <button ion-button icon-left clear small>
-                                <ion-icon name="text"></ion-icon>
-                                <div>4 Comments</div>
-                              </button>
-                            </ion-col>
-                            <ion-col center text-center>
-                              <ion-note>
-                                11h ago
-                              </ion-note>
-                            </ion-col>
-                          </ion-row>
-                        
-                        </ion-card>
-                        </div>
 
-                        <div *ngSwitchCase="'addpost'">
-                            <div>Need the Content</div>
-                        </div>
-                  </div>
-                
-              </div>
-              <div  *ngSwitchCase="'ambassodor'">
-                  <div>Need the content</div>
-              </div>
-          </div>
-    
+          </ion-card>
+        </div>
+
+        <div *ngSwitchCase="'addpost'">
+          <div>Need the Content</div>
+        </div>
+      </div>
+
+    </div>
+    <div *ngSwitchCase="'ambassodor'">
+      <div>Need the content</div>
+    </div>
+  </div>
+
 </ion-content>

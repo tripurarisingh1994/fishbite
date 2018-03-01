@@ -1,34 +1,40 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
+ 
+      <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
-        </button>
-    <ion-title>choose-plan-premium-trail</ion-title>
-  </ion-navbar>
+        </button> -->
+      <!-- <ion-title>choose-plan-premium-trail</ion-title> -->
+      
+    </ion-navbar>
 
 </ion-header>
 
 
-<ion-content class="bg2">
-  <div class="top">
-     <p text-center>Buy Premium now $1 per annum </p>
-     <p text-center>or free trail of FishBite</p>
-  </div>
-  <div>
-
-    <div padding>
+<ion-content>
+    <div class="top">
+        <p text-center style="margin:4px;">Buy Premium now $1 per annum </p>
+        <p text-center style="margin:4px;">or free trail of FishBite</p>
+     </div>
+   <div class="bg2">
+    <div class="headtext">
       <p text-center>
         Want to catch more fish? Get Premium.
         Its a value-packed fishing intel package for
         only $1.00 per annum.
       </p>
-      <button ion-button clear>READ MORE</button>
+      <button ion-button full clear class="readmore">READ MORE</button>
     </div>
-  </div>
-  <div padding>
-    <button ion-button full>Buy Premium Now</button>
-      <p text-center>or</p>
-    <button ion-button full>Start Your 30 Days Free Trail</button>
-  </div>
+    </div>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar no-border class="tbar">
+      <!-- <div padding> -->
+          <button ion-button full (click)="goToJoinLocalFish_Prem()">Buy Premium Now</button>
+            <!-- <p text-center>or</p> -->
+          <button ion-button full (click)="goToJoinLocalFish_Trail()">Start Your 30 Days Free Trail</button>
+        <!-- </div> -->
+  </ion-toolbar>
+</ion-footer>

@@ -2,12 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {  SelectOptnPerBusiPage } from '../../pages/select-optn-per-busi/select-optn-per-busi';
 
-/**
- * Generated class for the SelectCountryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,19 +9,27 @@ import {  SelectOptnPerBusiPage } from '../../pages/select-optn-per-busi/select-
   templateUrl: 'select-country.html',
 })
 export class SelectCountryPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
+  /**
+   * NavParams
+   * language@variable
+   */
+  language='';
+  constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectCountryPage');
+    this.language = this.navParams.get('language');
+    console.log(this.language);
   }
 
   /**
    * goPesrsonOrBusin() method
    */
-  goPesrsonOrBusin() {
-    this.navCtrl.push(SelectOptnPerBusiPage);
+  goPesrsonOrBusin(country) {
+    this.navCtrl.push(SelectOptnPerBusiPage,
+      {country:country,language:this.language});
   }
 
 }

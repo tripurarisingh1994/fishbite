@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { BusinessRegistrationPage } from '../business-registration/business-registration';
 
 /**
  * Generated class for the SelectBusinCategPage page.
@@ -15,11 +16,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SelectBusinCategPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  language="";
+  country="";
+  businessCategory="";
+
+  constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SelectBusinCategPage');
+    console.log('ionViewDidLoad SelectCountryPage');
+    this.language = this.navParams.get('language');
+    this.country  = this.navParams.get('country');
+  }
+
+  goBusinessRegistration(businessCategory) {
+    console.log(businessCategory);
+    this.navCtrl.push(BusinessRegistrationPage,{
+      language:this.language,
+      country:this.country,
+      businessCategory:this.businessCategory
+    })
   }
 
 }

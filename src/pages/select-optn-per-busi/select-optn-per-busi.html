@@ -1,33 +1,34 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
+      <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-    <ion-title>Select Personal or Business</ion-title>
+    <ion-title>Select Personal or Business</ion-title> -->
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content class="bg">
+    <div class="logo">
+        <img src="assets/imgs/fishlogo.png" alt="Logo" height="80" width="150">
+    </div>
     <div padding>
         <div class="sop-text">
             <p padding>Select your Option for Registration
                personal or business
             </p>        
         </div>
-        <div>
-            <ion-grid>
+        <div padding>
                 <ion-row>
-                  <ion-col>
-                     <button ion-button  color="light" (click)="goPersonalRegistration()">Personal</button>
+                  <ion-col col-6>
+                     <button ion-button  full color="light" (click)="goPersonalRegistration()">Personal</button>
                   </ion-col>
                   <ion-col>
-                    <button ion-button  color="light" (click)="goBusinessRegistration()">Business</button>
+                    <button ion-button  full color="light" (click)="goSelectBusinessCate()">Business</button>
                   </ion-col>
                 </ion-row>
-              </ion-grid>
         </div>
     </div>
 </ion-content>

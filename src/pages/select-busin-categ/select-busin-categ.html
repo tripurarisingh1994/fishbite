@@ -1,10 +1,10 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
+      <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>Select Business Cate</ion-title>
+    <ion-title>Select Business Cate</ion-title> -->
   </ion-navbar>
 
 </ion-header>
@@ -15,10 +15,10 @@
           <div class="sbc">
             <p text-center>Select your business category</p>
           </div>
-          <div radio-group>
+          <div radio-group [(ngModel)]="businessCategory" (ngModelChange)="goBusinessRegistration(businessCategory)">
               <ion-item>
                   <ion-label>Retail Shop</ion-label>
-                  <ion-radio value="retailshop" checked></ion-radio>
+                  <ion-radio value="retailshop"></ion-radio>
               </ion-item>
               <ion-item>
                   <ion-label>Online Shop</ion-label>

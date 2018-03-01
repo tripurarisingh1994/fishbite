@@ -1,135 +1,177 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
+    <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
-        </button>
-    <ion-title>personal-registration</ion-title>
+      </button> -->
+    <ion-title>Personal Registration</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content>
   <div>
+    <!-- <form [formGroup]="personalRegist" (ngSubmit)="personalReg()"> -->
+    <form [formGroup]="personalRegist">
       <div>
-          <!-- <form > -->
-              <ion-item>
-                <ion-input type="text" placeholder="Name"></ion-input>
-              </ion-item>
-              <ion-item>
-                  <ion-input type="text" placeholder="Address"></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-input type="email" placeholder="Email"></ion-input>
-                </ion-item>
-                <ion-item>
-                    <ion-input type="tel" placeholder="Ph/Mobile"></ion-input>
-                </ion-item>      
-          <!-- </form> -->
+        <ion-item>
+          <ion-input formControlName="name" type="text" placeholder="Name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="address" type="text" placeholder="Address"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="email" type="email" placeholder="Email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input formControlName="tel" type="tel" placeholder="Ph/Mobile"></ion-input>
+        </ion-item>
       </div>
 
-      <div>
-       <ion-grid>
-         <ion-row>
-           <ion-col col-10>
-            <p>Nominate and share 
-              this app link with a bisiness 
-              you recommened and your finishing friends
-            </p>
-           </ion-col>
-           <ion-col col-2>
-              <button ion-button small icon-only><ion-icon name="share"></ion-icon></button>
-           </ion-col>
-         </ion-row>
-       </ion-grid>
-      </div>
-
-      <div>
+      <div class="padding">
         <ion-grid>
           <ion-row>
             <ion-col col-10>
-              <p>Friend nominee</p>
+              <p>Nominate and share this app link with a bisiness you recommened and your finishing friends
+              </p>
             </ion-col>
             <ion-col col-2>
-                <button ion-button small icon-only><ion-icon name="add-circle"></ion-icon></button>
+              <button ion-button small (click)="showShareOptions()" icon-only margin-top>
+                <ion-icon name="share" class="iosml"></ion-icon>
+              </button>
             </ion-col>
           </ion-row>
         </ion-grid>
-        <ion-item>
-            <ion-input type="tel" placeholder="Mobile phone number"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input type="email" placeholder="Email"></ion-input>
-        </ion-item>
       </div>
 
-      <div>
+      <div *ngIf="isHiddenShare">
         <div>
-            <p><ion-icon name="logo-facebook"></ion-icon> find on facebook</p>
-        </div>      
-            <ion-grid>
-              <ion-row>
-                <ion-col col-9>
-                  <ion-item>
-                    <ion-label>Nominate business share app link</ion-label>
-                    <ion-checkbox color="dark" checked="true"></ion-checkbox>
-                  </ion-item>  
-                </ion-col>
-                <ion-col col-3>
-                    <button ion-button small>Prepay</button>
-                </ion-col>
-              </ion-row>
-              <ion-buttons start>
-                  <button ion-button small>Submit</button>
-              </ion-buttons>
-            </ion-grid>
-        </div>
-
-        <div>
+          <div>
             <ion-grid>
               <ion-row>
                 <ion-col col-10>
-                  <p>Business nominee</p>
+                  <p class="cclr">Friend nominee</p>
                 </ion-col>
                 <ion-col col-2>
-                    <button ion-button small icon-only><ion-icon name="add-circle"></ion-icon></button>
+                  <button ion-button small icon-only (click)="addFriendNominee()" margin-top>
+                    <ion-icon name="add-circle"></ion-icon>
+                  </button>
                 </ion-col>
               </ion-row>
             </ion-grid>
-            <ion-item>
-                <ion-input type="tel" placeholder="Mobile phone number"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-input type="email" placeholder="Email"></ion-input>
-            </ion-item>
           </div>
-
-          <div>
-              <div>
-                  <p><ion-icon name="logo-facebook"></ion-icon> find on facebook</p>
-              </div>      
-                  <ion-grid>
-                    <ion-row>
-                      <ion-col col-9>
-                        <ion-item>
-                          <ion-label>Nominate business share app link</ion-label>
-                          <ion-checkbox color="dark" checked="true"></ion-checkbox>
-                        </ion-item>  
-                      </ion-col>
-                      <ion-col col-3>
-                          <button ion-button small>Prepay</button>
-                      </ion-col>
-                    </ion-row>
-                    <ion-buttons start>
-                        <button ion-button small>Submit</button>
-                    </ion-buttons>
-                  </ion-grid>
-              </div>
-              <ion-buttons end>
-                  <button ion-button clear>
-                   BACK TO MAIN PAGE
-                  </button>
+          <!-- <ng-template ngFor let-item [ngForOf]="createRange(count)" let-currentElementIndex="index+1"> -->
+          <div *ngFor="let item of createRange(count);let i=index;">
+            <div id="friendnominee{{i+1}}">
+              <ion-buttons *ngIf="i+1" end>
+                <button ion-button icon-only small (click)="removeFriendNominee($event,i)">
+                  <ion-icon name="remove"></ion-icon>
+                </button>
               </ion-buttons>
+              <ion-item>
+                <ion-input formControlName="fnemail{{i+1}}" type="tel" placeholder="Mobile phone number"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input formControlName="fnmob{{i+1}}" type="email" placeholder="Email"></ion-input>
+              </ion-item>
+              <!-- <p> Test {{i+1}} </p> -->
+              <!-- <button ion-button small (click)="send(phone.value,mail.value)">Send</button> -->
+              <!-- </form> -->
+              <div style="margin-left:10px;">
+                <p class="fbspcr">
+                  <ion-icon name="logo-facebook" class="fbicon"></ion-icon> &nbsp;
+                  <span class="cclr">find on facebook</span>
+                </p>
+              </div>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-9 class="refix">
+                    <ion-item class="remborder">
+                      <ion-label>Nominate business share app link</ion-label>
+                      <ion-checkbox color="dark" checked="true"></ion-checkbox>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-3>
+                    <button ion-button small>Prepay</button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <ion-grid>
+              <ion-row>
+                <ion-col col-10>
+                  <p class="cclr">Business nominee</p>
+                </ion-col>
+                <ion-col col-2>
+                  <button ion-button small icon-only (click)="addBusinessNominee()" margin-top>
+                    <ion-icon name="add-circle"></ion-icon>
+                  </button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+          <!-- <ng-template ngFor let-item [ngForOf]="createRange1(count1)" let-currentElementIndex="index+1"> -->
+          <div *ngFor="let item of createRange1(count1);let i=index;">
+            <div id="businessnominee{{i+1}}">
+              <ion-buttons *ngIf="i+1" end>
+                <button ion-button icon-only small (click)="removeBusinessNominee($event,i)">
+                  <ion-icon name="remove"></ion-icon>
+                </button>
+              </ion-buttons>
+              <ion-item>
+                <ion-input formControlName="bnemail{{i+1}}" type="tel" placeholder="Mobile phone number"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input formControlName="bnmob{{i+1}}" type="email" placeholder="Email"></ion-input>
+              </ion-item>
+
+              <div style="margin-left:10px;">
+                <p class="fbspcr">
+                  <ion-icon name="logo-facebook" class="fbicon"></ion-icon> &nbsp;
+                  <span class="cclr">find on facebook</span>
+                </p>
+              </div>
+              <ion-grid>
+                <ion-row>
+                  <ion-col col-9 class="refix">
+                    <ion-item class="remborder">
+                      <ion-label>Nominate business share app link</ion-label>
+                      <ion-checkbox color="dark" checked="true"></ion-checkbox>
+                    </ion-item>
+                  </ion-col>
+                  <ion-col col-3>
+                    <button ion-button small>Prepay</button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-buttons start>
+              <button ion-button small type="submit" (click)="personalReg()">Submit</button>
+            </ion-buttons>
+          </ion-col>
+          <ion-col>
+            <ion-buttons end>
+              <button ion-button small clear>BACK TO MAIN PAGE</button>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </form>
   </div>
+
 </ion-content>

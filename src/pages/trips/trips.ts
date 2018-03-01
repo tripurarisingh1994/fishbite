@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the BusinessFranchiseShopNominationsPage page.
+ * Generated class for the TripsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-business-franchise-shop-nominations',
-  templateUrl: 'business-franchise-shop-nominations.html',
+  selector: 'page-trips',
+  templateUrl: 'trips.html',
 })
-export class BusinessFranchiseShopNominationsPage {
+export class TripsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BusinessFranchiseShopNominationsPage');
+    console.log('ionViewDidLoad TripsPage');
   }
 
 }

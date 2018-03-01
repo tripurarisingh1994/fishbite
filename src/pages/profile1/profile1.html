@@ -1,10 +1,24 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-    <ion-title>profile1</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Profile1</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="map"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="options"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="notifications"></ion-icon>
+      </button>
+      <button ion-button icon-only>
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -12,125 +26,126 @@
 
 <ion-content>
   <div>
-        <div>
-            <ion-card>
-                <img src="../../assets/imgs/profile.jpg">
-                <ion-item>
-                    <ion-avatar item-start>
-                      <img src="../../assets/imgs/profile.jpg">
-                    </ion-avatar>
-                    <h2>Marty McFly</h2>
-                    <button ion-button item-end>Edit Profile</button>
-                  </ion-item>
+    <div>
+      <ion-card>
+        <img class="profile-bck" src="assets/imgs/fishman.jpg">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/imgs/profile.jpg">
+          </ion-avatar>
+          <h2>Marty McFly</h2>
+          <button ion-button item-end>Edit Profile</button>
+        </ion-item>
 
-                <ion-card-content>
-                  <!-- <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p> -->
-                </ion-card-content>
-              
-                <ion-row>
-                  <ion-col>
-                    <button ion-button icon-left clear small>
-                      <!-- <ion-icon name="thumbs-up"></ion-icon> -->
-                      <div>Following&nbsp;&nbsp;&nbsp;</div>
-                      <div>12</div>
-                    </button>
-                  </ion-col>
-                  <ion-col>
-                    <button ion-button icon-left clear small>
-                      <!-- <ion-icon name="text"></ion-icon> -->
-                      <div>Followers&nbsp;&nbsp;&nbsp;</div>
-                      <div>  4</div>
-                    </button>
-                  </ion-col>
-                  <!-- <ion-col center text-center>
+        <ion-card-content>
+          <!-- <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p> -->
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <!-- <ion-icon name="thumbs-up"></ion-icon> -->
+              <div>Following&nbsp;&nbsp;&nbsp;</div>
+              <div>12</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <!-- <ion-icon name="text"></ion-icon> -->
+              <div>Followers&nbsp;&nbsp;&nbsp;</div>
+              <div> 4</div>
+            </button>
+          </ion-col>
+          <!-- <ion-col center text-center>
                     <ion-note>
                       11h ago
                     </ion-note>
                   </ion-col> -->
-                </ion-row>
-              
-              </ion-card>
-        </div>
-        <div>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                  <button ion-button color="light">Loyalty</button>
-              </ion-col>
-              <ion-col>
-                  <button ion-button color="light">Competition</button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </div>
-        <div class="hr"></div>
+        </ion-row>
 
-        <div>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                  <button ion-button color="light">Catches</button>
-              </ion-col>
-              <ion-col>
-                  <button ion-button color="light">Snapshots</button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </div>
+      </ion-card>
+    </div>
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color="light">Loyalty</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color="light">Competition</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="hr"></div>
 
-        <div>
-          <ion-grid>
-            <ion-row>
-              <ion-col>
-                  <button ion-button color="light">Baits</button>
-              </ion-col>
-              <ion-col>
-                  <button ion-button color="light">Waterways</button>
-              </ion-col>
-              <ion-col>
-                  <button ion-button color="light">Trip</button>
-              </ion-col>
-            </ion-row>
-          </ion-grid>
-        </div>
-        
-        <div>
-            <ion-card>
-                <ion-item>
-                  <ion-avatar item-start>
-                    <img src="../../assets/imgs/profile.jpg">
-                  </ion-avatar>
-                  <h2>Marty McFly</h2>
-                  <p>November 5, 1955</p>
-                </ion-item>
-              
-                <img src="../../assets/imgs/profile.jpg">
-              
-                <ion-card-content>
-                  <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
-                </ion-card-content>
-              
-                <ion-row>
-                  <ion-col>
-                    <button ion-button icon-left clear small>
-                      <ion-icon name="thumbs-up"></ion-icon>
-                      <div>12 Likes</div>
-                    </button>
-                  </ion-col>
-                  <ion-col>
-                    <button ion-button icon-left clear small>
-                      <ion-icon name="text"></ion-icon>
-                      <div>4 Comments</div>
-                    </button>
-                  </ion-col>
-                  <ion-col center text-center>
-                    <ion-note>
-                      11h ago
-                    </ion-note>
-                  </ion-col>
-                </ion-row>
-              
-              </ion-card>
-        </div>
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color="light">Catches</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color="light">Snapshots</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button color="light">Baits</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color="light">Waterways</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button color="light">Trip</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+    <div>
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/imgs/profile.jpg">
+          </ion-avatar>
+          <h2>Marty McFly</h2>
+          <p>November 5, 1955</p>
+        </ion-item>
+
+        <img class="profile-bck" src="assets/imgs/fishman.jpg">
+
+        <ion-card-content>
+          <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?!
+            Whoa. This is heavy.</p>
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="thumbs-up"></ion-icon>
+              <div>12 Likes</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>4 Comments</div>
+            </button>
+          </ion-col>
+          <ion-col center text-center>
+            <ion-note>
+              11h ago
+            </ion-note>
+          </ion-col>
+        </ion-row>
+
+      </ion-card>
+    </div>
   </div>
 </ion-content>

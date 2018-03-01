@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PersonalRegistrationPage } from '../personal-registration/personal-registration';
-import { BusinessRegistrationPage } from '../business-registration/business-registration';
-/**
- * Generated class for the SelectOptnPerBusiPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { SelectBusinCategPage } from '../select-busin-categ/select-busin-categ';
 
 @IonicPage()
 @Component({
@@ -16,25 +10,42 @@ import { BusinessRegistrationPage } from '../business-registration/business-regi
 })
 export class SelectOptnPerBusiPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  /**
+   * NavParams
+   * language@variable, country@variable
+   */
+  language='';
+  country='';
+
+  constructor(private navCtrl: NavController,
+     private navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectOptnPerBusiPage');
+    this.language = this.navParams.get('language');
+    this.country  = this.navParams.get('country');
   }
 
   /** 
    * goPersonalRegistration() method
   */
   goPersonalRegistration() {
-    this.navCtrl.push(PersonalRegistrationPage);
+    console.log(this.country)
+    console.log(this.language)
+    this.navCtrl.push(PersonalRegistrationPage,{
+      country:this.country,
+      language:this.language
+    });
   }
 
-  /**
-   * goBusinessRegistration() method
-   */
-  goBusinessRegistration() {
-    this.navCtrl.push(BusinessRegistrationPage);
+  goSelectBusinessCate() {
+    console.log(this.country)
+    console.log(this.language)
+    this.navCtrl.push(SelectBusinCategPage,{
+      language:this.language,
+      country:this.country
+    });
   }
 
 }

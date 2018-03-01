@@ -26,7 +26,8 @@ export class SelectLanguagePage {
   /** 
    * goCountry() method
   */
-  goCountry() {
-    this.navCtrl.push(SelectCountryPage);
+  goCountry(language) {
+    console.log(language);
+    this.navCtrl.push(SelectCountryPage,{language:language});
   }
 }

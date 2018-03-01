@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms'
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { Camera } from '@ionic-native/camera';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
 import { LandingPage } from '../pages/landing/landing';
 import { LoginPage } from '../pages/login/login';
 import { SelectOptnPerBusiPage } from '../pages/select-optn-per-busi/select-optn-per-busi';
@@ -22,20 +24,32 @@ import { ProfilePage } from "../pages/profile/profile";
 import { Profile1Page } from "../pages/profile1/profile1";
 import { CatchInfoPage } from '../pages/catch-info/catch-info';
 import { PersonalRegistrationPage } from '../pages/personal-registration/personal-registration';
-import { BusinessFranchiseShopNominationsPage } from '../pages/business-franchise-shop-nominations/business-franchise-shop-nominations';
-import { BusinessStaffNominationsPage } from '../pages/business-staff-nominations/business-staff-nominations';
 import { SelectLanguagePage } from '../pages/select-language/select-language';
 import { SelectCountryPage } from '../pages/select-country/select-country';
 import { BusinessRegistrationPage } from '../pages/business-registration/business-registration';
+import { UpgradePage } from '../pages/upgrade/upgrade';
+import { AddBaitPage } from '../pages/add-bait/add-bait';
+import { AddTripPage } from '../pages/add-trip/add-trip';
+import { AddWaterwayPage } from '../pages/add-waterway/add-waterway';
+import { AddMomentPage } from '../pages/add-moment/add-moment';
+import { BaitsPage } from '../pages/baits/baits';
+import { WaterwayPage } from '../pages/waterway/waterway';
+import { TripsPage } from '../pages/trips/trips';
+import { DiscoverPage } from '../pages/discover/discover';
+import { DiscoverAnglersPage } from '../pages/discover-anglers/discover-anglers';
+import { MyCatchesPage } from '../pages/my-catches/my-catches';
+import { ForumPage } from '../pages/forum/forum';
 
+import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { RegistrationProvider } from '../providers/registration/registration';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     LandingPage,
     LoginPage,
     SelectOptnPerBusiPage,
@@ -53,21 +67,33 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProfilePage,
     CatchInfoPage,
     PersonalRegistrationPage,
-    BusinessFranchiseShopNominationsPage,
-    BusinessStaffNominationsPage,
     SelectLanguagePage,
     SelectCountryPage,
-    BusinessRegistrationPage
+    BusinessRegistrationPage,
+    UpgradePage,
+    AddBaitPage,
+    AddTripPage,
+    AddWaterwayPage,
+    AddMomentPage,
+    BaitsPage,
+    WaterwayPage,
+    TripsPage,
+    DiscoverPage,
+    DiscoverAnglersPage,
+    MyCatchesPage,
+    ForumPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     LandingPage,
     LoginPage,
     SelectOptnPerBusiPage,
@@ -85,16 +111,29 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ProfilePage,
     CatchInfoPage,
     PersonalRegistrationPage,
-    BusinessFranchiseShopNominationsPage,
-    BusinessStaffNominationsPage,
     SelectLanguagePage,
     SelectCountryPage,
-    BusinessRegistrationPage
+    BusinessRegistrationPage,
+    UpgradePage,
+    AddBaitPage,
+    AddTripPage,
+    AddWaterwayPage,
+    AddMomentPage,
+    BaitsPage,
+    WaterwayPage,
+    TripsPage,
+    DiscoverPage,
+    DiscoverAnglersPage,
+    MyCatchesPage,
+    ForumPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RegistrationProvider,
+    SocialSharing,
+    Camera
   ]
 })
 export class AppModule {}

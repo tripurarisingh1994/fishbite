@@ -1,18 +1,232 @@
-<!--
-  Generated template for the BusinessRegistrationPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>business-registration</ion-title>
+    <!-- <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+    </button> -->
+    <ion-title>Business Registration</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <div>
+    <div>
+      <form>
+        <ion-item>
+          <ion-input type="text" placeholder="Business Name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Business Address"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Contact/ Owner"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="email" placeholder="Email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Web Address"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-input type="text" placeholder="Ph/ mobile"></ion-input>
+        </ion-item>
+      </form>
+    </div>
 
+    <div>
+      <ion-list radio-group [(ngModel)]="registrationType">
+        <ion-list-header class="cclr">
+          Nominate
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>Shops</ion-label>
+          <ion-radio value="shops" checked="true"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Staff</ion-label>
+          <ion-radio value="staff"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Ambassadors</ion-label>
+          <ion-radio value="ambassadors"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <div [ngSwitch]="registrationType">
+
+      <div *ngSwitchCase="'shops'">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-10 class="mtrig cclr">
+              Shops
+            </ion-col>
+            <ion-col col-2>
+              <button ion-button small icon-only (click)="addShop()">
+                <ion-icon name="add-circle"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <div *ngFor="let item of createShop(countShop);let i=index;">
+          <div id="shops{{i+1}}">
+            <ion-buttons *ngIf="i+1" end>
+              <button ion-button icon-only small (click)="removeShop($event,i)">
+                <ion-icon name="remove"></ion-icon>
+              </button>
+            </ion-buttons>
+            <ion-item>
+              <ion-input type="text" placeholder="Mobile phone number"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="email" placeholder="Email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="text" placeholder="Mobile phone number"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="email" placeholder="Email"></ion-input>
+            </ion-item>
+          </div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'staff'">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-10 class="mtrig cclr">
+              Staff
+            </ion-col>
+            <ion-col col-2>
+              <button ion-button small icon-only (click)="addStaff()">
+                <ion-icon name="add-circle"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <div *ngFor="let item of createStaff(countStaff);let i=index;">
+          <div id="staff{{i+1}}">
+            <ion-buttons *ngIf="i+1" end>
+              <button ion-button icon-only small (click)="removeStaff($event,i)">
+                <ion-icon name="remove"></ion-icon>
+              </button>
+            </ion-buttons>
+            <ion-item>
+              <ion-input type="text" placeholder="Mobile phone number"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="email" placeholder="Email"></ion-input>
+            </ion-item>
+
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <p class="fbspcr">
+                    <ion-icon name="logo-facebook" class="fbicon"></ion-icon>
+                    <span class="cclr"> &nbsp;find on facebook</span>
+                  </p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col class="refix">
+                  <ion-item class="remborder">
+                    <ion-label>Nominate business share app link</ion-label>
+                    <ion-checkbox [(ngModel)]="mushrooms"></ion-checkbox>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-buttons end>
+                    <button ion-button small>Prepay</button>
+                  </ion-buttons>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'ambassadors'">
+        <ion-grid>
+          <ion-row>
+            <ion-col col-10 class="mtrig cclr">
+              Ambassadors/ Clients
+            </ion-col>
+            <ion-col col-2>
+              <button ion-button small icon-only (click)="addAmbassadors()">
+                <ion-icon name="add-circle"></ion-icon>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <div *ngFor="let item of createAmbassadors(countAmbassadors);let i=index;">
+          <div id="ambassadors{{i+1}}">
+            <ion-buttons *ngIf="i+1" end>
+              <button ion-button icon-only small (click)="removeAmbassadors($event,i)">
+                <ion-icon name="remove"></ion-icon>
+              </button>
+            </ion-buttons>
+            <ion-item>
+              <ion-input type="text" placeholder="Mobile phone number"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input type="email" placeholder="Email"></ion-input>
+            </ion-item>
+
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <p class="fbspcr">
+                    <ion-icon name="logo-facebook" class="fbicon"></ion-icon>
+                    <span class="cclr"> &nbsp;find on facebook</span>
+                  </p>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-item>
+                    <ion-label>Nominate business share app link</ion-label>
+                    <ion-checkbox [(ngModel)]="mushrooms"></ion-checkbox>
+                  </ion-item>
+                </ion-col>
+                <ion-col>
+                  <ion-buttons end>
+                    <button ion-button small>Prepay</button>
+                  </ion-buttons>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-buttons start>
+              <button ion-button small (click)="businessReg()">Submit</button>
+            </ion-buttons>
+          </ion-col>
+          <ion-col>
+            <ion-buttons end>
+              <button ion-button small clear>BACK TO MAIN PAGE</button>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+  </div>
 </ion-content>

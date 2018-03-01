@@ -1,12 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the AddNewPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AddBaitPage } from '../add-bait/add-bait';
+import { AddTripPage } from '../add-trip/add-trip';
+import { AddWaterwayPage } from '../add-waterway/add-waterway';
+import { CatchInfoPage } from '../catch-info/catch-info';
+import { AddMomentPage } from '../add-moment/add-moment';
 
 @IonicPage()
 @Component({
@@ -15,11 +13,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AddNewPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddNewPage');
+  }
+
+  goAddTrip() {
+   this.navCtrl.push(AddTripPage);
+  }
+
+  goAddBait() {
+    this.navCtrl.push(AddBaitPage);
+  }
+
+  goAddWaterWay() {
+    this.navCtrl.push(AddWaterwayPage);
+  }
+
+  goAddMoment() {
+    this.navCtrl.push(AddMomentPage);
+  }
+
+  goAddCatch() {
+    this.navCtrl.push(CatchInfoPage);
   }
 
 }

@@ -7,6 +7,7 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
+  ionSegment:string='logfish';
   constructor(public navCtrl: NavController) {
 
   }

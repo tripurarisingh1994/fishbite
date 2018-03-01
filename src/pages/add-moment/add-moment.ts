@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the BusinessStaffNominationsPage page.
+ * Generated class for the AddMomentPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-business-staff-nominations',
-  templateUrl: 'business-staff-nominations.html',
+  selector: 'page-add-moment',
+  templateUrl: 'add-moment.html',
 })
-export class BusinessStaffNominationsPage {
+export class AddMomentPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BusinessStaffNominationsPage');
+    console.log('ionViewDidLoad AddMomentPage');
   }
 
 }

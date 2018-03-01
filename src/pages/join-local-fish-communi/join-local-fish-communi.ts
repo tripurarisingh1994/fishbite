@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AddNewPage } from '../add-new/add-new';
 
-/**
- * Generated class for the JoinLocalFishCommuniPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +10,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class JoinLocalFishCommuniPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad JoinLocalFishCommuniPage');
+  }
+
+  /* goAddNew() method */
+
+  goAddNew() {
+    this.navCtrl.push(AddNewPage);
   }
 
 }

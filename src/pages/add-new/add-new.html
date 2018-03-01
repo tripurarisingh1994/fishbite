@@ -1,32 +1,48 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
+      <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-    <ion-title>add-new</ion-title>
+    <ion-title>add-new</ion-title> -->
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div>
+  <div class="bg">
+        <div class="logo">
+                <img src="assets/imgs/fishlogo.png" alt="Logo" height="80" width="150">
+              </div>
     <div padding>
-        <p text-center>Add New</p>
+        <p text-center style="color:#fff;">Add New</p>
     </div>
     <div>
         <div>
-            <button ion-button><ion-icon name="briefcase"></ion-icon>Trip</button>
+                <button ion-fab right class="trip" (click)="goAddTrip()">Trip</button>
         </div>
         <div>
-                <button ion-button><ion-icon name="briefcase"></ion-icon>Water Way</button>
-                <button ion-button><ion-icon name="briefcase"></ion-icon>Exit</button>
+             <ion-row>
+                 <ion-col>
+                        <button ion-fab class="waterway" (click)="goAddWaterWay()">Water Way</button>
+                 </ion-col>
+                 <ion-col>
+                        <button ion-fab class="bait" (click)="goAddBait()">Bait</button>
+                 </ion-col>
+             </ion-row>
         </div>
         <div>
-                <button ion-button><ion-icon name="briefcase"></ion-icon>Catch</button>
-                <button ion-button><ion-icon name="images"></ion-icon>Add moment</button>
+            <ion-row>
+                <ion-col>
+                        <button ion-fab class="addmoment" (click)="goAddMoment()">Add moment</button>
+                </ion-col>
+                <ion-col>
+                        <button ion-fab class="catch" (click)="goAddCatch()">Catch</button>
+                </ion-col>
+            </ion-row> 
         </div>
+    
     </div>
   </div>
 </ion-content>

@@ -1,18 +1,27 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>select-language</ion-title>
+    <!-- <ion-title>select-language</ion-title> -->
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content>
+<ion-content class="bg">
+    <div class="logo">
+        <img src="assets/imgs/fishlogo.png" alt="Logo" height="80" width="150">
+      </div>
+      <div class="logoftext">
+        Discover 1.8 milion fishing locations at home and around the world
+      </div>
+
+  <div padding class="lang-spcr">
   <ion-item>
     <ion-label>Language</ion-label>
-    <ion-select [(ngModel)]="language" (ngModelChange)="goCountry($event)">
+    <ion-select [(ngModel)]="language" (ngModelChange)="goCountry(language)">
       <ion-option value="english">English</ion-option>
-      <ion-option value="hindi">Hindi</ion-option>
+      <ion-option value="chinese">Chinese</ion-option>
     </ion-select>
   </ion-item>
+</div>
 </ion-content>

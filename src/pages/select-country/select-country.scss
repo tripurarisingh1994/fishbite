@@ -1,3 +1,27 @@
 page-select-country {
+    .bg
+  {
+    background: url('../assets/imgs/landing.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .logo
+  {
+  display:block;
+  text-align:center;
+  }
+  .lang-spcr
+  {
+  margin-top:25%;
+  }
+  .logoftext
+  {
+  display:block;
+  text-align:center;
+  margin-left:5%;
+  margin-right:5%;
+  margin-top:5%;
+  color:#fff;
+  }
 
 }

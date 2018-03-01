@@ -4,7 +4,7 @@
       <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
       </button>
-    <ion-title>catch-info</ion-title>
+    <ion-title>Catch Info</ion-title>
     <ion-buttons end><button ion-button clear>SAVE</button></ion-buttons>
   </ion-navbar>
 
@@ -13,43 +13,72 @@
 
 <ion-content>
   <ion-list>
+
+      <div>
+        <ion-row>
+          <ion-col col-2>
+              <ion-icon item-left name="images" on-tap="openGallery()"></ion-icon>
+          </ion-col>
+          <ion-col>
+             <ion-input class="bottom-bord" type="text" placeholder="Title"></ion-input> 
+          </ion-col>
+        </ion-row>
+      </div>
+
     <ion-item>
-      Species
+      <ion-icon item-left name="bug"></ion-icon>
+        Species
+      <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
     <ion-item>
-        Date taken
-    </ion-item>
+        <ion-icon item-left name="calendar"></ion-icon>
+        <ion-label>Date taken</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>  
+        <ion-icon item-right name="arrow-forward"></ion-icon>
+      </ion-item>
     <div>
       <ion-grid>
         <ion-row>
           <ion-col col-5>
-            <ion-input type="text" placeholder="Weight"></ion-input> 
+            <ion-input class="ion-in" type="text" placeholder="Weight"></ion-input> 
           </ion-col>
             <div class="unit">Kg</div>
           <ion-col col-5>
-            <ion-input type="text" placeholder="Length"></ion-input> 
+            <ion-input class="ion-in" type="text" placeholder="Length"></ion-input> 
           </ion-col>
           <div class="unit">Cm</div>
         </ion-row>
       </ion-grid>
     </div>
     <ion-item>
-      Bait
+        <ion-icon item-left name="american-football"></ion-icon>
+        Bait
+        <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
     <ion-item>
-      Trip
+        <ion-icon item-left name="briefcase"></ion-icon>
+        Trip
+        <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
     <ion-item>
-      Waterways
+        <ion-icon item-left name="map"></ion-icon>
+        Waterways
+        <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
     <ion-item>
-      GPS Spot Public
+        <ion-icon item-left name="pin"></ion-icon>
+        GPS Spot Public
+        <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
     <ion-item>
-      Notes
+        <ion-icon item-left name="create"></ion-icon>
+        Notes
+        <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
     <ion-item>
-      Weather
+        <ion-icon item-left name="cloudy"></ion-icon>
+         Weather
+         <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
   </ion-list>
 </ion-content>

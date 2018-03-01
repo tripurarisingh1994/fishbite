@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ChoosePlanPremiumTrailPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ProfilePage } from '../profile/profile';
 
 @IonicPage()
 @Component({
@@ -15,11 +9,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ChoosePlanPremiumTrailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChoosePlanPremiumTrailPage');
   }
 
+    /**goToJoinLocalFish_Prem() method */
+    goToJoinLocalFish_Prem() {
+      this.navCtrl.setRoot(ProfilePage);
+    }
+      /**goToJoinLocalFish_Trail() method */
+    goToJoinLocalFish_Trail() {
+      this.navCtrl.setRoot(ProfilePage);
+    }
 }

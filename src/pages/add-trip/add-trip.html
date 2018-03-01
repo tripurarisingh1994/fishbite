@@ -1,0 +1,57 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Add Trip</ion-title>
+    <ion-buttons end><button ion-button clear>SAVE</button></ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="gallery-button" text-center>
+    <img [src]="imageSrc" />   
+    <ion-icon name="images" on-tap="openGallery()"></ion-icon>
+  </div>
+  <div>
+      <ion-item>
+        <ion-icon item-left name="briefcase"></ion-icon>
+        <ion-input type="test" placeholder="Name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon item-left name="create"></ion-icon>
+        <ion-textarea placeholder="Description"></ion-textarea>
+      </ion-item>
+       
+      <ion-item>
+          <ion-icon item-left name="map"></ion-icon>
+            Waterway
+          <ion-icon item-right name="arrow-forward"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon item-left name="calendar"></ion-icon>
+          <ion-label>Start Date</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>    
+      </ion-item>
+      
+      <ion-item>
+          <ion-icon item-left name="calendar"></ion-icon>
+          <ion-label>End Date</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon item-left name="contacts"></ion-icon>
+          Member (1)
+         <ion-icon item-right name="add"></ion-icon>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon item-left name="american-football"></ion-icon>
+          Adeckieslife
+      </ion-item>
+  </div>
+</ion-content>

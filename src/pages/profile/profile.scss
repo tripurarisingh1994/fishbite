@@ -1,17 +1,23 @@
 page-profile {
- ion-col {
-     padding: 0 !important;
-     margin: 0 !important;
- }
- ion-card {
-     width: auto !important;
-     height: auto !important;
-     padding: 0 !important;
-     margin: 0 !important;
-     font-size: 11px !important;
- }
+    ion-col {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    ion-card {
+        width: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        font-size: 11px !important;
+    }
 
- ion-grid {
-     margin: 10px 0px;
- }
+    ion-grid {
+        margin: 10px 0px;
+    }
+    .profile_pic {
+        height: 200px;
+    }
+    .share_pic {
+        height: 240px;
+    }
 }

@@ -1,12 +1,35 @@
 page-choose-plan-premium-trail {
    .top {
        background-color: #2D6F8F;
+       top: 0;
+       position: absolute;
+       width: 100%;
    }
    .bg2
   {
-    background: url('../../assets/imgs/pre.png');
+    background: url('../assets/imgs/pre.png');
     background-repeat: no-repeat;
     background-size: cover;
     overflow:visible;
+    position: absolute;
+    bottom: 0;
+    top: 45px;
+
+  }
+  // .bg2>div{
+  //   margin-top: 50px !important;
+  // }
+  .headtext {
+    margin-top: 85% !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .tbar>div{
+    background-color: transparent !important;
+    border:none !important;
+  }
+  .readmore {
+    margin-top: -16px !important;
   }
 }

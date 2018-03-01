@@ -1,23 +1,33 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
+      <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
-        </button>
-    <ion-title>join-local-fish-communi</ion-title>
+        </button> -->
+    <!-- <ion-title>join-local-fish-communi</ion-title> -->
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content class="bg1">
+<ion-content class="bg">
   <div>
-     <div padding>
-       <p text-center>Join the local fishing</p>
-       <p text-center>community</p>
-     </div>
-     <div padding>
-       <button ion-button full>Add your First Catch</button>
-     </div>
+    <p text-center style="color:#fff;font-size:18px">Thank You</p>
+    <p text-center style="color:#fff;font-size:18px">For Joining FishBite Social App</p>
   </div>
+
+   <div padding>
+      <p text-center  style="color:#fff;font-size:15px">Join the local fishing</p>
+      <p text-center  style="color:#fff;font-size:15px">community</p>
+    </div>
+  
 </ion-content>
+
+<ion-footer padding>
+    <ion-toolbar no-border class="tbar">
+       
+        <!-- <div> -->
+          <button ion-button full (click)="goAddNew()">Add your First Catch</button>
+        <!-- </div> -->
+    </ion-toolbar>
+  </ion-footer>    

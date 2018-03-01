@@ -1,8 +1,27 @@
 page-catch-info {
-    ion-input {
+    .ion-in {
         border: 1px solid #dedede;
     }
+    
     .unit {
         margin-top: 18px;
+    }
+
+    ion-icon[name=images] {	 
+        border-radius: 50%;
+        color: #fff;
+        background-color: #0354A9;
+        font-size: 21px;
+        padding: 10px;
+        margin-left: 5px;
+    }
+
+    .text-input {
+        text-align: center ;
+        
+    }
+
+    .bottom-bord {
+        border-bottom: 0.55px solid #c8c7cc;
     }
 }

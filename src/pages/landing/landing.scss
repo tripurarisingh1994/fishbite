@@ -1,7 +1,4 @@
 page-landing {
-  ion-icon  {
-
-  }
   
   .fb {
       background-color: #4369B5;
@@ -16,34 +13,34 @@ page-landing {
   }
   .bg
   {
-    background: url('../../assets/imgs/landing.jpg');
+    background: url('../assets/imgs/landing.jpg');
     background-repeat: no-repeat;
     background-size: cover;
   }
   .logo
   {
-  display:block;
-  text-align:center;
+    display:block;
+    text-align:center;
   }
   .landing-spcr
   {
-  margin-top:30%;
+    margin-top:30%;
   }
   .logoftext
   {
-  display:block;
-  text-align:center;
-  margin-left:5%;
-  margin-right:5%;
-  margin-top:5%;
-  color:#fff;
+    display:block;
+    text-align:center;
+    margin-left:5%;
+    margin-right:5%;
+    margin-top:5%;
+    color:#fff;
   }
   .refbtn
   {
-  margin:0px auto;
-  display:inline-block;
-  text-align:center;
-  padding:0px;
+    margin:0px auto;
+    display:inline-block;
+    text-align:center;
+    padding:0px;
   }
   // .inpolink > .col > button
   // {
