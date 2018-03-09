@@ -1,0 +1,29 @@
+page-fish-intel {
+    #map {
+        height: 100%;
+    }
+    .icon-arrow-down {
+        font-size: 16px;
+        margin-left: 2.5px;
+    }
+    .head-row {
+         position: absolute;
+         top: 0;
+         width: 100%;
+    }
+    .bottom-row {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    .search-btn {
+        background-color: #3b3939; 
+        border-radius: 10%;
+    }
+
+    .map-btn {
+        background-color: #3b3939;
+        border-radius: 10%;
+    }
+   
+}

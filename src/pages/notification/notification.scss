@@ -1,0 +1,32 @@
+page-notification {
+    .notification-icon {  
+        position: absolute;
+        top: 10%;
+        left: 33%;
+        background-color: whitesmoke;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+    }
+
+   .notifi-ion-icon  {
+        font-size: 49px;
+        position: relative;
+        margin: 31px 43px;
+    }
+
+    .noti-below-text {
+        position: absolute;
+        top: 33%;
+        left: 39%;
+        letter-spacing: 1px;
+    }
+    .noti-text {
+        position: absolute;
+        top: 37%;
+        left: 10%;
+        right: 10%;
+        text-align: center;
+        font-size: 13px; 
+    }
+}

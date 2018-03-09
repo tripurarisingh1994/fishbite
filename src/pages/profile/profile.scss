@@ -20,4 +20,103 @@ page-profile {
     .share_pic {
         height: 240px;
     }
+    .setting-icon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .setting-iob-icon {
+        position: relative;
+        margin:2px; 
+    }
+
+    .bar-button-menutoggle {
+        display: unset !important;
+    }
+
+    .profile-bck {
+        height: 200px;
+      }   
+
+.prof_box{
+    -webkit-box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
+  -moz-box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
+  box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
+  
+  }
+  .fish_beta{
+    position: absolute;
+    top:0;
+  }
+           
+  .pro_thum{
+    width: 40%;
+    margin: 0 auto;
+  }
+  .posi_rele{
+    position: relative;
+  }
+  .pro_trans{
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 200px;
+  
+  }
+  .white_color{
+    color: #fff;
+  }
+  .ml5{
+    margin-left: 5px;
+  }
+  .text_center{
+    text-align: center;
+  }
+  .margin_auto{
+    margin: 0 auto;
+    display: table;
+  }
+  .flow{
+    margin-top: 40% !important;
+  }
+  .flow_avater{
+    margin-top: 25% !important;
+  }
+  .clear{
+    clear: both;
+  }
+  
+//   .sega{
+//       border-bottom: 2px solid #ccc;
+//   }
+
+  .sega .segment-button.segment-activated{
+      background: transparent;
+      color: #222222;
+      border-bottom: 2px solid #04bbff;
+  }
+  
+  .sega .segment-button{
+    border: 0;
+    color: #222222;
+    border-bottom: 2px solid #ccc;
+ font-size: 16px;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -1,0 +1,63 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- <ion-title>fish intel</ion-title> -->
+    <div *ngIf="isActiveSearchBar;else one">
+      <ion-row>
+        <ion-col col-1>
+            <button ion-button icon-only full clear (click)="backFromSearch()"><ion-icon name="arrow-back"></ion-icon></button>
+        </ion-col>
+        <ion-col>
+            <ion-searchbar
+              placeholder="Search fishing waters...">
+            </ion-searchbar>
+        </ion-col>
+      </ion-row>
+    </div>
+    <ng-template #one>
+      <ion-buttons end>
+        <button ion-button small (click)="goFishIntelFishSpeciesFilter()">All Fish Species<ion-icon class="icon-arrow-down" name="arrow-dropdown"></ion-icon></button>
+        <button ion-button small (click)="goFishIntelCaughtIn()">All Time<ion-icon class="icon-arrow-down" name="arrow-dropdown"></ion-icon></button>
+      </ion-buttons>
+    </ng-template>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div id="map"></div>
+
+    <div class="head-row">
+      <ion-row>
+        <ion-col>
+            <ion-buttons start>
+                <button class="search-btn" ion-button small icon-only (click)="search()"><ion-icon name="search"></ion-icon></button>
+            </ion-buttons>
+        </ion-col>
+        <ion-col>
+            <ion-buttons end>
+                <button class="map-btn" ion-button small icon-only (click)="goFishIntelMapOptions()"><ion-icon name="albums"></ion-icon></button>
+            </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div class="bottom-row">
+      <ion-row>
+        <ion-col col-3>
+          <button ion-button full color="light">Catches</button>
+        </ion-col>
+        <ion-col col-3>
+          <button ion-button full color="light">Baits</button>
+        </ion-col>
+        <ion-col col-3>
+          <button ion-button full color="light">Forecast</button>
+        </ion-col>
+        <ion-col col-3>
+          <button ion-button full color="light">Species</button>
+        </ion-col>
+      </ion-row>
+    </div>
+
+</ion-content>

@@ -44,6 +44,12 @@ $colors: (
 
 
 $toolbar-background: #0354A9;
+ion-modal {
+  left: 11.5% !important;
+  top: 65px !important;
+  width: 77% !important;
+  height: 76% !important;
+}
 
 // App iOS Variables
 // --------------------------------------------------
@@ -89,3 +95,4 @@ $toolbar-background: #0354A9;
 
 @import "roboto";
 @import "noto-sans";
+

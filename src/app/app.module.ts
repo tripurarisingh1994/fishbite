@@ -4,6 +4,8 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms'
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Camera } from '@ionic-native/camera';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { GoogleMaps } from '@ionic-native/google-maps'
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -39,6 +41,19 @@ import { DiscoverPage } from '../pages/discover/discover';
 import { DiscoverAnglersPage } from '../pages/discover-anglers/discover-anglers';
 import { MyCatchesPage } from '../pages/my-catches/my-catches';
 import { ForumPage } from '../pages/forum/forum';
+import { NotificationPage } from '../pages/notification/notification';
+import { SettingPage } from '../pages/setting/setting';
+import { KyndofishingPopoverPage } from '../pages/kyndofishing-popover/kyndofishing-popover';
+import { PrivacyPage } from '../pages/privacy/privacy';
+import { TermsAndConditionsPage } from '../pages/terms-and-conditions/terms-and-conditions';
+import { HelpAndSupportPage } from '../pages/help-and-support/help-and-support';
+import { LoyalityCompetitionPage } from '../pages/loyality-competition/loyality-competition';
+import { FishIntelPage } from '../pages/fish-intel/fish-intel';
+import { FishIntelFishSpeciesFliterPage } from '../pages/fish-intel-fish-species-fliter/fish-intel-fish-species-fliter';
+import { FishIntelCaughtInPage } from '../pages/fish-intel-caught-in/fish-intel-caught-in';
+import { SearchFishingWatersPage } from '../pages/search-fishing-waters/search-fishing-waters';
+import { FishIntelMapOptionsPage } from '../pages/fish-intel-map-options/fish-intel-map-options';
+
 
 import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -81,7 +96,19 @@ import { RegistrationProvider } from '../providers/registration/registration';
     DiscoverPage,
     DiscoverAnglersPage,
     MyCatchesPage,
-    ForumPage
+    ForumPage,
+    NotificationPage,
+    SettingPage,
+    KyndofishingPopoverPage,
+    PrivacyPage,
+    TermsAndConditionsPage,
+    HelpAndSupportPage,
+    LoyalityCompetitionPage,
+    FishIntelPage,
+    FishIntelFishSpeciesFliterPage,
+    FishIntelCaughtInPage,
+    SearchFishingWatersPage,
+    FishIntelMapOptionsPage
   ],
   imports: [
     BrowserModule,
@@ -125,7 +152,19 @@ import { RegistrationProvider } from '../providers/registration/registration';
     DiscoverPage,
     DiscoverAnglersPage,
     MyCatchesPage,
-    ForumPage
+    ForumPage,
+    NotificationPage,
+    SettingPage,
+    KyndofishingPopoverPage,
+    PrivacyPage,
+    TermsAndConditionsPage,
+    HelpAndSupportPage,
+    LoyalityCompetitionPage,
+    FishIntelPage,
+    FishIntelFishSpeciesFliterPage,
+    FishIntelCaughtInPage,
+    SearchFishingWatersPage,
+    FishIntelMapOptionsPage
   ],
   providers: [
     StatusBar,
@@ -133,7 +172,9 @@ import { RegistrationProvider } from '../providers/registration/registration';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RegistrationProvider,
     SocialSharing,
-    Camera
+    Camera,
+    InAppBrowser,
+    GoogleMaps
   ]
 })
 export class AppModule {}

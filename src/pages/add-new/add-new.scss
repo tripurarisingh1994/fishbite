@@ -10,7 +10,6 @@ page-add-new {
         font-weight: 500;
         font-style: oblique;
         font-family: monospace;
-       
     }
     .waterway {
         left:38%;
@@ -41,22 +40,47 @@ page-add-new {
         font-family: monospace;
     }
 
-    .bg
-  {
-    background: url('../assets/imgs/landing.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    bottom: 0;
-    opacity: 0.7;
-  }
+    .bg {
+        // background: url('../assets/imgs/landing.jpg');
+        // background-repeat: no-repeat;
+        background-color:transparent; 
+        background-size: cover;
+        position: absolute;
+        width: 100%;
+        top: 37%;
+        bottom: 0;
+        // opacity: 0.2;
+        left: -5%;
+    }
 
-  .logo
-  {
-    display:block;
-    text-align:center;
-  }
+//   .logo
+//   {
+//     display:block;
+//     text-align:center;
+//   }
   
+}
+
+page-add-new .trip{
+    
+    background-color: transparent;
+}
+page-add-new .bait{
+    background-color: transparent;
+}
+page-add-new .waterway{
+    background-color: transparent;
+}
+page-add-new .addmoment{
+    background-color: transparent;
+}
+page-add-new .catch{
+    background-color: transparent;
+}
+page-add-new .bg{
+    background-color:rgba(0,0,0, 0.8);
+    top: 0;
+    left: 0;
+    padding-top: 70%;
+    opacity: 1;
 }

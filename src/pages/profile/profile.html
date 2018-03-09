@@ -1,23 +1,28 @@
 <ion-header>
 
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>profile</ion-title>
+
+    <!-- <ion-title>profile</ion-title> -->
     <ion-buttons end>
-      <button ion-button icon-only>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <button ion-button icon-only (click)="goDiscover()">
         <ion-icon name="map"></ion-icon>
       </button>
       <button ion-button icon-only>
-        <ion-icon name="options"></ion-icon>
+        <!-- <ion-icon name="options"></ion-icon> -->
+        <i class="fas fa-binoculars"></i>
       </button>
-      <button ion-button icon-only>
+      <button ion-button icon-only (click)="goNotification()">
         <ion-icon name="notifications"></ion-icon>
       </button>
       <button ion-button icon-only>
         <ion-icon name="contact"></ion-icon>
       </button>
+      <button ion-button icon-only on-tap="popoverKyndofishing($event)">
+          <ion-icon name="bug"></ion-icon>
+        </button>
     </ion-buttons>
   </ion-navbar>
 
@@ -25,46 +30,43 @@
 
 
 <ion-content>
-  <div>
-    <ion-card>
-      <img class="profile_pic" src="assets/imgs/fishman.jpg">
-      <ion-item>
-        <ion-avatar item-start>
-          <img src="assets/imgs/profile.jpg">
-        </ion-avatar>
-        <h2>Marty McFly</h2>
-        <button ion-button item-end>Edit Profile</button>
-      </ion-item>
-
-      <ion-card-content>
-        <!-- <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p> -->
-      </ion-card-content>
-
-      <ion-row>
-        <ion-col>
-          <button ion-button icon-left clear small>
-            <div>Following&nbsp;&nbsp;&nbsp;</div>
-            <div>12</div>
-          </button>
-        </ion-col>
-        <ion-col>
-          <button ion-button icon-left clear small>
-            <div>Followers&nbsp;&nbsp;&nbsp;</div>
-            <div> 4</div>
-          </button>
-        </ion-col>
-      </ion-row>
-
-    </ion-card>
+  <div class="setting-icon">
+    <ion-icon on-tap="goSetting()" class="setting-iob-icon" name="settings"></ion-icon>
   </div>
   <div>
-    <ion-segment [(ngModel)]="segm1" color="dark">
+      <ion-card class="posi_rele">
+          <img class="profile-bck" src="assets/imgs/fish4.jpg">
+          <ion-card-content>
+          </ion-card-content>
+          <ion-row  class="pro_trans">
+            <ion-col col-4 class="flow">
+              <button ion-button icon-left clear small>
+                <div class="white_color">Following </div>
+                <div class="white_color ml5">12</div>
+              </button>
+            </ion-col>
+            <ion-col col-4 class="flow_avater">
+              <ion-thumbnail item-start class="pro_thum">
+                <img src="assets/imgs/profile.jpg">
+              </ion-thumbnail>
+              <h2 class="white_color text_center">Marty McFly</h2>
+              <button ion-button color="light" class="margin_auto" outline small>Edit Profile</button>
+            </ion-col>
+            <ion-col col-4 class="flow">
+              <button ion-button icon-left clear small>
+                <div class="white_color">Followers</div>
+                <div class="white_color ml5">4</div>
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-card>
+  </div>
+  <div>
+    <ion-segment [(ngModel)]="segm1" class="sega">
       <ion-segment-button value="staff">
-        <!-- <ion-icon name="camera"></ion-icon> -->
         Staff
       </ion-segment-button>
       <ion-segment-button value="ambassodor">
-        <!-- <ion-icon name="bookmark"></ion-icon> -->
         Ambassodor
       </ion-segment-button>
     </ion-segment>
@@ -74,32 +76,32 @@
       <div>
         <ion-grid>
           <ion-row>
-            <ion-col>
+            <ion-col col-2 class="prof_box">
               <ion-card>
                 <div text-center>Baits</div>
                 <div text-center>4</div>
               </ion-card>
             </ion-col>
-            <ion-col>
-              <ion-card>
+            <ion-col col-2 class="prof_box">
+                <ion-card>
                 <div text-center>Catches</div>
                 <div text-center>4</div>
               </ion-card>
             </ion-col>
-            <ion-col>
-              <ion-card>
+            <ion-col col-3 class="prof_box">
+                <ion-card>
                 <div text-center>Snapshots</div>
                 <div text-center>11</div>
               </ion-card>
             </ion-col>
-            <ion-col>
-              <ion-card>
+            <ion-col col-3 class="prof_box">
+                <ion-card>
                 <div text-center>Waterways</div>
                 <div text-center>3</div>
               </ion-card>
             </ion-col>
-            <ion-col>
-              <ion-card>
+            <ion-col col-2 class="prof_box">
+                <ion-card>
                 <div text-center>Trip</div>
                 <div text-center>9</div>
               </ion-card>
@@ -108,7 +110,7 @@
         </ion-grid>
       </div>
       <div>
-        <ion-segment [(ngModel)]="segm2" color="dark">
+        <ion-segment [(ngModel)]="segm2" class="sega">
           <ion-segment-button value="logcatch">
             <!-- <ion-icon name="camera"></ion-icon> -->
             Log Catch
@@ -130,7 +132,7 @@
               <p>November 5, 1955</p>
             </ion-item>
 
-            <img class="share_pic" src="assets/imgs/fishman.jpg">
+            <img class="share_pic" src="assets/imgs/fish4.jpg">
 
             <ion-card-content>
               <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?!

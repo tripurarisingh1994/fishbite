@@ -1,44 +1,54 @@
-<ion-header>
+<!-- <ion-header>
 
-  <ion-navbar>
+  <ion-navbar> -->
       <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
     <ion-title>add-new</ion-title> -->
-  </ion-navbar>
+  <!-- </ion-navbar>
 
-</ion-header>
+</ion-header> -->
 
 
 <ion-content>
   <div class="bg">
-        <div class="logo">
+        <!-- <div class="logo">
                 <img src="assets/imgs/fishlogo.png" alt="Logo" height="80" width="150">
-              </div>
+        </div> -->
     <div padding>
-        <p text-center style="color:#fff;">Add New</p>
+        <p text-center style="color:#fff; text-align:center">Add New</p>
     </div>
     <div>
         <div>
-                <button ion-fab right class="trip" (click)="goAddTrip()">Trip</button>
+                <button ion-fab right class="trip" (click)="goAddTrip()">
+                    <img src="assets/imgs/trip.png">
+                </button>
         </div>
         <div>
              <ion-row>
                  <ion-col>
-                        <button ion-fab class="waterway" (click)="goAddWaterWay()">Water Way</button>
+                        <button ion-fab class="waterway" (click)="goAddWaterWay()">
+                                <img src="assets/imgs/bait.png">
+                        </button>
                  </ion-col>
                  <ion-col>
-                        <button ion-fab class="bait" (click)="goAddBait()">Bait</button>
+                        <button ion-fab class="bait" (click)="goAddBait()">
+                                <img src="assets/imgs/water-way.png">
+                        </button>
                  </ion-col>
              </ion-row>
         </div>
         <div>
             <ion-row>
                 <ion-col>
-                        <button ion-fab class="addmoment" (click)="goAddMoment()">Add moment</button>
+                        <button ion-fab class="addmoment" (click)="goAddMoment()">
+                                <img src="assets/imgs/catch.png">
+                        </button>
                 </ion-col>
                 <ion-col>
-                        <button ion-fab class="catch" (click)="goAddCatch()">Catch</button>
+                        <button ion-fab class="catch" (click)="goAddCatch()">
+                                <img src="assets/imgs/add-moment.png">
+                        </button>
                 </ion-col>
             </ion-row> 
         </div>

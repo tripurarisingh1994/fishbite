@@ -1,4 +1,7 @@
 page-forum {
+    .bar-button-menutoggle {
+        display: unset !important;
+    }
     ion-item {
         background-color:#0550AB !important; 
         color: #fff !important;
@@ -9,10 +12,10 @@ page-forum {
         border-bottom: none !important;
     }
 
-    ion-icon {
-       color: #fff;
-       font-weight: 700;
-    }
+    // ion-icon {
+    //    color: #fff;
+    //    font-weight: 700;
+    // }
     .p-head {
         color: #0550AB;
         margin-top: -8px;
@@ -20,5 +23,31 @@ page-forum {
     .para {
         margin-top: -9px;
         font-size: 11.3px;
+        text-align: justify;
     }
+
+    .inner-ion-item {
+        padding: 0 10px;
+    }
+    .inner-ion-item .item-block{
+        background-color: #76DAFE !important;
+        min-height: 3.3rem;
+        height: 3.3rem;
+    }
+    .inner-ion-item ion-icon {
+        font-weight: 500;
+        font-size: 18px;
+        margin-top: 15px !important;
+    }
+    .inner-para {
+        padding: 0 10px;
+    }
+    .toolbar-background {
+        background-color: #EEEEEE !important;
+    }
+    .fas {
+        font-size: 23px;
+        margin: 0 4px;
+    }
+
 }

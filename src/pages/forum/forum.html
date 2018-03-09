@@ -1,7 +1,29 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Forum</ion-title>
+    <!-- <ion-title>Forum</ion-title> -->
+    <img src="assets/imgs/logo-polo.png">
+    <ion-buttons end>
+        <button color="primary" ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <button color="primary" ion-button icon-only (click)="goDiscover()">
+          <ion-icon name="map"></ion-icon>
+        </button>
+        <button color="primary" ion-button icon-only>
+          <i class="fas fa-binoculars"></i>
+        </button>
+        <button color="primary" ion-button icon-only (click)="goNotification()">
+          <ion-icon name="notifications"></ion-icon>
+        </button>
+        <button color="primary" ion-button icon-only>
+          <ion-icon name="contact"></ion-icon>
+        </button>
+        <button color="primary" ion-button icon-only on-tap="popoverKyndofishing($event)">
+            <ion-icon name="bug"></ion-icon>
+        </button>
+      </ion-buttons>
+      
   </ion-navbar>
 
 </ion-header>
@@ -15,17 +37,78 @@
     </p>
   </div>
   <div>
-    <ion-item>
+    <ion-item (click)="ski()">
       SKI/SNOWBOARD
       <ion-icon item-end name="add"></ion-icon>
       <!-- <ion-icon item-end name="remove"></ion-icon> -->
     </ion-item>
+    <div>
+      <div class="inner-para">
+          <p style="font-size:12px;color:#76DAFE;">General Ski/Snowboard Discussion</p>
+          <p style="font-size:10.5px;margin-top:-7px;text-align:justify;margin-bottom:5px;">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+      </div>
+      <div class="inner-ion-item">
+            <ion-item>
+              Threads
+              <ion-icon item-end name="arrow-forward"></ion-icon>
+            </ion-item>
+            <div>
+              <ion-row>
+                <ion-col>
+                  <p style="font-size:10.5px;">Threads: 61,726</p>
+                </ion-col>
+                <ion-col>
+                  <p style="font-size:10.5px;">Posts: 1,599,548</p>
+                </ion-col>
+              </ion-row>
+            </div>
+            <ion-item>
+              Last Post
+              <ion-icon item-end name="arrow-forward"></ion-icon>
+            </ion-item>
+            <div>
+              <p style="font-size:10.5px;">Padded seats on chair 2</p>
+              <p style="font-size:10.5px;">Yesterday,11:58 PM</p>
+            </div>
+      </div>      
+    </div>
 
     <ion-item>
       BIKE
       <ion-icon item-end name="add"></ion-icon>
       <!-- <ion-icon item-end name="remove"></ion-icon> -->
     </ion-item>
+
+    <div>
+      <div class="inner-para">
+          <p style="font-size:12px;color:#76DAFE;">General Ski/Snowboard Discussion</p>
+          <p style="font-size:10.5px;margin-top:-7px;text-align:justify;margin-bottom:5px;">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+      </div>
+      <div class="inner-ion-item">
+            <ion-item>
+              Threads
+              <ion-icon item-end name="arrow-forward"></ion-icon>
+            </ion-item>
+            <div>
+              <ion-row>
+                <ion-col>
+                  <p style="font-size:10.5px;">Threads: 61,726</p>
+                </ion-col>
+                <ion-col>
+                  <p style="font-size:10.5px;">Posts: 1,599,548</p>
+                </ion-col>
+              </ion-row>
+            </div>
+            <ion-item>
+              Last Post
+              <ion-icon item-end name="arrow-forward"></ion-icon>
+            </ion-item>
+            <div>
+              <p style="font-size:10.5px;">Padded seats on chair 2</p>
+              <p style="font-size:10.5px;">Yesterday,11:58 PM</p>
+            </div>
+      </div>      
+    </div>
 
     <ion-item>
       ADVENTURE/OTHER SPORTS
