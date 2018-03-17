@@ -1,31 +1,35 @@
 <ion-header>
 
-  <ion-navbar>
-      <!-- <button ion-button menuToggle>
+    <ion-navbar>
+        <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
       </button>
     <ion-title>forgot-pass</ion-title> -->
-  </ion-navbar>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content class="bg">
+    <div class="logo">
+        <img src="assets/imgs/fishlogo.png" alt="Logo" height="80" width="150">
+    </div>
     <div padding>
-        <p text-center class="white">Forgot Password</p>
+        <p text-center class="header-text white">Forgot Password</p>
         <div>
-            <p class="white">Lorem Ipsum is simply dummy text of the printing and
-               typesetting industry. Lorem Ipsum has been the industry's 
-               standard dummy text ever since
+            <p text-center class="white">
+                Discover 1.8 milion fishing locations at home and around the world
             </p>
         </div>
         <div>
-            <form >
+            <form>
                 <ion-item>
-                  <ion-input type="email" placeholder="Email"></ion-input>
+                    <ion-input type="email" placeholder="Email"></ion-input>
                 </ion-item>
-                <button ion-button full class="" type="submit" (click)="doForgot()">Forgot Password</button>
+                <div margin-top>
+                    <button ion-button full class="" type="submit" (click)="doForgot()">Forgot Password</button>
+                </div>
             </form>
         </div>
-     </div>
+    </div>
 </ion-content>

@@ -39,17 +39,18 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  facebook:   #4867AA
+  facebook:   #4867AA,
+  bg-color:   #31b6ff
 );
 
 
 $toolbar-background: #0354A9;
-ion-modal {
-  left: 11.5% !important;
-  top: 65px !important;
-  width: 77% !important;
-  height: 76% !important;
-}
+// ion-modal {
+//   left: 11.5% !important;
+//   top: 65px !important;
+//   width: 77% !important;
+//   height: 76% !important;
+// }
 
 // App iOS Variables
 // --------------------------------------------------

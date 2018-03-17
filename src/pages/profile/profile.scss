@@ -1,8 +1,8 @@
 page-profile {
-    ion-col {
-        padding: 0 !important;
-        margin: 0 !important;
-    }
+    // ion-col {
+    //     padding: 0 !important;
+    //     margin: 0 !important;
+    // }
     ion-card {
         width: auto !important;
         height: auto !important;
@@ -13,6 +13,10 @@ page-profile {
 
     ion-grid {
         margin: 10px 0px;
+    }
+
+    .toolbar-background {
+      background-color: #EEEEEE !important;
     }
     .profile_pic {
         height: 200px;
@@ -27,6 +31,7 @@ page-profile {
         color: #fff;
         font-size: 20px;
         font-weight: 600;
+        z-index: 1;
     }
     .setting-iob-icon {
         position: relative;
@@ -41,82 +46,90 @@ page-profile {
         height: 200px;
       }   
 
-.prof_box{
-    -webkit-box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
-  -moz-box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
-  box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
-  
-  }
-  .fish_beta{
-    position: absolute;
-    top:0;
-  }
-           
-  .pro_thum{
-    width: 40%;
-    margin: 0 auto;
-  }
-  .posi_rele{
-    position: relative;
-  }
-  .pro_trans{
-    background-color: rgba(0,0,0,0.5);
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 200px;
-  
-  }
-  .white_color{
-    color: #fff;
-  }
-  .ml5{
-    margin-left: 5px;
-  }
-  .text_center{
-    text-align: center;
-  }
-  .margin_auto{
-    margin: 0 auto;
-    display: table;
-  }
-  .flow{
-    margin-top: 40% !important;
-  }
-  .flow_avater{
-    margin-top: 25% !important;
-  }
-  .clear{
-    clear: both;
-  }
-  
-//   .sega{
-//       border-bottom: 2px solid #ccc;
-//   }
+      .fas {
+        font-size: 23px;
+        margin: 0 4px;
+    }
+    .hr {
+      border-bottom: 1px solid #ccc; 
+      margin: 0 5px;
+    }
 
-  .sega .segment-button.segment-activated{
-      background: transparent;
-      color: #222222;
-      border-bottom: 2px solid #04bbff;
-  }
-  
-  .sega .segment-button{
-    border: 0;
-    color: #222222;
-    border-bottom: 2px solid #ccc;
- font-size: 16px;
-  }
-  
+    .mt10 {
+      margin: 0 4px;
+    }
 
+    .prof_box{
+        -webkit-box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
+      -moz-box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
+      box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
+      
+      }
+      .fish_beta{
+        position: absolute;
+        top:0;
+      }
+              
+      .pro_thum{
+        width: 40%;
+        margin: 0 auto;
+      }
+      .posi_rele{
+        position: relative;
+      }
+      .pro_trans{
+        background-color: rgba(0,0,0,0.5);
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+      
+      }
+      .white_color{
+        color: #fff;
+      }
+      .ml5{
+        margin-left: 5px;
+      }
+      .text_center{
+        text-align: center;
+      }
+      .margin_auto{
+        margin: 0 auto;
+        display: table;
+      }
+    
+      .clear{
+        clear: both;
+      }
 
+      .prof_fuko{
+        font-size: 30px;
+        margin: 0 auto;
+        display: table;
+        height: 35px;
+      }
+      .staffu{
+        box-shadow: 0 5px 4px 0 #a3a3a3;
+        background-color: #f3f3f3;
+        color: #000000;
+      }
 
+      .flow{
+        margin-top: 45% !important;
+      }
+      .flow_avater{
+        margin-top: 35% !important;
+      }
+      .flow_font{
+        font-size: 10px;
+      }
 
-
-
-
-
-
+      .pro_abso{
+        position: absolute;
+        bottom: 0;
+      }
 
 
 }

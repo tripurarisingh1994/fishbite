@@ -1,26 +1,57 @@
-<ion-header>
+<ion-header no-border>
 
-  <ion-navbar>
-    <!-- <ion-title>fish intel</ion-title> -->
-    <div *ngIf="isActiveSearchBar;else one">
-      <ion-row>
-        <ion-col col-1>
-            <button ion-button icon-only full clear (click)="backFromSearch()"><ion-icon name="arrow-back"></ion-icon></button>
-        </ion-col>
-        <ion-col>
-            <ion-searchbar
-              placeholder="Search fishing waters...">
-            </ion-searchbar>
-        </ion-col>
-      </ion-row>
-    </div>
-    <ng-template #one>
+  <ion-toolbar>
+      <img src="assets/imgs/logo-polo.png">
       <ion-buttons end>
-        <button ion-button small (click)="goFishIntelFishSpeciesFilter()">All Fish Species<ion-icon class="icon-arrow-down" name="arrow-dropdown"></ion-icon></button>
-        <button ion-button small (click)="goFishIntelCaughtIn()">All Time<ion-icon class="icon-arrow-down" name="arrow-dropdown"></ion-icon></button>
+        <button color="primary" ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <button color="primary" ion-button icon-only (click)="goFishIntel()">
+          <ion-icon name="map"></ion-icon>
+        </button>
+        <button color="primary" ion-button icon-only (click)="goDiscover()">
+          <i class="fas fa-binoculars"></i>
+        </button>
+        <button color="primary" ion-button icon-only (click)="goNotification()">
+          <ion-icon name="notifications"></ion-icon>
+        </button>
+        <button color="primary" ion-button icon-only (click)="goUserProfile()">
+          <ion-icon name="contact"></ion-icon>
+        </button>
+        <button color="primary" ion-button icon-only on-tap="popoverKyndofishing($event)">
+          <ion-icon name="bug"></ion-icon>
+        </button>
       </ion-buttons>
-    </ng-template>
-  </ion-navbar>
+  </ion-toolbar>
+
+  <ion-toolbar>
+      <div *ngIf="isActiveSearchBar;else one">
+          <ion-row>
+            <ion-col col-1>
+                <button ion-button icon-only full clear (click)="backFromSearch()"><ion-icon name="arrow-back"></ion-icon></button>
+            </ion-col>
+            <ion-col>
+                <ion-searchbar
+                  placeholder="Search fishing waters...">
+                </ion-searchbar>
+            </ion-col>
+          </ion-row>
+        </div>
+        <ng-template #one>
+
+          <ion-row>
+            <ion-col>
+                <button color="primary" ion-button full clear small (click)="goFishIntelFishSpeciesFilter()">All Fish Species<ion-icon class="icon-arrow-down" name="arrow-dropdown"></ion-icon></button>
+            </ion-col>
+            
+            <ion-col>
+                <button color="primary" ion-button full clear small (click)="goFishIntelCaughtIn()">All Time<ion-icon class="icon-arrow-down" name="arrow-dropdown"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+
+        </ng-template>
+
+  </ion-toolbar>
 
 </ion-header>
 
@@ -45,18 +76,22 @@
 
     <div class="bottom-row">
       <ion-row>
-        <ion-col col-3>
-          <button ion-button full color="light">Catches</button>
-        </ion-col>
-        <ion-col col-3>
-          <button ion-button full color="light">Baits</button>
-        </ion-col>
-        <ion-col col-3>
-          <button ion-button full color="light">Forecast</button>
-        </ion-col>
-        <ion-col col-3>
-          <button ion-button full color="light">Species</button>
-        </ion-col>
+            <div col-3 class="img-btn" (click)="catches()">
+              <img src="assets/imgs/fisho1.png"> <br>
+              Catches
+            </div>
+            <div col-3 class="img-btn" (click)="baits()">
+              <img src="assets/imgs/fish-bor.png"> <br>
+              Baits
+            </div>
+            <div col-3 class="img-btn" (click)="forecast()">
+              <img src="assets/imgs/fisho1.png"> <br>
+              Forecast
+            </div>
+            <div col-3 class="img-btn" (click)="species()">
+              <img src="assets/imgs/fisho.png"> <br>
+              Species
+            </div>
       </ion-row>
     </div>
 

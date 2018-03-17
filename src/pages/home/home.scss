@@ -16,34 +16,39 @@ page-home {
     .home-bg {
         opacity: 0.3;
     }
+
     .home-contain {
         padding: 2px;
     }
 
-   .segment-button.segment-activated{
-        background: transparent;
-        color: #222222;
-        border-bottom: 2px solid #04bbff;
-    }
-    
-    .segment-ios .segment-button{
-      border: 0;
-      color: #222222;
-      border-bottom: 2px solid #ccc;
-      font-size: 16px;
-    }
     .fas {
         font-size: 23px;
         margin: 0 4px;
     }
     
-    .segment-ios .segment-button.segment-activated{
-        background: transparent;
-        color: #222222;
-        border-bottom: 2px solid #04bbff;
-    }
     .toolbar-background {
         background-color: #EEEEEE !important;
     }
    
+    .bottom-btn {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .mt10 {
+        margin: 0 4px;
+    }
+
+    .hr {
+        border-bottom: 1px solid #ccc; 
+        margin: 0 5px;
+    }
+
+    .social-sharing {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+
 }

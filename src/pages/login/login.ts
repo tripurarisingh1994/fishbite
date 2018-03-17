@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ForgotPassPage } from '../../pages/forgot-pass/forgot-pass';
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
 @IonicPage()
 @Component({
@@ -16,7 +11,18 @@ import { ForgotPassPage } from '../../pages/forgot-pass/forgot-pass';
 })
 export class LoginPage {
 
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  private login: FormGroup;
+
+  constructor(private navCtrl: NavController, 
+    private navParams: NavParams,
+    private formBuilder: FormBuilder,
+    private authProvider: AuthenticationProvider) {
+
+
+    this.login = this.formBuilder.group({
+      username: ['',],
+      password: ['',]
+    })
   }
 
   ionViewDidLoad() {
@@ -27,7 +33,10 @@ export class LoginPage {
    * this method when trigger then click on 'Continue' button
   */
   doLogin(){
-
+    console.log(this.login.value.username+"   "+this.login.value.password)
+    this.authProvider.login(this.login.value.username,this.login.value.password).subscribe(data=> {
+      console.log(data);
+    });
   }
   /** 
    * goForgot() method

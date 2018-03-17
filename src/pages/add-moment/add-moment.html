@@ -1,14 +1,48 @@
-
 <ion-header>
 
   <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only clear (click)="closeAddMoment()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
     <ion-title>Add Moment</ion-title>
-    <ion-buttons end><button ion-button clear>SAVE</button></ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only clear><ion-icon name="checkmark"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+        <div item-start>
+            <ion-icon  name="contact"></ion-icon>
+            TripSingh
+        </div>
+            <img item-end src="assets/imgs/fb.png">
+            <ion-toggle></ion-toggle>
+      </ion-item>
+    </ion-col>
+  </ion-row>
 
+  <div class="input-ion">
+      <ion-input type="text" placeholder="What's on your fishbite?"></ion-input>
+  </div>
+ 
+  <div class="bottom-btn">
+    <ion-item class="item-border">
+        <img item-start src="assets/imgs/cam-icon.png">
+        Photo
+      </ion-item>
+      <ion-item class="item-border">
+          <img item-start src="assets/imgs/video-icon.png">
+          Video
+      </ion-item>
+      <ion-item class="item-border">
+          <img item-start src="assets/imgs/waterway.png">
+          Fishing Location
+      </ion-item>
+  </div>
 </ion-content>

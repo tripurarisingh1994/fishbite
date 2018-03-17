@@ -5,7 +5,11 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { Camera } from '@ionic-native/camera';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { GoogleMaps } from '@ionic-native/google-maps'
+import { GoogleMaps } from '@ionic-native/google-maps';
+import { NativeAudio } from '@ionic-native/native-audio';
+import { GooglePlus } from '@ionic-native/google-plus';
+import { Facebook } from '@ionic-native/facebook';
+
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -58,7 +62,7 @@ import { FishIntelMapOptionsPage } from '../pages/fish-intel-map-options/fish-in
 import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { RegistrationProvider } from '../providers/registration/registration';
+import { AuthenticationProvider } from '../providers/authentication/authentication';
 
 
 @NgModule({
@@ -108,7 +112,7 @@ import { RegistrationProvider } from '../providers/registration/registration';
     FishIntelFishSpeciesFliterPage,
     FishIntelCaughtInPage,
     SearchFishingWatersPage,
-    FishIntelMapOptionsPage
+    FishIntelMapOptionsPage,
   ],
   imports: [
     BrowserModule,
@@ -164,17 +168,20 @@ import { RegistrationProvider } from '../providers/registration/registration';
     FishIntelFishSpeciesFliterPage,
     FishIntelCaughtInPage,
     SearchFishingWatersPage,
-    FishIntelMapOptionsPage
+    FishIntelMapOptionsPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RegistrationProvider,
     SocialSharing,
     Camera,
     InAppBrowser,
-    GoogleMaps
+    GoogleMaps,
+    NativeAudio,
+    GooglePlus,
+    Facebook,
+    AuthenticationProvider
   ]
 })
 export class AppModule {}

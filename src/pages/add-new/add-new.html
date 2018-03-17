@@ -1,58 +1,44 @@
-<!-- <ion-header>
-
-  <ion-navbar> -->
-      <!-- <button ion-button menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-    <ion-title>add-new</ion-title> -->
-  <!-- </ion-navbar>
-
-</ion-header> -->
-
-
 <ion-content>
-  <div class="bg">
-        <!-- <div class="logo">
-                <img src="assets/imgs/fishlogo.png" alt="Logo" height="80" width="150">
-        </div> -->
-    <div padding>
-        <p text-center style="color:#fff; text-align:center">Add New</p>
-    </div>
-    <div>
+    <div class="bg">
+
+        <div padding>
+            <p text-center style="color:#fff; text-align:center">Add New</p>
+        </div>
         <div>
+            <div>
                 <button ion-fab right class="trip" (click)="goAddTrip()">
                     <img src="assets/imgs/trip.png">
                 </button>
-        </div>
-        <div>
-             <ion-row>
-                 <ion-col>
+            </div>
+            <div>
+                <ion-row>
+                    <ion-col>
                         <button ion-fab class="waterway" (click)="goAddWaterWay()">
-                                <img src="assets/imgs/bait.png">
+                            <img src="assets/imgs/bait.png">
                         </button>
-                 </ion-col>
-                 <ion-col>
+                    </ion-col>
+                    <ion-col>
                         <button ion-fab class="bait" (click)="goAddBait()">
-                                <img src="assets/imgs/water-way.png">
+                            <img src="assets/imgs/water-way.png">
                         </button>
-                 </ion-col>
-             </ion-row>
+                    </ion-col>
+                </ion-row>
+            </div>
+            <div>
+                <ion-row>
+                    <ion-col>
+                        <button ion-fab class="addmoment" (click)="goAddCatch()">
+                            <img src="assets/imgs/catch.png">
+                        </button>
+                    </ion-col>
+                    <ion-col>
+                        <button ion-fab class="catch" (click)="goAddMoment()">
+                            <img src="assets/imgs/add-moment.png">
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </div>
+
         </div>
-        <div>
-            <ion-row>
-                <ion-col>
-                        <button ion-fab class="addmoment" (click)="goAddMoment()">
-                                <img src="assets/imgs/catch.png">
-                        </button>
-                </ion-col>
-                <ion-col>
-                        <button ion-fab class="catch" (click)="goAddCatch()">
-                                <img src="assets/imgs/add-moment.png">
-                        </button>
-                </ion-col>
-            </ion-row> 
-        </div>
-    
     </div>
-  </div>
 </ion-content>

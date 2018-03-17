@@ -1,10 +1,10 @@
 
 page-profile1 {
-  .hr {
-    border-bottom: 1px solid #ccc;
-    margin: 10px 0;
-    width: 100%;
-  }
+  // .hr {
+  //   border-bottom: 1px solid #ccc;
+  //   margin: 10px 0;
+  //   width: 100%;
+  // }
   ion-card {
     width: auto !important;
     height: auto !important;
@@ -22,7 +22,26 @@ page-profile1 {
     color: #fff;
     font-size: 20px;
     font-weight: 600;
+    z-index: 1;
   }
+  ion-item  div {
+    border: none !important;
+  }
+
+  .mt10 {
+    margin: 0 4px;
+  }
+
+  .staffu{
+    box-shadow: 0 5px 4px 0 #a3a3a3;
+    background-color: #f3f3f3;
+    color: #000000;
+  }
+
+  .fas {
+    font-size: 23px;
+    margin: 0 4px;
+ }
   .setting-iob-icon {
       position: relative;
       margin:2px; 
@@ -35,10 +54,10 @@ page-profile1 {
 
 .prof_box{
   -webkit-box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
--moz-box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
-box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
-
+  -moz-box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
+  box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
 }
+
 .fish_beta{
   position: absolute;
   top:0;
@@ -73,23 +92,49 @@ box-shadow: 0px 5px 4px 0px rgba(163,163,163,1);
   margin: 0 auto;
   display: table;
 }
-.flow{
-  margin-top: 40%;
-}
-.flow_avater{
-  margin-top: 25%;
-}
+
 .clear{
   clear: both;
 }
 
+.toolbar-background {
+  background-color: #EEEEEE !important;
+}
+
+.prof_fuko{
+  font-size: 30px;
+  margin: 0 auto;
+  display: table;
+  height: 35px;
+}
+.staffu{
+  box-shadow: 0 5px 4px 0 #a3a3a3;
+  background-color: #f3f3f3;
+  color: #000000;
+}
+
+.flow{
+  margin-top: 45% !important;
+}
+.flow_avater{
+  margin-top: 35% !important;
+}
+.flow_font{
+  font-size: 10px;
+}
+
+.bg_mass{
+  background-color: #f3f3f3;
+}
+.text-bold{
+  font-weight: bold;
+}
 
 
-
-
-
-
-
+.pro_abso{
+  position: absolute;
+  bottom: 0;
+}
 
 
 

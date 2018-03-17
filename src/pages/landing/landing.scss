@@ -11,23 +11,18 @@ page-landing {
   .gplus {
     color: red;
   }
-  .bg
-  {
+  .bg {
     background: url('../assets/imgs/landing.jpg');
     background-repeat: no-repeat;
     background-size: cover;
   }
-  .logo
-  {
+  
+  .logo {
     display:block;
     text-align:center;
   }
-  .landing-spcr
-  {
-    margin-top:30%;
-  }
-  .logoftext
-  {
+  
+  .logoftext {
     display:block;
     text-align:center;
     margin-left:5%;
@@ -35,22 +30,13 @@ page-landing {
     margin-top:5%;
     color:#fff;
   }
-  .refbtn
-  {
-    margin:0px auto;
-    display:inline-block;
-    text-align:center;
-    padding:0px;
+
+  .login-btn {
+    margin-left: -30px !important;
   }
-  // .inpolink > .col > button
-  // {
-  // text-align:center;
-  // display:block;
-  // margin: 0px auto;
-  // }
-  .inpolink 
-  {
-    text-align:center;
-    display:inline-block;
+
+  .login-sect {
+   margin-top: 120px;
   }
+
 }

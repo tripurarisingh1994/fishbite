@@ -1,26 +1,24 @@
 <ion-header>
 
   <ion-navbar>
-
-    <!-- <ion-title>profile</ion-title> -->
+    <img src="assets/imgs/logo-polo.png">
     <ion-buttons end>
-      <button ion-button menuToggle>
+      <button color="primary" ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <button ion-button icon-only (click)="goDiscover()">
+      <button color="primary" ion-button icon-only (click)="goFishIntel()">
         <ion-icon name="map"></ion-icon>
       </button>
-      <button ion-button icon-only>
-        <!-- <ion-icon name="options"></ion-icon> -->
+      <button color="primary" ion-button icon-only (click)="goDiscover()">
         <i class="fas fa-binoculars"></i>
       </button>
-      <button ion-button icon-only (click)="goNotification()">
+      <button color="primary" ion-button icon-only (click)="goNotification()">
         <ion-icon name="notifications"></ion-icon>
       </button>
-      <button ion-button icon-only>
+      <button color="primary" ion-button icon-only>
         <ion-icon name="contact"></ion-icon>
       </button>
-      <button ion-button icon-only on-tap="popoverKyndofishing($event)">
+      <button color="primary" ion-button icon-only on-tap="popoverKyndofishing($event)">
           <ion-icon name="bug"></ion-icon>
         </button>
     </ion-buttons>
@@ -30,15 +28,16 @@
 
 
 <ion-content>
+
   <div class="setting-icon">
     <ion-icon on-tap="goSetting()" class="setting-iob-icon" name="settings"></ion-icon>
   </div>
+
   <div>
       <ion-card class="posi_rele">
           <img class="profile-bck" src="assets/imgs/fish4.jpg">
-          <ion-card-content>
-          </ion-card-content>
-          <ion-row  class="pro_trans">
+          <div class="pro_trans">
+          <ion-row  class="pro_abso"> 
             <ion-col col-4 class="flow">
               <button ion-button icon-left clear small>
                 <div class="white_color">Following </div>
@@ -59,118 +58,121 @@
               </button>
             </ion-col>
           </ion-row>
+        </div>
         </ion-card>
   </div>
-  <div>
-    <ion-segment [(ngModel)]="segm1" class="sega">
-      <ion-segment-button value="staff">
-        Staff
-      </ion-segment-button>
-      <ion-segment-button value="ambassodor">
-        Ambassodor
-      </ion-segment-button>
-    </ion-segment>
+
+  <div >
+    <ion-row>
+        <ion-col col-6 >
+          <button ion-button full class="staffu">
+              Staff
+          </button>
+        </ion-col>
+        <ion-col col-6>
+          <button ion-button full class="staffu">
+              Ambassodor
+          </button>
+        </ion-col>
+      </ion-row>
   </div>
-  <div [ngSwitch]="segm1">
-    <div *ngSwitchCase="'staff'">
+
       <div>
         <ion-grid>
           <ion-row>
+
             <ion-col col-2 class="prof_box">
-              <ion-card>
-                <div text-center>Baits</div>
-                <div text-center>4</div>
-              </ion-card>
+              <div (click)="goAddBait()">
+                  <img text-center src="assets/imgs/fish-bor.png">
+                  <div text-center class="flow_font">Baits</div>
+                  <div text-center>4</div>
+              </div>
             </ion-col>
+
             <ion-col col-2 class="prof_box">
-                <ion-card>
-                <div text-center>Catches</div>
-                <div text-center>4</div>
-              </ion-card>
+              <div (click)="goAddCatch()">
+                  <img text-center src="assets/imgs/fisho.png">
+                  <div text-center class="flow_font">Catches</div>
+                  <div text-center>4</div>
+              </div>
             </ion-col>
+
             <ion-col col-3 class="prof_box">
-                <ion-card>
-                <div text-center>Snapshots</div>
-                <div text-center>11</div>
-              </ion-card>
+                <div (click)="goAddMoment()">
+                    <ion-icon class="prof_fuko" name="images"></ion-icon>
+                    <div text-center class="flow_font">Snapshots</div>
+                    <div text-center>11</div>
+              </div>
             </ion-col>
+
             <ion-col col-3 class="prof_box">
-                <ion-card>
-                <div text-center>Waterways</div>
-                <div text-center>3</div>
-              </ion-card>
+                <div (click)="goAddWaterWay()">
+                    <ion-icon class="prof_fuko" name="map"></ion-icon>
+                    <div text-center class="flow_font">Waterways</div>
+                    <div text-center>3</div>
+              </div>
             </ion-col>
+
             <ion-col col-2 class="prof_box">
-                <ion-card>
-                <div text-center>Trip</div>
-                <div text-center>9</div>
-              </ion-card>
+                <div (click)="goAddTrip()">
+                    <ion-icon class="prof_fuko" name="briefcase"></ion-icon>
+                    <div text-center class="flow_font">Trip</div>
+                    <div text-center>9</div>
+                </div>
             </ion-col>
+
           </ion-row>
         </ion-grid>
       </div>
+
+
       <div>
-        <ion-segment [(ngModel)]="segm2" class="sega">
-          <ion-segment-button value="logcatch">
-            <!-- <ion-icon name="camera"></ion-icon> -->
-            Log Catch
-          </ion-segment-button>
-          <ion-segment-button value="addpost">
-            <!-- <ion-icon name="camera"></ion-icon> -->
-            Add Post
-          </ion-segment-button>
-        </ion-segment>
+        <ion-row>
+          <ion-col>
+            <button ion-button clear small (click)="openGallery()">
+                <img class="mt10" src="assets/imgs/log-fish.png">
+                Log Catch
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button clear small (click)="goMomentBtn()">
+                <img class="mt10" src="assets/imgs/camera.png">
+                Add Post
+            </button>
+          </ion-col>
+        </ion-row>
       </div>
-      <div [ngSwitch]="segm2">
-        <div *ngSwitchCase="'logcatch'">
+    
+      <div>
           <ion-card>
             <ion-item>
               <ion-avatar item-start>
                 <img src="assets/imgs/profile.jpg">
               </ion-avatar>
-              <h2>Marty McFly</h2>
-              <p>November 5, 1955</p>
+              <h4>Largemouth bass</h4>
+              <p>Lake Montezuma.Casting.acrownoble</p>
+              <button item-end ion-button icon-only clear (click)="more()"><ion-icon name="more"></ion-icon></button>
             </ion-item>
-
-            <img class="share_pic" src="assets/imgs/fish4.jpg">
-
-            <ion-card-content>
-              <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?!
-                Whoa. This is heavy.</p>
-            </ion-card-content>
-
+      
+            <p text-justify style="font-size:11px;padding:2px 6px;">About 15 strikes 5 hooked fish with fights in the shore and 2 
+              pulled from the water! All this in 40 min.They are striking great, 
+              hello bass season!
+            </p>
+            <img src="assets/imgs/fish4.jpg">
+            <div>
+              <button ion-button clear><ion-icon name="thumbs-up"></ion-icon></button>
+              <button ion-button clear><ion-icon name="chatbubbles"></ion-icon></button>
+              <button ion-button clear><ion-icon name="pin"></ion-icon></button>
+              <button ion-button clear><ion-icon name="share"></ion-icon></button>
+            </div>
+            <div class="hr"></div>
             <ion-row>
-              <ion-col>
-                <button ion-button icon-left clear small>
-                  <ion-icon name="thumbs-up"></ion-icon>
-                  <div>12 Likes</div>
-                </button>
-              </ion-col>
-              <ion-col>
-                <button ion-button icon-left clear small>
-                  <ion-icon name="text"></ion-icon>
-                  <div>4 Comments</div>
-                </button>
-              </ion-col>
-              <ion-col center text-center>
-                <ion-note>
-                  11h ago
-                </ion-note>
-              </ion-col>
+              <ion-col col-4>7 likes</ion-col>
+              <ion-col col-4>2 comments</ion-col>
+              <ion-col col-4>1 share</ion-col>
             </ion-row>
-
           </ion-card>
         </div>
 
-        <div *ngSwitchCase="'addpost'">
-          <div>Need the Content</div>
-        </div>
-      </div>
-
-    </div>
-    <div *ngSwitchCase="'ambassodor'">
-      <div>Need the content</div>
-    </div>
-  </div>
 
 </ion-content>

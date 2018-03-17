@@ -17,8 +17,8 @@ import { LandingPage } from "../pages/landing/landing";
 // import { FishSpeciesPage } from '../pages/fish-species/fish-species';
 // import { WhatMethodPage } from '../pages/what-method/what-method';
 // import { WhatLocationPage } from '../pages/what-location/what-location';
-import { ProfilePage } from '../pages/profile/profile';
-import { Profile1Page } from '../pages/profile1/profile1';
+// import { ProfilePage } from '../pages/profile/profile';
+// import { Profile1Page } from '../pages/profile1/profile1';
 // import { CatchInfoPage } from '../pages/catch-info/catch-info';
 // import { PersonalRegistrationPage } from '../pages/personal-registration/personal-registration';
 // import { SelectCountryPage } from '../pages/select-country/select-country';
@@ -43,6 +43,7 @@ import { TermsAndConditionsPage } from '../pages/terms-and-conditions/terms-and-
 import { HelpAndSupportPage } from '../pages/help-and-support/help-and-support';
 import { LoyalityCompetitionPage } from '../pages/loyality-competition/loyality-competition';
 import { FishIntelPage } from '../pages/fish-intel/fish-intel';
+// import { TestBabyPage } from '../pages/test-baby/test-baby';
 
 
 @Component({
@@ -97,8 +98,8 @@ export class MyApp {
       // { title: 'Fish Species', component: FishSpeciesPage},
       // { title: 'What Method', component: WhatMethodPage},
       // { title: 'What Location', component: WhatLocationPage},
-      { title: 'Profile', component: ProfilePage},
-      { title: 'Profile1', component: Profile1Page},
+      // { title: 'Profile', component: ProfilePage},
+      // { title: 'Profile1', component: Profile1Page},
       // { title: 'Catch Info', component: CatchInfoPage},
       // { title: 'Personal Registration', component: PersonalRegistrationPage},
       // { title: 'Select Language', component: SelectLanguagePage},

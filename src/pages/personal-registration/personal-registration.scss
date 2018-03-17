@@ -1,75 +1,17 @@
 page-personal-registration {
 
-    // .item {
-    //     padding-left: 0px !important;
-    //     font-size: 1rem !important;
-    // }
+    .rm-border > div{
+        border-bottom: none !important;
+    }
 
-    // .checkbox {
-    //     margin: 9px 3px 9px 4px !important;
-    // }
-    .padding
-    {
-        margin-left: 2%;
-        margin-right: 2%;
+    .light_blue{
+        color: #04bbff;
+        border-bottom: none !important;
     }
-    // .iosml
-    // {
-    //     font-size:200% !important;
-    // }
-    // ion-icon {
-    //     font-size: 10px;
-    // }
-    // .iosml
-    // {
-    //     background-color: #fff;
-    //     color:#488aff;
-    //     border: none;
-    //     outline: none;
-    //     box-shadow: none;
-    //     margin: 0px;
-    //     padding: 0px;
-    // }
-    .fbspcr
-    {
-        margin-left:5px;
-    }
-    .fbicon
-    {
-        color: #3b5998;
-    }
-    .item.item-ios .checkbox-ios
-    {
-        margin: 8px 7px 8px 2px;
-    }
-    .item-ios
-    {
-        font-size: 1.3rem;
-    }
-    .grid,.refix
-    {
-        padding: 0px !important;
-        margin: 0px !important;
-    }
-    .item-inner
-    {
-    font-size: 1.3rem;
-    }
-    .item.item-md .checkbox-md {
-        margin: 8px 7px 8px 2px  !important;
-    }
-    .cclr
-{
-    color: #04BBFF;
 
-    padding-bottom: 15px;
-    text-transform: uppercase;
-    padding-top: 15px;
-    font-size: 14px;
-}
-.remborder
-{
-    border-bottom: none !important;
-}
+    .nomi{
+        font-size: 10px;
+    }
+
 }
 

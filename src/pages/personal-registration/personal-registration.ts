@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { RegistrationProvider } from '../../providers/registration/registration';
 import { ChoosePlanPremiumTrailPage } from '../choose-plan-premium-trail/choose-plan-premium-trail';
 
 @IonicPage()
@@ -13,7 +12,7 @@ import { ChoosePlanPremiumTrailPage } from '../choose-plan-premium-trail/choose-
 export class PersonalRegistrationPage {
 
   // @ViewChild('friendnominee') frn;
-  public personalRegist: FormGroup;
+  private personalRegist: FormGroup;
   
   language="";
   country="";
@@ -39,7 +38,6 @@ export class PersonalRegistrationPage {
   constructor(private navCtrl: NavController, 
     private navParams: NavParams,
     private formBuilder: FormBuilder,
-    private registration:RegistrationProvider,
     ) {
      
       this.personalRegist = this.formBuilder.group({
@@ -47,6 +45,7 @@ export class PersonalRegistrationPage {
         address: ['', Validators.required],
         email: ['', Validators.required],
         tel: ['', Validators.required],
+        password:['',Validators.required],
 
         fnemail1  : ['', Validators.required],
         fnmob1: ['', Validators.required],

@@ -1,3 +1,19 @@
 page-add-moment {
+    .bottom-btn {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
 
+    .item-block .item-inner {
+        border-bottom: none !important;
+    }
+   .item-border {
+       border-top: 0.55px solid rgb(200, 199, 204);
+       border-bottom: 0.55px solid rgb(200, 199, 204);
+   }
+   .input-ion {
+    border-bottom: 0.55px solid rgb(200, 199, 204);
+    margin: 0 4%;
+   }
 }

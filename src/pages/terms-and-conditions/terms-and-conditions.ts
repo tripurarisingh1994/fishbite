@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams,PopoverController } from 'ionic-ang
 import { NotificationPage } from '../notification/notification';
 import { DiscoverPage } from '../discover/discover';
 import { KyndofishingPopoverPage } from '../kyndofishing-popover/kyndofishing-popover';
+import { FishIntelPage } from '../fish-intel/fish-intel';
+import { ProfilePage } from '../profile/profile';
 
 @IonicPage()
 @Component({
@@ -28,12 +30,20 @@ export class TermsAndConditionsPage {
     this.navCtrl.push(DiscoverPage);
   }
 
-  popoverKyndofishing(event) {
+  goFishIntel(): void {
+    this.navCtrl.push(FishIntelPage);
+  }
+
+  popoverKyndofishing(event): void {
     let popover = this.popoverCtrl.create(KyndofishingPopoverPage);
     popover.present({
       ev:event
     });
     console.log('working');
-}
+  }
+
+  goUserProfile(): void {
+    this.navCtrl.push(ProfilePage);
+  }
 
 }

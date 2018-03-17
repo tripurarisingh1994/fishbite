@@ -1,16 +1,14 @@
 <ion-header>
   <ion-navbar>
-    <!-- <ion-title>Home</ion-title> -->
     <img src="assets/imgs/logo-polo.png">
     <ion-buttons end>
       <button color="primary" ion-button icon-only menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
-      <button color="primary" ion-button icon-only (click)="goDiscover()">
+      <button color="primary" ion-button icon-only (click)="goFishIntel()">
         <ion-icon name="map"></ion-icon>
       </button>
-      <button color="primary" ion-button icon-only>
-        <!-- <ion-icon name="options"></ion-icon> -->
+      <button color="primary" ion-button icon-only (click)="goDiscover()">
         <i class="fas fa-binoculars"></i>
       </button>
       <button color="primary" ion-button icon-only (click)="goNotification()">
@@ -27,66 +25,77 @@
 </ion-header>
 
 <ion-content>
-  <div class="home-contain" [ngClass]="{ 'home-bg': isFabActive}">
-    <ion-segment [(ngModel)]="ionSegment">
-      <ion-segment-button value="logfish">
-          <img class="mt10" src="assets/imgs/log-fish.png">
-        Log Catch
-      </ion-segment-button>
-      <ion-segment-button value="addmoment">
-          <img class="mt10" src="assets/imgs/camera.png">
-        Add Moment
-      </ion-segment-button>
-    </ion-segment>
 
-    <div [ngSwitch]="ionSegment">
-      <div *ngSwitchCase="'logfish'">
-        <div>
-          <ion-card>
-            <ion-item>
-              <ion-avatar item-start>
-                <img src="assets/imgs/profile.jpg">
-              </ion-avatar>
-              <h2>Marty McFly</h2>
-              <p>November 5, 1955</p>
-            </ion-item>
-            <img class="share_pic" src="assets/imgs/fish4.jpg">
-            <ion-card-content>
-              <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?!
-                Whoa. This is heavy.</p>
-            </ion-card-content>
+  <div class="home-contain" [ngClass]="{'home-bg': isFabActive}">
+    <ion-row>
+        <ion-col>
+          <button ion-button  small clear (click)="openGallery()">
+              <img class="mt10" src="assets/imgs/log-fish.png">
+              Log Catch
+          </button>
+        </ion-col>
+        <ion-col >
+          <button ion-button small clear (click)="goMomentBtn()">
+              <img class="mt10" src="assets/imgs/camera.png">
+              Add Moment
+          </button>
+        </ion-col>
+      </ion-row>
 
-            <ion-row>
-              <ion-col>
-                <button ion-button icon-left clear small>
-                  <ion-icon name="thumbs-up"></ion-icon>
-                  <div>12 Likes</div>
-                </button>
-              </ion-col>
-              <ion-col>
-                <button ion-button icon-left clear small>
-                  <ion-icon name="text"></ion-icon>
-                  <div>4 Comments</div>
-                </button>
-              </ion-col>
-              <ion-col center text-center>
-                <ion-note>
-                  11h ago
-                </ion-note>
-              </ion-col>
-            </ion-row>
-
-          </ion-card>
-        </div>
+    <div>
+        <ion-card>
+          <ion-item>
+            <ion-avatar item-start>
+              <img src="assets/imgs/profile.jpg">
+            </ion-avatar>
+            <h4>Largemouth bass</h4>
+            <p>Lake Montezuma.Casting.acrownoble</p>
+            <button item-end ion-button icon-only clear (click)="more()"><ion-icon name="more"></ion-icon></button>
+          </ion-item>
+    
+          <p text-justify style="font-size:11px;padding:2px 6px;">About 15 strikes 5 hooked fish with fights in the shore and 2 
+            pulled from the water! All this in 40 min.They are striking great, 
+            hello bass season!
+          </p>
+          <img class="post-img" src="assets/imgs/fish4.jpg">
+          <div>
+            <button ion-button icon-only clear (click)="like()"><ion-icon name="thumbs-up"></ion-icon></button>
+            <button ion-button icon-only clear><ion-icon name="chatbubbles"></ion-icon></button>
+            <button ion-button icon-only clear><ion-icon name="pin"></ion-icon></button>
+            <button ion-button icon-only clear (click)="openShareOptions()"><ion-icon name="share"></ion-icon></button>
+          </div>
+          <div class="hr"></div>
+          <ion-row>
+            <ion-col col-4>7 likes</ion-col>
+            <ion-col col-4>2 comments</ion-col>
+            <ion-col col-4>1 share</ion-col>
+          </ion-row>
+        </ion-card>
       </div>
 
-
-      <div *ngSwitchCase="'addmoment'"></div>
-    </div>
   </div>
+
   <ion-fab bottom right>
     <button ion-fab (click)="fabHit()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
+
+  <div *ngIf="showShareOptions" class="social-sharing">
+    <ion-row>
+      <ion-col>
+        <button ion-fab color="secondary" (click)="whatsAppShare()">
+          <ion-icon name="logo-whatsapp"></ion-icon>
+        </button>
+      </ion-col>
+
+      <ion-col>
+        <button ion-fab (click)="fbShare()">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </button>
+      </ion-col>
+
+    </ion-row>
+  </div>
+
 </ion-content>
 
 <page-add-new *ngIf="isFabActive"></page-add-new>

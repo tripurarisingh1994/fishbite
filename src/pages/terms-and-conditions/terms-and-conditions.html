@@ -2,23 +2,21 @@
 <ion-header>
 
   <ion-navbar>
-    <!-- <ion-title>Terms And Conditions</ion-title> -->
     <img src="assets/imgs/logo-polo.png">
     <ion-buttons end>
         <button color="primary" ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
-        <button color="primary" ion-button icon-only (click)="goDiscover()">
+        <button color="primary" ion-button icon-only (click)="goFishIntel()">
           <ion-icon name="map"></ion-icon>
         </button>
-        <button color="primary" ion-button icon-only>
-          <!-- <ion-icon name="options"></ion-icon> -->
+        <button color="primary" ion-button icon-only (click)="goDiscover()">
           <i class="fas fa-binoculars"></i>
         </button>
         <button color="primary" ion-button icon-only (click)="goNotification()">
           <ion-icon name="notifications"></ion-icon>
         </button>
-        <button color="primary" ion-button icon-only>
+        <button color="primary" ion-button icon-only (click)="goUserProfile()">
           <ion-icon name="contact"></ion-icon>
         </button>
         <button color="primary" ion-button icon-only on-tap="popoverKyndofishing($event)">

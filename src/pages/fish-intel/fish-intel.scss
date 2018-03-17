@@ -2,6 +2,18 @@ page-fish-intel {
     #map {
         height: 100%;
     }
+
+    .bar-button-menutoggle {
+        display: unset !important;
+    }
+    .toolbar-background {
+        background-color: #EEEEEE !important;
+    }
+    .fas {
+        font-size: 23px;
+        margin: 0 4px;
+    }
+
     .icon-arrow-down {
         font-size: 16px;
         margin-left: 2.5px;
@@ -26,4 +38,18 @@ page-fish-intel {
         border-radius: 10%;
     }
    
+    .img-btn {
+        background-color: #ccc;
+        font-size: 12px;
+        max-width: 24%;
+        width:24%;
+        margin: 0 1.5px;
+        text-align: center;
+    }
 }
+// ion-modal {
+//     left: 11.5% !important;
+//     top: 65px !important;
+//     width: 77% !important;
+//     height: 76% !important;
+//   }

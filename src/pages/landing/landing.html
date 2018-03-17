@@ -15,24 +15,38 @@
   <div class="logoftext">
     Discover 1.8 milion fishing locations at home and around the world
   </div>
-   <div padding class="landing-spcr">
-    <button ion-button icon-start full class="fb">
-      <ion-icon name="logo-facebook"></ion-icon>
-        Continue with Facebook
-    </button>
-    <button ion-button icon-start full class="google">
-      <ion-icon class="gplus" name="logo-googleplus"></ion-icon>
-        Continue with Google
-    </button>
-        <ion-grid >
-          <ion-row class="inpolink">
-            <ion-col col-auto >
-               <button ion-button clear color="light" class="refbtn" (click)="goSignup()">Signup with Email |</button>
-            </ion-col>
-            <ion-col col-auto>
-              <button ion-button clear color="light" class="refbtn" (click)="goLogin()">Login</button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+
+   <div padding class="login-sect">
+
+      <button ion-button icon-start full class="fb" (click)="fbLogin()">
+        <ion-icon name="logo-facebook"></ion-icon>
+          Continue with Facebook
+      </button>
+
+      <button ion-button icon-start full class="google" (click)="googlePlusLogin()">
+        <ion-icon class="gplus" name="logo-googleplus"></ion-icon>
+          Continue with Google
+      </button>
+
+        <div margin-left>
+              <button ion-button clear  color="light"           (click)="goSignup()">Signup with Email&nbsp;&nbsp;|</button>
+              <button ion-button clear  color="light"  class="login-btn" (click)="goLogin()">Login</button>
+        </div>
    </div>
+
+   <div *ngIf="isLoggedIn">
+     <h1>Welcome {{displayName}}!</h1>
+     <p>Email: {{email}} <br>
+        Given Name : {{givenName}}
+        UserId  :   {{userId}}
+     </p>
+
+     <p>
+       <ion-avatar item-left>
+          <img src="{{iamgeUrl}}">
+      </ion-avatar>
+    </p>
+
+   </div>
+   
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, PopoverController } from 'ionic-angular';
 import { GoogleMaps,
           GoogleMap,
           GoogleMapsEvent,
@@ -11,6 +11,10 @@ import { GoogleMaps,
 import { FishIntelFishSpeciesFliterPage } from '../fish-intel-fish-species-fliter/fish-intel-fish-species-fliter';
 import { FishIntelCaughtInPage } from '../fish-intel-caught-in/fish-intel-caught-in';
 import { FishIntelMapOptionsPage } from '../fish-intel-map-options/fish-intel-map-options';
+import { Profile1Page } from '../profile1/profile1';
+import { NotificationPage } from '../notification/notification';
+import { DiscoverPage } from '../discover/discover';
+import { KyndofishingPopoverPage } from '../kyndofishing-popover/kyndofishing-popover';
 
 @IonicPage()
 @Component({
@@ -22,7 +26,8 @@ export class FishIntelPage {
   isActiveSearchBar:boolean=false;
   constructor(private navCtrl: NavController, 
     private navParams: NavParams,
-    private modalCtrl: ModalController) {
+    private modalCtrl: ModalController,
+    private popoverCtrl: PopoverController,) {
   }
 
   ionViewDidLoad() {
@@ -91,5 +96,50 @@ export class FishIntelPage {
   backFromSearch(): void {
     this.isActiveSearchBar=false;
   }
+
+  catches(): void {
+    console.log('catches')
+  }
+
+  baits(): void {
+    console.log('baits')
+  }
+
+  forecast(): void {
+    console.log('forecast')
+  }
+
+  species(): void {
+    console.log('species')
+  }
+
+  /**
+   * Navigate to user profile1
+   */
+  goUserProfile(): void {
+    this.navCtrl.push(Profile1Page);
+  }
+/**
+ * Navigate to Notification Page
+ */
+  goNotification(): void {
+    this.navCtrl.push(NotificationPage);
+  }
+
+  goDiscover(): void {
+    this.navCtrl.push(DiscoverPage);
+  }
+
+  goFishIntel(): void {
+    this.navCtrl.push(FishIntelPage);
+  }
+  
+  popoverKyndofishing(event): void {
+    let popover = this.popoverCtrl.create(KyndofishingPopoverPage);
+    popover.present({
+      ev:event
+    });
+    console.log('working');
+}
 
 }
