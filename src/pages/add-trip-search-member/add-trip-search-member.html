@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-searchbar (ionInput)="getMembers($event)" debounce="1000"></ion-searchbar>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <!-- <h5 *ngIf="members.length < 0; else list">No result found</h5> -->
+
+    <!-- <ng-template> -->
+        <ion-list>
+            <ion-item *ngFor="let member of members" (click)="selectMember(member.id,member.name)">
+              {{ member.name }}
+            </ion-item>
+          </ion-list>
+    <!-- </ng-template> -->
+
+</ion-content>

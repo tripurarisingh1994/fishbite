@@ -1,7 +1,6 @@
 <ion-header>
 
   <ion-navbar>
-    <!-- <ion-title>select-country</ion-title> -->
   </ion-navbar>
 
 </ion-header>
@@ -19,8 +18,7 @@
           <ion-item >
             <ion-label>Country</ion-label>
             <ion-select [(ngModel)]="country" (ngModelChange)="goPesrsonOrBusin(country)">
-              <ion-option value="china">China</ion-option>
-              <ion-option value="us">Us</ion-option>
+              <ion-option *ngFor="let count of country_list"  [value]="count.country_name">{{count.country_name}}</ion-option>
             </ion-select>
           </ion-item>
       </div>    

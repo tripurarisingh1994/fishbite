@@ -24,10 +24,10 @@
         <div>
             <form>
                 <ion-item>
-                    <ion-input type="email" placeholder="Email"></ion-input>
+                    <ion-input type="email" #email placeholder="Email"></ion-input>
                 </ion-item>
                 <div margin-top>
-                    <button ion-button full class="" type="submit" (click)="doForgot()">Forgot Password</button>
+                    <button ion-button full class="" type="submit" (click)="doForgot(email.value)">Forgot Password</button>
                 </div>
             </form>
         </div>

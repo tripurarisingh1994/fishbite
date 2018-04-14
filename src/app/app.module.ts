@@ -9,7 +9,8 @@ import { GoogleMaps } from '@ionic-native/google-maps';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { Facebook } from '@ionic-native/facebook';
-
+import { FileTransfer } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -19,7 +20,6 @@ import { SelectOptnPerBusiPage } from '../pages/select-optn-per-busi/select-optn
 import { SelectBusinCategPage } from '../pages/select-busin-categ/select-busin-categ';
 import { SignupPage } from '../pages/signup/signup';
 import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
-import { JoinLocalFishCommuniPage } from '../pages/join-local-fish-communi/join-local-fish-communi';
 import { ChoosePlanPremiumTrailPage } from'../pages/choose-plan-premium-trail/choose-plan-premium-trail';
 import { AddNewPage } from '../pages/add-new/add-new';
 import { AddYourPhonePage } from '../pages/add-your-phone/add-your-phone';
@@ -57,12 +57,21 @@ import { FishIntelFishSpeciesFliterPage } from '../pages/fish-intel-fish-species
 import { FishIntelCaughtInPage } from '../pages/fish-intel-caught-in/fish-intel-caught-in';
 import { SearchFishingWatersPage } from '../pages/search-fishing-waters/search-fishing-waters';
 import { FishIntelMapOptionsPage } from '../pages/fish-intel-map-options/fish-intel-map-options';
-
+import { AddTripSearchMemberPage } from '../pages/add-trip-search-member/add-trip-search-member';
+import { CalendarPage } from '../pages/calendar/calendar';
+import { JoinLocalFishCommuniPage } from '../pages/join-local-fish-communi/join-local-fish-communi';
+import { GraphPage } from '../pages/graph/graph';
+import { HomePostCommentPage } from '../pages/home-post-comment/home-post-comment';
+import { AddWaterwaySelectWaterwayPage } from '../pages/add-waterway-select-waterway/add-waterway-select-waterway';
 
 import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
+import { CountryListProvider } from '../providers/country-list/country-list';
+import { LanguageListProvider } from '../providers/language-list/language-list';
+import { AddServicesProvider } from '../providers/add-services/add-services';
+import { CalendarWeatherProvider } from '../providers/calendar-weather/calendar-weather';
 
 
 @NgModule({
@@ -75,7 +84,6 @@ import { AuthenticationProvider } from '../providers/authentication/authenticati
     SelectBusinCategPage,
     SignupPage,
     ForgotPassPage,
-    JoinLocalFishCommuniPage,
     ChoosePlanPremiumTrailPage,
     AddNewPage,
     AddYourPhonePage,
@@ -113,6 +121,12 @@ import { AuthenticationProvider } from '../providers/authentication/authenticati
     FishIntelCaughtInPage,
     SearchFishingWatersPage,
     FishIntelMapOptionsPage,
+    AddTripSearchMemberPage,
+    CalendarPage,
+    JoinLocalFishCommuniPage,
+    GraphPage,
+    HomePostCommentPage,
+    AddWaterwaySelectWaterwayPage
   ],
   imports: [
     BrowserModule,
@@ -131,7 +145,6 @@ import { AuthenticationProvider } from '../providers/authentication/authenticati
     SelectBusinCategPage,
     SignupPage,
     ForgotPassPage,
-    JoinLocalFishCommuniPage,
     ChoosePlanPremiumTrailPage,
     AddNewPage,
     AddYourPhonePage,
@@ -169,6 +182,12 @@ import { AuthenticationProvider } from '../providers/authentication/authenticati
     FishIntelCaughtInPage,
     SearchFishingWatersPage,
     FishIntelMapOptionsPage,
+    AddTripSearchMemberPage,
+    CalendarPage,
+    JoinLocalFishCommuniPage,
+    GraphPage,
+    HomePostCommentPage,
+    AddWaterwaySelectWaterwayPage
   ],
   providers: [
     StatusBar,
@@ -181,7 +200,13 @@ import { AuthenticationProvider } from '../providers/authentication/authenticati
     NativeAudio,
     GooglePlus,
     Facebook,
-    AuthenticationProvider
+    AuthenticationProvider,
+    CountryListProvider,
+    LanguageListProvider,
+    AddServicesProvider,
+    FileTransfer,
+    File,
+    CalendarWeatherProvider,
   ]
 })
 export class AppModule {}

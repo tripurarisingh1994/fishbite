@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-// import { ChoosePlanPremiumTrailPage } from '../choose-plan-premium-trail/choose-plan-premium-trail';
-// import { JoinLocalFishCommuniPage } from '../join-local-fish-communi/join-local-fish-communi';
+import { IonicPage, NavController } from 'ionic-angular';
 import { Profile1Page } from '../profile1/profile1';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { LandingPage } from '../landing/landing';
 
 @IonicPage()
 @Component({
@@ -14,7 +14,8 @@ export class BusinessRegistrationPage {
   countShop=1;
   countStaff=1;
   countAmbassadors=1;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController,
+     private socialShare: SocialSharing) {
   }
 
   // registrationType Variable is used for storing radio button values of shops,staff,ambassadors
@@ -90,6 +91,20 @@ export class BusinessRegistrationPage {
        items.push(i);
     }
     return items;
+  }
+
+  fbCheckedStaff(): void {
+    console.log('fb staff check');
+    this.socialShare.shareViaFacebook('FishBite Social Share')
+  }
+
+  fbCheckedAmbassadors(): void {
+    console.log('fb ambassador check')
+    this.socialShare.shareViaFacebook('FishBite Social Share')
+  }
+
+  backToMainPage(): void {
+    this.navCtrl.setRoot(LandingPage);
   }
 
 }

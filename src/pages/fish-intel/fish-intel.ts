@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, PopoverController } from 'ionic-angular';
+import { IonicPage, NavController, ModalController, PopoverController } from 'ionic-angular';
 import { GoogleMaps,
           GoogleMap,
           GoogleMapsEvent,
           GoogleMapOptions,
-          CameraPosition,
-          MarkerOptions,
-          Marker 
+          // CameraPosition,
+          // MarkerOptions,
+          // Marker 
         } from '@ionic-native/google-maps';
 import { FishIntelFishSpeciesFliterPage } from '../fish-intel-fish-species-fliter/fish-intel-fish-species-fliter';
 import { FishIntelCaughtInPage } from '../fish-intel-caught-in/fish-intel-caught-in';
@@ -25,7 +25,6 @@ export class FishIntelPage {
   map: GoogleMap;
   isActiveSearchBar:boolean=false;
   constructor(private navCtrl: NavController, 
-    private navParams: NavParams,
     private modalCtrl: ModalController,
     private popoverCtrl: PopoverController,) {
   }

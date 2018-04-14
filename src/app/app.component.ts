@@ -20,10 +20,10 @@ import { LandingPage } from "../pages/landing/landing";
 // import { ProfilePage } from '../pages/profile/profile';
 // import { Profile1Page } from '../pages/profile1/profile1';
 // import { CatchInfoPage } from '../pages/catch-info/catch-info';
-// import { PersonalRegistrationPage } from '../pages/personal-registration/personal-registration';
+import { PersonalRegistrationPage } from '../pages/personal-registration/personal-registration';
 // import { SelectCountryPage } from '../pages/select-country/select-country';
 // import { SelectLanguagePage } from '../pages/select-language/select-language';
-// import { BusinessRegistrationPage } from '../pages/business-registration/business-registration';
+import { BusinessRegistrationPage } from '../pages/business-registration/business-registration';
 // import { UpgradePage } from '../pages/upgrade/upgrade';
 // import { AddTripPage } from '../pages/add-trip/add-trip';
 // import { AddBaitPage } from '../pages/add-bait/add-bait';
@@ -43,8 +43,8 @@ import { TermsAndConditionsPage } from '../pages/terms-and-conditions/terms-and-
 import { HelpAndSupportPage } from '../pages/help-and-support/help-and-support';
 import { LoyalityCompetitionPage } from '../pages/loyality-competition/loyality-competition';
 import { FishIntelPage } from '../pages/fish-intel/fish-intel';
-// import { TestBabyPage } from '../pages/test-baby/test-baby';
-
+import { CalendarPage } from '../pages/calendar/calendar';
+import { GraphPage } from '../pages/graph/graph';
 
 @Component({
   templateUrl: 'app.html'
@@ -101,10 +101,12 @@ export class MyApp {
       // { title: 'Profile', component: ProfilePage},
       // { title: 'Profile1', component: Profile1Page},
       // { title: 'Catch Info', component: CatchInfoPage},
-      // { title: 'Personal Registration', component: PersonalRegistrationPage},
+      { title: 'Personal Registration', component: PersonalRegistrationPage},
       // { title: 'Select Language', component: SelectLanguagePage},
       // { title: 'Select Country', component: SelectCountryPage},
-      // { title: 'Business Registration', component: BusinessRegistrationPage},
+      { title: 'Business Registration', component: BusinessRegistrationPage},
+      { title: 'Calendar', component: CalendarPage},
+      { title: 'Graph', component: GraphPage},
 
     ];
 

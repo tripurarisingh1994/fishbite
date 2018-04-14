@@ -1,0 +1,19 @@
+page-home-post-comment {
+    .tbar > div{
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+      .tbar .button {
+          padding: 0 !important;
+          margin: 0 !important;
+          width: 100%;
+      }
+
+      ion-col {
+          border: 1px solid #0354A9;
+          padding: 0 !important;
+      }
+}

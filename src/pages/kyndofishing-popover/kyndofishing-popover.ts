@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
 
@@ -10,8 +10,7 @@ import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser'
 })
 export class KyndofishingPopoverPage {
 
-  constructor(private navCtrl: NavController,
-     private navParams: NavParams,
+  constructor(
      private inAppBrowser: InAppBrowser) {
   }
 
@@ -20,51 +19,51 @@ export class KyndofishingPopoverPage {
   }
 
   goHome():void {
-    const options: InAppBrowserOptions = {
+    let options: InAppBrowserOptions = {
       zoom :'no'
     }
-    const browser = this.inAppBrowser.create('http://www.kaydofishingworld.com/','_self',options);
+    this.inAppBrowser.create('http://www.kaydofishingworld.com/','_self',options);
   }
 
   goFishTalk() {
-    const options: InAppBrowserOptions = {
+    let options: InAppBrowserOptions = {
       zoom :'no'
     }
-    const browser = this.inAppBrowser.create('http://www.kaydofishingworld.com/fish-talk/','_self',options);
+    this.inAppBrowser.create('http://www.kaydofishingworld.com/fish-talk/','_self',options);
   }
 
   goFishProTips() {
-    const options: InAppBrowserOptions = {
+    let options: InAppBrowserOptions = {
       zoom :'no'
     }
-    const browser = this.inAppBrowser.create('http://www.kaydofishingworld.com/fishing-pro-tips/','_self',options);
+    this.inAppBrowser.create('http://www.kaydofishingworld.com/fishing-pro-tips/','_self',options);
   }
 
   goFishProductTalk() {
-    const options: InAppBrowserOptions = {
+    let options: InAppBrowserOptions = {
       zoom :'no'
     }
-    const browser = this.inAppBrowser.create('http://www.kaydofishingworld.com/fishing-product-talk/','_self',options);
+    this.inAppBrowser.create('http://www.kaydofishingworld.com/fishing-product-talk/','_self',options);
   }
 
   goKayaking() {
-    const options: InAppBrowserOptions = {
+    let options: InAppBrowserOptions = {
       zoom :'no'
     }
-    const browser = this.inAppBrowser.create('http://www.kaydofishingworld.com/kayaking/','_self',options);
+   this.inAppBrowser.create('http://www.kaydofishingworld.com/kayaking/','_self',options);
   }
 
   goBoating() {
-    const options: InAppBrowserOptions = {
+    let options: InAppBrowserOptions = {
       zoom :'no'
     }
-    const browser = this.inAppBrowser.create('http://www.kaydofishingworld.com/boating/','_self',options);
+    this.inAppBrowser.create('http://www.kaydofishingworld.com/boating/','_self',options);
   }
   goKaydoTv() {
-    const options: InAppBrowserOptions = {
+    let options: InAppBrowserOptions = {
       zoom :'no'
     }
-    const browser = this.inAppBrowser.create('http://www.kaydofishingworld.com/kaydo-tv/','_self',options);
+   this.inAppBrowser.create('http://www.kaydofishingworld.com/kaydo-tv/','_self',options);
   }
 
 }

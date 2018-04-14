@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
+import { IonicPage, ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -8,8 +8,7 @@ import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angula
 })
 export class FishIntelMapOptionsPage {
 
-  constructor(private navCtrl: NavController,
-     private navParams: NavParams,
+  constructor(
      private viewCtrl:ViewController) {
   }
 

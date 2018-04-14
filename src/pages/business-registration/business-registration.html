@@ -127,7 +127,7 @@
             </ion-item>
 
             <ion-item class="rm-border">
-                <ion-checkbox item-start color="facebook" checked="true"></ion-checkbox>
+                <ion-checkbox item-start color="facebook" (ionChange)="fbCheckedStaff()"></ion-checkbox>
                 <ion-label class="nomi">Nominate business share app link</ion-label>
                 <button ion-button item-end small>Prepay</button>
               </ion-item>
@@ -169,7 +169,7 @@
             </ion-item>
 
             <ion-item class="rm-border">
-                <ion-checkbox item-start color="facebook" checked="true"></ion-checkbox>
+                <ion-checkbox item-start color="facebook" (ionChange)="fbCheckedAmbassadors()"></ion-checkbox>
                 <ion-label class="nomi">Nominate business share app link</ion-label>
                 <button ion-button item-end small>Prepay</button>
               </ion-item>
@@ -191,7 +191,7 @@
           </ion-col>
           <ion-col>
             <ion-buttons end>
-              <button ion-button small clear>BACK TO MAIN PAGE</button>
+              <button ion-button small clear (click)="backToMainPage()">BACK TO MAIN PAGE</button>
             </ion-buttons>
           </ion-col>
         </ion-row>

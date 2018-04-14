@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the AddWaterwayPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, LoadingController, ToastController } from 'ionic-angular';
+import { AddServicesProvider } from '../../providers/add-services/add-services';
 
 @IonicPage()
 @Component({
@@ -15,11 +9,58 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class AddWaterwayPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  lat:number;              // Assign the Latitude
+  lang:number;            //  Assign the Logitude
+
+  user_id:number=1;
+
+  constructor(private addServiceProvider: AddServicesProvider,
+              private loadingCtrl: LoadingController,
+              private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddWaterwayPage');
+    this.addServiceProvider.getLatLang().subscribe(data=> {
+      this.lat = data['lat'];
+      this.lang = data['lon'];
+    })
   }
+
+
+  save(name,desc): void {             // It trigger when click on SAVE button
+    let loading = this.loadingCtrl.create({
+      content: 'Uploading...'
+    });
+    loading.present();
+
+    this.addServiceProvider.addWaterWaysService(name, desc, this.user_id, this.lat, this.lang).subscribe(data=> {
+      console.log(data);
+      loading.dismiss();
+
+      if(data['status']=='success') {
+        this.presentToast('Uploaded Successfully');
+       }
+    },(err)=> {
+      console.log("err",err)
+      loading.dismiss();
+    })
+  }
+
+  // present Toast 
+  presentToast(msg) {
+    let toast = this.toastCtrl.create({
+      message: msg,
+      duration: 3000,
+      position: 'bottom'
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
+  }
+
 
 }

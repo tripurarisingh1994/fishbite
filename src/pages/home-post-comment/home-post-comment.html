@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Comment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <div padding *ngIf="post_comment.length==0; else comm">
+      <p text-center>No Comment Found</p>
+    </div>
+    <ng-template #comm *ngFor="let pcomment of post_comment" padding>
+        <p>{{pcomment.comments}}</p>
+    </ng-template >
+</ion-content>
+
+<ion-footer>
+    <ion-toolbar no-border class="tbar">
+          <ion-row>
+            <ion-col col-10>
+                <ion-input #comment type="text" placeholder="Enter your comments..."></ion-input>
+            </ion-col>
+            <ion-col col-2 text-center>
+                <button ion-button (click)="sendComment(comment.value)"><ion-icon name="send"></ion-icon></button>
+            </ion-col>
+          </ion-row>
+    </ion-toolbar>
+  </ion-footer> 

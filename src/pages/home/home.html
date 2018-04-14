@@ -42,44 +42,59 @@
         </ion-col>
       </ion-row>
 
-    <div>
+    <div *ngFor="let post of posts; let i=index">
         <ion-card>
           <ion-item>
             <ion-avatar item-start>
               <img src="assets/imgs/profile.jpg">
+              <!-- <p>{{post.post_files.s_filepath}}/{{post.post_files.s_filname}}</p> -->
             </ion-avatar>
-            <h4>Largemouth bass</h4>
+            <h4>{{post.username}}</h4>
             <p>Lake Montezuma.Casting.acrownoble</p>
             <button item-end ion-button icon-only clear (click)="more()"><ion-icon name="more"></ion-icon></button>
           </ion-item>
     
-          <p text-justify style="font-size:11px;padding:2px 6px;">About 15 strikes 5 hooked fish with fights in the shore and 2 
-            pulled from the water! All this in 40 min.They are striking great, 
-            hello bass season!
-          </p>
-          <img class="post-img" src="assets/imgs/fish4.jpg">
+          <p text-justify style="font-size:11px;padding:2px 6px;">{{post.post_name}}</p>
+            <div *ngIf="post.post_files.s_filepath">
+                  <div *ngIf="post.post_files.file=='image'; else video">
+                    <img class="post-img" src="http://192.168.200.6/fishbite/{{post.post_files.s_filepath}}/{{post.post_files.s_filname}}">
+                  </div>
+                  <ng-template #video>
+                    <video controls="controls" src="http://192.168.200.6/fishbite/{{post.post_files.s_filepath}}/{{post.post_files.s_filname}}" preload="metadata"  webkit-playsinline="webkit-playsinline" class="videoPlayer">
+                    </video>
+                </ng-template>
+            </div>     
           <div>
-            <button ion-button icon-only clear (click)="like()"><ion-icon name="thumbs-up"></ion-icon></button>
-            <button ion-button icon-only clear><ion-icon name="chatbubbles"></ion-icon></button>
-            <button ion-button icon-only clear><ion-icon name="pin"></ion-icon></button>
-            <button ion-button icon-only clear (click)="openShareOptions()"><ion-icon name="share"></ion-icon></button>
+            <button ion-button icon-only clear (click)="like(post.id)"><ion-icon name="thumbs-up"></ion-icon></button>
+            <button ion-button icon-only clear (click)="goComment(post.id)"><ion-icon name="chatbubbles"></ion-icon></button>
+            <button ion-button icon-only clear (click)="whatsAppShare(post.id)" color="secondary"><ion-icon name="logo-whatsapp"></ion-icon></button>
+            <button ion-button icon-only clear (click)="fbShare(post.id)"><ion-icon name="logo-facebook"></ion-icon></button>
+            <!-- <button ion-button icon-only clear><ion-icon name="pin"></ion-icon></button> -->
+            <!-- <button ion-button icon-only clear (click)="openShareOptions()"><ion-icon name="share"></ion-icon></button> -->
           </div>
           <div class="hr"></div>
           <ion-row>
-            <ion-col col-4>7 likes</ion-col>
-            <ion-col col-4>2 comments</ion-col>
-            <ion-col col-4>1 share</ion-col>
+            <ion-col col-4>
+              <div *ngIf="hit_post_id && post.id==hit_post_id[i]; else nohit">You and {{post.likes}} other</div>
+              <ng-template #nohit>{{post.likes}} likes</ng-template>
+            </ion-col>
+            <ion-col col-4>{{post.comments}} comments</ion-col>
+            <ion-col col-4>{{post.share}} share</ion-col>
           </ion-row>
         </ion-card>
-      </div>
+     </div>
 
   </div>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
+  </ion-infinite-scroll> 
 
   <ion-fab bottom right>
     <button ion-fab (click)="fabHit()"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
-  <div *ngIf="showShareOptions" class="social-sharing">
+  <!-- <div *ngIf="showShareOptions" class="social-sharing">
     <ion-row>
       <ion-col>
         <button ion-fab color="secondary" (click)="whatsAppShare()">
@@ -94,7 +109,7 @@
       </ion-col>
 
     </ion-row>
-  </div>
+  </div> -->
 
 </ion-content>
 

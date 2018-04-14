@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
+import { IonicPage, NavController, PopoverController } from 'ionic-angular';
 import { NotificationPage } from '../notification/notification';
 import { KyndofishingPopoverPage } from '../kyndofishing-popover/kyndofishing-popover';
 import { DiscoverPage } from '../discover/discover';
@@ -13,7 +13,6 @@ import { DiscoverPage } from '../discover/discover';
 export class SettingPage {
 
   constructor(private navCtrl: NavController, 
-    private navParams: NavParams,
     private popoverCtrl: PopoverController) {
   }
 

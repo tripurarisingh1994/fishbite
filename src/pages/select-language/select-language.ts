@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SelectCountryPage } from '../../pages/select-country/select-country';
+import { LanguageListProvider } from '../../providers/language-list/language-list';
 
-/**
- * Generated class for the SelectLanguagePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -16,11 +11,18 @@ import { SelectCountryPage } from '../../pages/select-country/select-country';
 })
 export class SelectLanguagePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  language_list;
+  constructor(private navCtrl: NavController,
+     private navParams: NavParams,
+     private languageList: LanguageListProvider) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectLanguagePage');
+    this.languageList.languageListService().subscribe(data=> {
+      console.log(data);
+      this.language_list=data['data'];
+    })
   }
   
   /** 

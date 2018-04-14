@@ -28,25 +28,20 @@
           Continue with Google
       </button>
 
-        <div margin-left>
-              <button ion-button clear  color="light"           (click)="goSignup()">Signup with Email&nbsp;&nbsp;|</button>
+        <div text-center class="footer-btn">
+              <button ion-button clear  color="light" (click)="goSignup()">Signup with Email&nbsp;&nbsp;|</button>
               <button ion-button clear  color="light"  class="login-btn" (click)="goLogin()">Login</button>
         </div>
    </div>
 
-   <div *ngIf="isLoggedIn">
-     <h1>Welcome {{displayName}}!</h1>
-     <p>Email: {{email}} <br>
-        Given Name : {{givenName}}
-        UserId  :   {{userId}}
-     </p>
-
+   <!-- <div *ngIf="isLoggedIn">
      <p>
-       <ion-avatar item-left>
-          <img src="{{iamgeUrl}}">
-      </ion-avatar>
-    </p>
+        Email     :  {{email}}  <br>
+        Firstname :  {{firstname}} <br>
+        Lastname  :  {{lastname}} <br>
+        UserId    :  {{userId}}
+     </p> -->
 
-   </div>
+   <!-- </div> -->
    
 </ion-content>

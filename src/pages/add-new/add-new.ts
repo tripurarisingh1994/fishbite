@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 import { AddBaitPage } from '../add-bait/add-bait';
 import { AddTripPage } from '../add-trip/add-trip';
 import { AddWaterwayPage } from '../add-waterway/add-waterway';
@@ -13,7 +13,7 @@ import { AddMomentPage } from '../add-moment/add-moment';
 })
 export class AddNewPage {
 
-  constructor(private navCtrl: NavController, private navParams: NavParams) {
+  constructor(private navCtrl: NavController) {
   }
 
   ionViewDidLoad() {

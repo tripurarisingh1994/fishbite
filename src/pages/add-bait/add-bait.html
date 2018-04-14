@@ -2,23 +2,26 @@
 
   <ion-navbar>
     <ion-title>Add Bait</ion-title>
-    <ion-buttons end><button ion-button clear>SAVE</button></ion-buttons>
+    <ion-buttons end><button ion-button clear (click)="save(name.value, desc.value)">SAVE</button></ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <ion-item>
-    <ion-icon item-left name="bonfire"></ion-icon>
-    <ion-input type="text" placeholder="Name"></ion-input>
-  </ion-item>
+  <form>
+      <ion-item>
+        <ion-icon item-left  name="bonfire"></ion-icon>
+        <ion-input type="text" #name placeholder="Name"></ion-input>
+      </ion-item>
 
-  <ion-item>
-      <ion-icon item-left name="chatbubbles"></ion-icon>
-      <ion-textarea placeholder="Description"></ion-textarea>
-  </ion-item>
+      <ion-item>
+          <ion-icon item-left name="chatbubbles"></ion-icon>
+          <ion-textarea #desc placeholder="Description"></ion-textarea>
+      </ion-item>
+</form>
   <ion-item (click)="openGallery()">
       <ion-icon item-left name="images"></ion-icon>
+      {{imageName}}
   </ion-item>
 </ion-content>

@@ -36,7 +36,7 @@
               <ion-item>
                   <ion-input type="password" formControlName="password" placeholder="Password"></ion-input>
                 </ion-item>
-              <button ion-button full class="logbtn" type="submit">Continue</button>
+              <button ion-button full class="logbtn" [disabled]="!login.valid" type="submit">Continue</button>
           </form>
       </div>
       <div>

@@ -1,7 +1,6 @@
 <ion-header>
 
   <ion-navbar>
-    <!-- <ion-title>select-language</ion-title> -->
   </ion-navbar>
 
 </ion-header>
@@ -19,8 +18,7 @@
   <ion-item>
     <ion-label>Language</ion-label>
     <ion-select [(ngModel)]="language" (ngModelChange)="goCountry(language)">
-      <ion-option value="english">English</ion-option>
-      <ion-option value="chinese">Chinese</ion-option>
+      <ion-option *ngFor="let lang of language_list" [value]="lang.language">{{lang.language}}</ion-option>
     </ion-select>
   </ion-item>
 </div>

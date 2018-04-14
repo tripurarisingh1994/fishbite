@@ -1,1 +1,19 @@
 Remove the font awesome lib
+remove imagepicker lib
+
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+
+ <string name="fb_app_name">fishbite</string>
+ <string name="fb_app_id">1969466343315653</string>
+
+
+ FB.api(
+  '/me',
+  'GET',
+  {"fields":"id,name,first_name,last_name,email,location,locale"},
+  function(response) {
+      // Insert your code here
+  }
+);

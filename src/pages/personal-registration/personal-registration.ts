@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController  } from 'ionic-angular';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { ChoosePlanPremiumTrailPage } from '../choose-plan-premium-trail/choose-plan-premium-trail';
+import { SocialSharing } from '@ionic-native/social-sharing';
+import { LandingPage } from '../landing/landing';
+import { AuthenticationProvider } from '../../providers/authentication/authentication';
 
 @IonicPage()
 @Component({
@@ -11,33 +14,26 @@ import { ChoosePlanPremiumTrailPage } from '../choose-plan-premium-trail/choose-
 
 export class PersonalRegistrationPage {
 
-  // @ViewChild('friendnominee') frn;
   private personalRegist: FormGroup;
+  private friendNominee: FormGroup;
+  private businessNominee: FormGroup;
   
   language="";
   country="";
-  isHiddenShare:boolean=false;
+  private isHiddenShare:boolean=false;
  
-  count=1;
-  count1=1;
+  private count=1;
+  private count1=1;
  
-
-  //  fnEmailLoop=['fnemail1','fnemail2','fnemail3','fnemail4','fnemail5'];
-  //   fnMobLoop=['fnmob1','fnmob2','fnmob3','fnmob4','fnmob5'];
-
-  //   bnEmailLoop=['bnemail1','bnemail2','bnemail3','bnemail4','bnemail5'];
-  //  bnMobLoop=['bnmob1','bnmob2','bnmob3','bnmob4','bnmob5'];
-
-  // fnEmail=[];
-  // fnMob=[];
-
-  // bnEmail=[];
-  // bnMob=[];
-
+  lat:number;
+  lang:number;
 
   constructor(private navCtrl: NavController, 
     private navParams: NavParams,
     private formBuilder: FormBuilder,
+    private socialShare: SocialSharing,
+    private authProvider: AuthenticationProvider,
+    private toastCtrl: ToastController
     ) {
      
       this.personalRegist = this.formBuilder.group({
@@ -46,37 +42,44 @@ export class PersonalRegistrationPage {
         email: ['', Validators.required],
         tel: ['', Validators.required],
         password:['',Validators.required],
-
-        fnemail1  : ['', Validators.required],
-        fnmob1: ['', Validators.required],
-
-        fnemail2  : ['', Validators.required],
-        fnmob2: ['', Validators.required],
-
-        fnemail3  : ['', Validators.required],
-        fnmob3: ['', Validators.required],
-
-        fnemail4  : ['', Validators.required],
-        fnmob4: ['', Validators.required],
-
-        fnemail5  : ['', Validators.required],
-        fnmob5: ['', Validators.required],
-
-        bnemail1 :['', Validators.required],
-        bnmob1 :['', Validators.required],
-
-        bnemail2 :['', Validators.required],
-        bnmob2 :['', Validators.required],
-
-        bnemail3 :['', Validators.required],
-        bnmob3 :['', Validators.required],
-
-        bnemail4 :['', Validators.required],
-        bnmob4 :['', Validators.required],
-
-        bnemail5 :['', Validators.required],
-        bnmob5 :['', Validators.required],
       });
+
+      this.friendNominee = this.formBuilder.group({
+        fnemail1: ['',],
+        fnmob1: ['',],
+
+        fnemail2: ['',],
+        fnmob2: ['',],
+
+        fnemail3: ['',],
+        fnmob3: ['', ],
+
+        fnemail4: ['',],
+        fnmob4: ['',],
+
+        fnemail5: ['',],
+        fnmob5: ['', ],
+      });
+
+      this.businessNominee = this.formBuilder.group({
+        
+        bnemail1 :['',],
+        bnmob1 :['', ],
+
+        bnemail2 :['',],
+        bnmob2 :['', ],
+
+        bnemail3 :['', ],
+        bnmob3 :['', ],
+
+        bnemail4 :['',],
+        bnmob4 :['', ],
+
+        bnemail5 :['',],
+        bnmob5 :['', ],
+      })
+
+
   }
 
   ionViewDidLoad() {
@@ -84,98 +87,36 @@ export class PersonalRegistrationPage {
     this.language = this.navParams.get('language');
     this.country  = this.navParams.get('country');
 
+    /**
+     *  Getting Latitude and Longitude
+     *  getLatLang()   return 
+     */
+    this.authProvider.getLatLang().subscribe(data=> {
+      // console.log(data);
+      this.lat = data['lat'];
+      this.lang = data['lon'];
+    })
   }
 
   /** 
    * personalReg() method
   */
   personalReg() {
-    // console.log(this.personalRegist);
-
     // console.log(this.personalRegist.value.name);
-    // console.log(this.personalRegist.value.address);
-    // console.log(this.personalRegist.value.email);
-    // console.log(this.personalRegist.value.tel);
-    
-    // console.log(this.personalRegist.value.fnemail1);
-    // console.log(this.personalRegist.value.fnmob1);
+    // this.navCtrl.push(ChoosePlanPremiumTrailPage);
 
-    // console.log(this.personalRegist.value.fnemail2);
-    // console.log(this.personalRegist.value.fnmob2);
-
-    // console.log(this.personalRegist.value.fnemail3);
-    // console.log(this.personalRegist.value.fnmob3);
-
-    // console.log(this.personalRegist.value.fnemail4);
-    // console.log(this.personalRegist.value.fnmob4);
-
-    // console.log(this.personalRegist.value.fnemail5);
-    // console.log(this.personalRegist.value.fnmob5);
-
-
-    // console.log(this.personalRegist.value. bnemail1);
-    // console.log(this.personalRegist.value.bnmob1);
-
-    // console.log(this.personalRegist.value. bnemail2);
-    // console.log(this.personalRegist.value.bnmob2);
-
-    // console.log(this.personalRegist.value. bnemail3);
-    // console.log(this.personalRegist.value.bnmob3);
-
-    // console.log(this.personalRegist.value. bnemail4);
-    // console.log(this.personalRegist.value.bnmob4);
-
-    // console.log(this.personalRegist.value. bnemail5);
-    // console.log(this.personalRegist.value.bnmob5);
-   
-   /*Working Code start*/
-
-    // let test = this.personalRegist.value;
-    // console.log(test);
-
-  /*Working Code end*/
-
-  // for(let i=1; i<=this.count; ++i) {
-    //  let test = this.fnEmail[i];
-    // console.log(this.personalRegist.value.test)
-    // console.log(this.personalRegist.value.fnmob+i)
-
-    // if(this.personalRegist.value.fnemail+i != '' || this.personalRegist.value.fnemail+i != null || this.personalRegist.value.fnemail+i != undefined) {
-    //   console.log(i)
-    //   this.fnEmail.push(this.personalRegist.value.fnemail+i)
-    //   console.log(this.fnEmail[i])
-    // }
-    // if(this.personalRegist.value.fnmob+i != '' || this.personalRegist.value.fnmob+i != null || this.personalRegist.value.fnmob+i != undefined) {
-    //   console.log(i)
-    //   this.fnMob.push(this.personalRegist.value.fnmob+i)
-    //   console.log(this.fnMob[i])
-    // }
-  // }
-
-  // for(let i=1; i<=this.count1; ++i) {
-    // if(this.personalRegist.value.bnemail+i != '' || this.personalRegist.value.bnemail+i != null || this.personalRegist.value.bnemail+i != undefined) {
-    //   console.log(i)
-    //   this.bnEmail.push(this.personalRegist.value.bnemail+i)
-    //   console.log(this.bnEmail[i])
-    // }
-    // if(this.personalRegist.value.bnmob+i != '' || this.personalRegist.value.bnmob+i != null || this.personalRegist.value.bnmob+i != undefined) {
-    //   console.log(i)
-    //   this.bnMob.push(this.personalRegist.value.bnmob+i)
-    //   console.log(this.bnMob[i])
-    // }
-  // }
-    //  this.registration.personalRegistration(this.language,this.country,this.personalRegist.value.name,this.personalRegist.value.address,this.personalRegist.value.email,this.personalRegist.value.tel,this.fnEmail,this.fnMob,this.bnEmail,this.bnMob).subscribe(data=> {
-    //   console.log(data);
-    // })
-
-    /* working code start */
-    //  this.registration.personalRegistration(test).subscribe(data=> {
-    //   console.log(data);
-    // })
-    /* working code end */
-
-    /*Design Flow*/
-    this.navCtrl.push(ChoosePlanPremiumTrailPage);
+    this.authProvider.personalService(this.language,this.country,this.personalRegist.value.name,this.personalRegist.value.address,this.personalRegist.value.email,this.personalRegist.value.tel,this.personalRegist.value.password,this.lat, this.lang).subscribe(data=> {
+      console.log(data);
+      if(data['status']=='success') {
+        this.navCtrl.push(ChoosePlanPremiumTrailPage);
+        /** Reset Form */
+        this.personalRegist.reset();
+      } else if (data['status']=='failure') {
+        this.presentToast('Email is already exist! try again');
+         /** Reset Form */
+        this.personalRegist.reset();
+      }
+    })
   }
 
   /**
@@ -186,7 +127,14 @@ export class PersonalRegistrationPage {
   }
  
   addFriendNominee() {
-    this.count++; 
+    if(this.count>=5) {
+      return false;
+    }
+    else {
+      this.count++; 
+    }
+   
+   
   }
   createRange(number){
     let items: number[] = [];
@@ -197,7 +145,13 @@ export class PersonalRegistrationPage {
   }
 
   addBusinessNominee() {
-    this.count1++;
+    if(this.count>=5) {
+      return false;
+    }
+    else {
+      this.count1++;
+    }
+    
   }
 
   createRange1(number){
@@ -214,6 +168,8 @@ export class PersonalRegistrationPage {
     let _id='friendnominee'+(i+1);
     console.log(_id);
     document.getElementById(_id).remove();
+
+    this.friendNominee.reset();
   }
 
   removeBusinessNominee(ev,i) {
@@ -221,5 +177,66 @@ export class PersonalRegistrationPage {
     let _id='businessnominee'+(i+1);
     console.log(_id)
     document.getElementById(_id).remove();
+
+    this.businessNominee.reset();
   }
+
+     fbCheckedFrNo(): void {
+      console.log('facebook friend nominee check');
+      this.socialShare.shareViaFacebook('FishBite Social App');
+    }
+
+     fbCheckedBuNo(): void {
+      console.log('facebook business nominee check')
+      this.socialShare.shareViaFacebook('FishBite Social App');
+    }
+
+     backToMainPage(): void {
+      this.navCtrl.setRoot(LandingPage);
+    }
+
+    busiPrePay(): void {
+       let val = this.businessNominee.value;
+       console.log(val.bnemail1)
+       console.log(val.bnemail2)
+       console.log(val.bnemail3)
+       console.log(val.bnemail4)
+       console.log(val.bnemail5)
+
+       console.log(val.bnmob1)
+       console.log(val.bnmob2)
+       console.log(val.bnmob3)
+       console.log(val.bnmob4)
+       console.log(val.bnmob5)
+    }
+
+    friPrePay(): void {
+      let val = this.friendNominee.value;
+      console.log(val.fnemail1)
+      console.log(val.fnemail2)
+      console.log(val.fnemail3)
+      console.log(val.fnemail4)
+      console.log(val.fnemail5)
+
+      console.log(val.fnmob1)
+      console.log(val.fnmob2)
+      console.log(val.fnmob3)
+      console.log(val.fnmob4)
+      console.log(val.fnmob5)
+    }
+
+
+    presentToast(msg) {
+      let toast = this.toastCtrl.create({
+        message: msg,
+        duration: 3000,
+        position: 'bottom'
+      });
+    
+      toast.onDidDismiss(() => {
+        console.log('Dismissed toast');
+      });
+    
+      toast.present();
+    }
 }
