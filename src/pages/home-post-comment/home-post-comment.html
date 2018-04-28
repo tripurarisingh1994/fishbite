@@ -3,6 +3,9 @@
 
   <ion-navbar>
     <ion-title>Comment</ion-title>
+    <ion-buttons end>
+      <button ion-button clear small (click)="close()">Close</button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -12,7 +15,7 @@
       <p text-center>No Comment Found</p>
     </div>
     <ng-template #comm  padding>
-        <div  *ngFor="let pcomment of post_comment">
+        <div  *ngFor="let pcomment of post_comment | async">
           <ion-item no-lines>
             <ion-avatar item-start>
               <img src="assets/imgs/default_user.png">
@@ -31,10 +34,10 @@
     <ion-toolbar no-border class="tbar">
           <ion-row>
             <ion-col col-10>
-                <ion-input #comment type="text" placeholder="Enter your comments..."></ion-input>
+                <ion-input type="text" [(ngModel)]="comment" placeholder="Enter your comments..."></ion-input>
             </ion-col>
             <ion-col col-2 text-center>
-                <button ion-button (click)="sendComment(comment.value)"><ion-icon name="send"></ion-icon></button>
+                <button ion-button (click)="sendComment()"><ion-icon name="send"></ion-icon></button>
             </ion-col>
           </ion-row>
     </ion-toolbar>

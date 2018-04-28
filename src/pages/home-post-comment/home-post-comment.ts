@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { AddServicesProvider } from '../../providers/add-services/add-services';
 import { Storage } from '@ionic/storage';
 
@@ -16,11 +16,14 @@ export class HomePostCommentPage {
 
   post_comment:any[] = []
 
+  comment:string='';    // Input Box
+
 
   constructor(private navCtrl: NavController,
               private navParams: NavParams,
               private addServicePro: AddServicesProvider,
-              private storage: Storage) {
+              private storage: Storage,
+              private viewCtrl:ViewController) {
              
               this.post_id = this.navParams.get('post_id');
   }
@@ -32,7 +35,7 @@ export class HomePostCommentPage {
           console.log('user_id', val);
           this.user_id = val;
 
-          this.addServicePro.getComment(this.post_id,this.user_id).subscribe(data=> {
+          this.addServicePro.getComment(this.post_id, this.user_id).subscribe(data=> {
             console.log(data);
             
             if(data['data'].length>0) {
@@ -47,10 +50,29 @@ export class HomePostCommentPage {
   }
 
   // post the comment
-  sendComment(comment) {
-    this.addServicePro.addComment(this.user_id,this.post_id,comment).subscribe(data=>{
+  sendComment() {
+    this.addServicePro.addComment(this.user_id, this.post_id, this.comment).subscribe(data=>{
       console.log(data);
+      // if(data['data'].message=="Comment Inserted Successfully" && data['data'].status=="success"){
+
+      //   this.addServicePro.getComment(this.post_id,this.user_id).subscribe(data=> {
+      //     console.log(data);
+          
+      //     if(data['data'].length>0) {
+      //       this.post_comment = data['data'];
+      //     }
+         
+      //     console.log(this.post_comment)
+      //   }) 
+
+      //   this.comment = '';  // reset input box
+      // }
     })
+  }
+
+
+  close() { //Close the Modal
+    this.viewCtrl.dismiss();
   }
 
 }
