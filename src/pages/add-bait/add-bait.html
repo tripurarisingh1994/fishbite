@@ -21,7 +21,13 @@
       </ion-item>
 </form>
   <ion-item (click)="openGallery()">
-      <ion-icon item-left name="images"></ion-icon>
+
+      <div *ngIf="!imgURI; else showImage">
+        <ion-icon item-left name="images"></ion-icon>
+      </div>
+      <ng-template #showImage>
+          <img [src]="imgURI" style="width:120px; height: 90px;">
+      </ng-template>
       {{imageName}}
   </ion-item>
 </ion-content>

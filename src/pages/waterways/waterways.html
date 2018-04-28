@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Waterways</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div *ngFor="let waterway of waterways" class="list-waterway">
+    <ion-item no-lines>
+      <ion-icon item-start name="compass"></ion-icon>
+       {{waterway.name}}
+    </ion-item>
+
+    <agm-map [latitude]="waterway.lat" [longitude]="waterway.lng"> 
+      <!-- <agm-marker [latitude]="{{waterway.name}}" [longitude]="{{waterway.name}}"></agm-marker> -->
+    </agm-map>
+
+  </div>
+
+</ion-content>

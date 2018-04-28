@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Fishing Methods</ion-title>
+    <ion-buttons end>
+      <button ion-button clear small (click)="done()">DONE</button>
+    </ion-buttons>
+  
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-list>
+
+        <ion-item *ngFor="let fishingMethod of fishingMethods">
+          <ion-label>{{fishingMethod.name}}</ion-label>
+          <ion-checkbox (ionChange)="upDateCheck(fishingMethod.id)"></ion-checkbox>
+        </ion-item>
+      
+      </ion-list>
+
+</ion-content>

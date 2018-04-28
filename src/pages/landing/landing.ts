@@ -5,7 +5,8 @@ import { SelectLanguagePage } from '../../pages/select-language/select-language'
 import { GooglePlus } from '@ionic-native/google-plus';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
-
+// import { Storage } from '@ionic/storage';
+// import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -13,6 +14,10 @@ import { AuthenticationProvider } from '../../providers/authentication/authentic
   templateUrl: 'landing.html',
 })
 export class LandingPage {
+
+
+  // user_id:number;
+
 
   /* 
    * Google Plus Fields 
@@ -36,10 +41,18 @@ export class LandingPage {
 
 
   constructor(private navCtrl: NavController,
-     private navParams: NavParams,
-     private googlePlus: GooglePlus,
-     private fb: Facebook,
-     private authServicePr: AuthenticationProvider) {
+              private navParams: NavParams,
+              private googlePlus: GooglePlus,
+              private fb: Facebook,
+              private authServicePr: AuthenticationProvider,
+              // private storage: Storage
+            ) {
+
+    // //  get user_id
+    // this.storage.get('user_id').then((val) => {
+    //   // console.log('user_id', val);
+    //   this.user_id = val;
+    // });
   }
 
   ionViewDidLoad() {
@@ -52,7 +65,7 @@ export class LandingPage {
    * Nevigating to SelectLanguagePage
   */
  goSignup() {
-    this.navCtrl.push(SelectLanguagePage);
+      this.navCtrl.push(SelectLanguagePage);
   }
 
   /**
@@ -61,7 +74,13 @@ export class LandingPage {
    * Nevigating to LoginPage
    */
   goLogin(){
-    this.navCtrl.push(LoginPage)
+    
+    // if(this.user_id) {
+    //     this.navCtrl.setRoot(HomePage)
+    // }
+    // else {
+        this.navCtrl.push(LoginPage)
+    // }
   }
 
   googlePlusLogin() {

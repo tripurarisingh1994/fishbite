@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class LanguageListProvider {
 
-  private url ='http://192.168.200.6/fishbite/public/api/language_list';
+  private url ='http://vps137395.vps.ovh.ca/fishbite/public/api/language_list';
   constructor(public http: HttpClient) {
     console.log('Hello LanguageListProvider Provider');
   }

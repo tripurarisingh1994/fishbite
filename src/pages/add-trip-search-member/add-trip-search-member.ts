@@ -47,13 +47,11 @@ export class AddTripSearchMemberPage {
 
   selectMember(member_id, member_name) {  // select member item
 
-    if(this.navCtrl.canGoBack) {
       this.addServiceProvider.member_id.push(member_id);
       this.addServiceProvider.member_name.push(member_name);
 
       this.navCtrl.pop();
-    }
-   
+    
   }
 
 }

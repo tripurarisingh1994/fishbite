@@ -15,7 +15,7 @@
       <button color="primary" ion-button icon-only (click)="goNotification()">
         <ion-icon name="notifications"></ion-icon>
       </button>
-      <button color="primary" ion-button icon-only (click)="goUserProfile()">
+      <button color="primary" ion-button icon-only>  <!-- (click)="goUserProfile()" -->
         <ion-icon name="contact"></ion-icon>
       </button>
       <button color="primary" ion-button icon-only on-tap="popoverKyndofishing($event)">
@@ -47,7 +47,7 @@
 
           <ion-col col-4 class="flow_avater">
             <h2 class="white_color text_center">Marty McFly</h2>
-            <button ion-button color="light" class="margin_auto" outline small>Edit Profile</button>
+            <button ion-button color="light" class="margin_auto" outline small (click)="editProfileModal()">Edit Profile</button>
           </ion-col>
 
           <ion-col col-4 class="flow">

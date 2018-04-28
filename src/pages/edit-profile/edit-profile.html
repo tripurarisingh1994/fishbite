@@ -1,0 +1,74 @@
+<ion-content>
+
+  <div class="header">
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button clear (click)="closeModal()">
+          Close
+        </button>
+      </ion-col>
+      <ion-col text-center>
+          <h5>Edit Profile</h5>
+      </ion-col>
+      <ion-col text-center>
+          <button ion-button clear (click)="save(fullname.value, username.value, bio.value, mail.value)">Save</button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="cust-content">
+    <ion-item-divider>
+        PROFILES
+    </ion-item-divider>
+
+      <ion-item>
+        <ion-icon item-start name="card"></ion-icon>
+        <ion-input #fullname type="text" placeholder="Full Name" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon item-start name="contact"></ion-icon>
+        <ion-input #username type="text" placeholder="Username" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon item-start name="paper"></ion-icon>
+        <ion-input #bio type="text" placeholder="Bio" required></ion-input>
+      </ion-item>
+
+      <ion-item (click)="goFishingMethods()">
+        <ion-icon item-start name="man"></ion-icon>
+        Fishing Methods
+        <ion-icon item-end name="arrow-forward"></ion-icon>
+      </ion-item>
+
+      <ion-item (click)="goCountry()">
+        <ion-icon item-start name="help-buoy"></ion-icon>
+        Country
+        <ion-icon item-end name="arrow-forward"></ion-icon>
+      </ion-item>
+
+
+      <ion-item-divider>
+          PRIVATE INFORMATION
+      </ion-item-divider>
+
+      <ion-item>
+          <ion-icon item-start name="mail"></ion-icon>
+          <ion-input #mail type="text" placeholder="Email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-icon item-start name="calendar"></ion-icon>
+          <ion-label>Date Of Birth</ion-label>
+          <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="dob"></ion-datetime>
+      </ion-item>
+
+      <ion-item (click)="genderAlert()">
+          <i item-start class="fa fa-venus-mars" style="font-size:27px"></i>
+          <ion-label>Gender</ion-label>
+      </ion-item>
+
+     </div> 
+
+</ion-content>

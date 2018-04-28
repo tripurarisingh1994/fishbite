@@ -15,14 +15,15 @@
 
 
 <ion-content>
-  <div class="containerr">
+  <div class="containerr" *ngFor="let trip of tripData;let i=index">
     <img class="imgTrip" src="assets/imgs/fishman.jpg">
     <div class="top-left">
-      <h4>Test</h4>
-      <p>Nov 21-22</p>
+      <h4>{{trip.name}}</h4>
+      <p>{{trip.starting_date}}</p>
+      <p>{{trip.ending_date}}</p>
     </div>
     <div class="bottom-left">
-      <p>Ongoing</p>
+      <p>{{trip_status[i]}}</p>
     </div>
     <div class="bottom-right">
       <button ion-button icon-only small><ion-icon name="contact"></ion-icon>1</button>

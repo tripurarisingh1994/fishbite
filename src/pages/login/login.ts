@@ -4,6 +4,8 @@ import { ForgotPassPage } from '../../pages/forgot-pass/forgot-pass';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
 import { HomePage } from '../home/home';
+import { Storage } from '@ionic/storage';
+
 
 @IonicPage()
 @Component({
@@ -15,11 +17,11 @@ export class LoginPage {
   private login: FormGroup;
 
   constructor(private navCtrl: NavController, 
-    private navParams: NavParams,
-    private formBuilder: FormBuilder,
-    private authProvider: AuthenticationProvider,
-    private toastCtrl: ToastController) {
-
+              private navParams: NavParams,
+              private formBuilder: FormBuilder,
+              private authProvider: AuthenticationProvider,
+              private toastCtrl: ToastController,
+              private storage: Storage) {
 
     this.login = this.formBuilder.group({
       username: ['',Validators.required],
@@ -35,14 +37,27 @@ export class LoginPage {
    * this method when trigger then click on 'Continue' button
   */
   doLogin(): void {
+
     console.log(this.login.value.username+"   "+this.login.value.password)
 
     this.authProvider.login(this.login.value.username,this.login.value.password).subscribe(data=> {
       console.log(data);
 
-      if(data['message']=='success')    this.navCtrl.setRoot(HomePage);
-      else if(data['message']=='fail')  this.presentToast('username or password is worng',3000,'bottom');
-      else if(data['message']=='error') this.presentToast('server error',3000,'bottom');
+      console.log(data['data'].id)
+      
+      if(data['message']=='success')  {
+         // set a key/value
+        this.storage.set('user_id', data['data'].id);
+
+        // Or to get a key/value pair
+        this.storage.get('user_id').then((val) => {
+          console.log('user_id', val);
+        });
+
+        this.navCtrl.setRoot(HomePage);
+      } 
+      else if(data['message']=='fail')  this.presentToast('username or password is worng',1000,'bottom');
+      else if(data['message']=='error') this.presentToast('server error',1000,'bottom');
 
     });
   }

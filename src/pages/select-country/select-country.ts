@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { SelectOptnPerBusiPage } from '../../pages/select-optn-per-busi/select-optn-per-busi';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { SelectOptnPerBusiPage } from '../select-optn-per-busi/select-optn-per-busi';
 import { CountryListProvider } from '../../providers/country-list/country-list';
 
 
@@ -22,19 +22,35 @@ export class SelectCountryPage {
   language='';
   constructor(private navCtrl: NavController,
      private navParams: NavParams,
-     private countryList: CountryListProvider) {
+     private countryList: CountryListProvider,
+     private loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectCountryPage');
+   
+    this.loadCountryList();
+
+    this.language = this.navParams.get('language');
+    console.log(this.language);
+  }
+
+  loadCountryList() {
+    let loader = this.loadingCtrl.create();
+
+    loader.present();
 
     this.countryList.countryListService().subscribe(data=> {
       console.log(data);
       this.country_list = data['data']
+
+      loader.dismiss();
+    },(err)=>{
+      loader.dismiss();
     })
-    this.language = this.navParams.get('language');
-    console.log(this.language);
   }
+
+
 
   /**
    * goPesrsonOrBusin() method

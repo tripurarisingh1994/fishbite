@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AuthenticationProvider {
 
-  private url ='http://192.168.200.6/fishbite/public/api/';
+  private url ='http://vps137395.vps.ovh.ca/fishbite/public/api/';
   
   constructor(public http: HttpClient) {
     console.log('Hello AuthenticationProvider Provider');
@@ -62,5 +62,22 @@ export class AuthenticationProvider {
      let data = new FormData();
      data.append("email",email);
      return this.http.post(this.url+'socialUser',data);
+   }
+
+   editProfile(user_id, fullname, username, countryName, fishingMethod_Id, gender, mail, dob, lat, lng) {    // For edit thr profile of user
+     let data = new FormData();
+         data.append('user_id',user_id)
+         data.append('fullname',fullname)
+         data.append('username',username)
+         data.append('country',countryName)
+         data.append('fishingmethod',fishingMethod_Id)
+         data.append('email',mail)
+         data.append('about','')
+         data.append('gender',gender)
+         data.append('birthday',dob)
+         data.append('lat',lat)
+         data.append('lng',lng)
+
+     return this.http.post(`${this.url}user/editProfile`,data);
    }
 }

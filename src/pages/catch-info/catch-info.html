@@ -1,11 +1,15 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
+      <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
-      </button>
+      </button> -->
     <ion-title>Catch Info</ion-title>
-    <ion-buttons end><button ion-button clear>SAVE</button></ion-buttons>
+    <ion-buttons end>
+      <button ion-button clear (click)="saveCatchInfo(desc.value, weight.value, length.value)">
+        SAVE
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -16,69 +20,106 @@
 
       <div>
         <ion-row>
-          <ion-col col-2>
+          <ion-col col-2 *ngIf="!imageSrc; else withImg">
               <ion-icon item-left name="images" on-tap="openGallery()"></ion-icon>
           </ion-col>
+          <ng-template #withImg>
+              <ion-col col-4>
+                  <!-- <ion-icon item-left name="images" on-tap="openGallery()"></ion-icon> -->
+                  <img class="img-select" src="{{imageSrc}}" (click)="openGallery()">
+              </ion-col>
+          </ng-template>
           <ion-col>
-             <ion-input class="bottom-bord" type="text" placeholder="Title"></ion-input> 
+             <ion-input #desc class="bottom-bord" type="text" placeholder="Title"></ion-input> 
           </ion-col>
         </ion-row>
       </div>
 
-    <ion-item>
-      <ion-icon item-left name="bug"></ion-icon>
-        Species
-      <ion-icon item-right name="arrow-forward"></ion-icon>
+    <ion-item (click)="selectSpecies()">
+        <ion-icon item-left name="bug"></ion-icon>
+        <div *ngIf="species_id && species_name; else species">
+            {{species_name}}
+        </div>
+        <ng-template #species> 
+          Species
+        </ng-template>
+        <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
+
     <ion-item>
         <ion-icon item-left name="calendar"></ion-icon>
         <ion-label>Date taken</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>  
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="catchDate"></ion-datetime>  
         <ion-icon item-right name="arrow-forward"></ion-icon>
       </ion-item>
     <div>
       <ion-grid>
         <ion-row>
           <ion-col col-5>
-            <ion-input class="ion-in" type="text" placeholder="Weight"></ion-input> 
+            <ion-input #weight class="ion-in" type="text" placeholder="Weight"></ion-input> 
           </ion-col>
             <div class="unit">Kg</div>
           <ion-col col-5>
-            <ion-input class="ion-in" type="text" placeholder="Length"></ion-input> 
+            <ion-input #length class="ion-in" type="text" placeholder="Length"></ion-input> 
           </ion-col>
           <div class="unit">Cm</div>
         </ion-row>
       </ion-grid>
     </div>
-    <ion-item>
+    <ion-item (click)="goBaits()">
         <ion-icon item-left name="american-football"></ion-icon>
-        Bait
+        <div *ngIf="bait_id && bait_name; else bait">
+          {{bait_name}}
+        </div>
+        <ng-template #bait>
+          Bait
+        </ng-template>
         <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
-    <ion-item>
+    <ion-item (click)="goTrip()">
         <ion-icon item-left name="briefcase"></ion-icon>
-        Trip
+        <div *ngIf="trip_id && trip_name; else trip">
+          {{trip_name}}
+        </div>
+        <ng-template #trip>
+            Trip
+        </ng-template>
+        
         <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
-    <ion-item>
+    <ion-item (click)="selectWaterWay()">
         <ion-icon item-left name="map"></ion-icon>
-        Waterways
+        <div *ngIf="water_way_id && water_way_name; else waterway">
+          {{ water_way_name }}
+        </div>
+        <ng-template #waterway>
+          Waterways
+        </ng-template>
+        
         <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
-    <ion-item>
+    <ion-item (click)="hitGps()">
         <ion-icon item-left name="pin"></ion-icon>
-        GPS Spot Public
+        <div *ngIf="location_string; else showLocation">
+            {{location_string}}
+        </div>
+        <ng-template #showLocation>
+            GPS Spot Public
+        </ng-template>
         <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
-    <ion-item>
+    <ion-item no-lines (click)="openNote()">
         <ion-icon item-left name="create"></ion-icon>
         Notes
         <ion-icon item-right name="arrow-forward"></ion-icon>
     </ion-item>
-    <ion-item>
+    <ion-item no-lines *ngIf="!isNoteHidden">
+      <ion-textarea (ngModel)="note" class="text-area" placeholder="Write Something About Your..."></ion-textarea>
+    </ion-item>
+    <!-- <ion-item>
         <ion-icon item-left name="cloudy"></ion-icon>
          Weather
          <ion-icon item-right name="arrow-forward"></ion-icon>
-    </ion-item>
+    </ion-item> -->
   </ion-list>
 </ion-content>

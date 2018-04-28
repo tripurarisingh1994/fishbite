@@ -1,39 +1,22 @@
 <ion-header>
 
   <ion-navbar>
-      <button ion-button menuToggle>
+      <!-- <button ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
-        </button>
-    <ion-title>fish-species</ion-title>
+        </button> -->
+    <ion-title>Select Species</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content>
-  <div>
       <ion-list>
-          <ion-item>
-              <ion-thumbnail item-end>
-                  <img src="../assets/imgs/landing.jpg">
+          <ion-item *ngFor="let speci of species" (click)="selectSpecies(speci.id,speci.name)">
+              <ion-thumbnail item-start>
+                  <img src="http://vps137395.vps.ovh.ca/fishbite{{speci.pic}}">
                 </ion-thumbnail>
-            <ion-label>Pepperoni</ion-label>
-            <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-              <ion-thumbnail item-end>
-                  <img src="../assets/imgs/landing.jpg">
-                </ion-thumbnail>
-            <ion-label>Pepperoni</ion-label>
-            <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
-          </ion-item>
-          <ion-item>
-              <ion-thumbnail item-end>
-                  <img src="../assets/imgs/landing.jpg">
-                </ion-thumbnail>
-            <ion-label>Pepperoni</ion-label>
-            <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+            <ion-label>{{speci.name}}</ion-label>
           </ion-item>
         </ion-list>
-  </div>
 </ion-content>

@@ -5,6 +5,7 @@ import { ChoosePlanPremiumTrailPage } from '../choose-plan-premium-trail/choose-
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { LandingPage } from '../landing/landing';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -29,12 +30,12 @@ export class PersonalRegistrationPage {
   lang:number;
 
   constructor(private navCtrl: NavController, 
-    private navParams: NavParams,
-    private formBuilder: FormBuilder,
-    private socialShare: SocialSharing,
-    private authProvider: AuthenticationProvider,
-    private toastCtrl: ToastController
-    ) {
+              private navParams: NavParams,
+              private formBuilder: FormBuilder,
+              private socialShare: SocialSharing,
+              private authProvider: AuthenticationProvider,
+              private toastCtrl: ToastController,
+              private storage: Storage) {
      
       this.personalRegist = this.formBuilder.group({
         name: ['', Validators.required],
@@ -108,6 +109,12 @@ export class PersonalRegistrationPage {
     this.authProvider.personalService(this.language,this.country,this.personalRegist.value.name,this.personalRegist.value.address,this.personalRegist.value.email,this.personalRegist.value.tel,this.personalRegist.value.password,this.lat, this.lang).subscribe(data=> {
       console.log(data);
       if(data['status']=='success') {
+
+         // set a key/value
+         console.log(data['id'])
+         
+        this.storage.set('user_id', data['id']);
+
         this.navCtrl.push(ChoosePlanPremiumTrailPage);
         /** Reset Form */
         this.personalRegist.reset();

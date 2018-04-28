@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Storage } from '@ionic/storage';
 
 import { HomePage } from '../pages/home/home';
 import { LandingPage } from "../pages/landing/landing";
@@ -20,10 +21,10 @@ import { LandingPage } from "../pages/landing/landing";
 // import { ProfilePage } from '../pages/profile/profile';
 // import { Profile1Page } from '../pages/profile1/profile1';
 // import { CatchInfoPage } from '../pages/catch-info/catch-info';
-import { PersonalRegistrationPage } from '../pages/personal-registration/personal-registration';
+// import { PersonalRegistrationPage } from '../pages/personal-registration/personal-registration';
 // import { SelectCountryPage } from '../pages/select-country/select-country';
 // import { SelectLanguagePage } from '../pages/select-language/select-language';
-import { BusinessRegistrationPage } from '../pages/business-registration/business-registration';
+// import { BusinessRegistrationPage } from '../pages/business-registration/business-registration';
 // import { UpgradePage } from '../pages/upgrade/upgrade';
 // import { AddTripPage } from '../pages/add-trip/add-trip';
 // import { AddBaitPage } from '../pages/add-bait/add-bait';
@@ -44,7 +45,8 @@ import { HelpAndSupportPage } from '../pages/help-and-support/help-and-support';
 import { LoyalityCompetitionPage } from '../pages/loyality-competition/loyality-competition';
 import { FishIntelPage } from '../pages/fish-intel/fish-intel';
 import { CalendarPage } from '../pages/calendar/calendar';
-import { GraphPage } from '../pages/graph/graph';
+// import { GraphPage } from '../pages/graph/graph';
+// import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 
 @Component({
   templateUrl: 'app.html'
@@ -52,29 +54,41 @@ import { GraphPage } from '../pages/graph/graph';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LandingPage;
+  rootPage: any;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    // this.initializeApp();
+  constructor(public platform: Platform,
+    public statusBar: StatusBar,
+    public splashScreen: SplashScreen,
+    private storage: Storage) {
+
+    this.storage.get('user_id').then((val) => {
+      console.log('user_id', val);
+      if (val) {
+        this.rootPage = HomePage;
+      }
+      else {
+        this.rootPage = LandingPage;
+      }
+    });
+    this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Fourm', component: ForumPage },
-      { title: 'Fishing and Boating Weather', component:'' },
-      { title: 'Fishing Intel', component:FishIntelPage},
-      { title: 'Loyalty,comp,new products', component:LoyalityCompetitionPage},
-      { title: 'Trip Diary', component:'' },
-      { title: 'Calender catch and trip diary', component:'' },
-      { title: 'Notifications', component:NotificationPage },
-      { title: 'Settings', component: SettingPage},
-      { title: 'Privacy', component:PrivacyPage},
-      { title: 'Terms and Conditions', component:TermsAndConditionsPage},
-      { title: 'Help and Support', component:HelpAndSupportPage},
+      { title: 'Fishing and Boating Weather', component: '' },
+      { title: 'Fishing Intel', component: FishIntelPage },
+      { title: 'Loyalty,comp,new products', component: LoyalityCompetitionPage },
+      { title: 'Trip Diary', component: '' },
+      { title: 'Calender catch and trip diary', component: '' },
+      { title: 'Notifications', component: NotificationPage },
+      { title: 'Settings', component: SettingPage },
+      { title: 'Privacy', component: PrivacyPage },
+      { title: 'Terms and Conditions', component: TermsAndConditionsPage },
+      { title: 'Help and Support', component: HelpAndSupportPage },
       // { title: 'Baits', component: BaitsPage },
-      // { title: 'Waterway', component: WaterwayPage },
       // { title: 'Trip', component: TripsPage },
       // { title: 'Discover', component: DiscoverPage },
       // { title: 'Discover Anglers', component: DiscoverAnglersPage },
@@ -101,12 +115,13 @@ export class MyApp {
       // { title: 'Profile', component: ProfilePage},
       // { title: 'Profile1', component: Profile1Page},
       // { title: 'Catch Info', component: CatchInfoPage},
-      { title: 'Personal Registration', component: PersonalRegistrationPage},
+      // { title: 'Personal Registration', component: PersonalRegistrationPage},
       // { title: 'Select Language', component: SelectLanguagePage},
       // { title: 'Select Country', component: SelectCountryPage},
-      { title: 'Business Registration', component: BusinessRegistrationPage},
-      { title: 'Calendar', component: CalendarPage},
-      { title: 'Graph', component: GraphPage},
+      // { title: 'Business Registration', component: BusinessRegistrationPage},
+      { title: 'Calendar', component: CalendarPage },
+      // { title: 'Graph', component: XGraphPage},
+      // { title: 'Edit Profile', component: EditProfilePage},
 
     ];
 

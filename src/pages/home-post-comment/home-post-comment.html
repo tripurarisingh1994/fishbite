@@ -11,8 +11,19 @@
     <div padding *ngIf="post_comment.length==0; else comm">
       <p text-center>No Comment Found</p>
     </div>
-    <ng-template #comm *ngFor="let pcomment of post_comment" padding>
-        <p>{{pcomment.comments}}</p>
+    <ng-template #comm  padding>
+        <div  *ngFor="let pcomment of post_comment">
+          <ion-item no-lines>
+            <ion-avatar item-start>
+              <img src="assets/imgs/default_user.png">
+            </ion-avatar>
+            <div class="comment">
+              <h3>{{pcomment.user.name}}</h3>
+              <p>{{pcomment.comments}}</p>
+          </div>
+          </ion-item>
+            
+        </div>
     </ng-template >
 </ion-content>
 

@@ -32,7 +32,7 @@
   </div>
 
       <div  *ngIf="isValid;else vid" class="imageV">
-          <img src="{{imgURI}}" />
+          <img [src]="imgURI" />
       </div>
 
       <ng-template #vid>

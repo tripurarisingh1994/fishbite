@@ -12,46 +12,21 @@ const httpOptions = {
 @Injectable()
 export class AddServicesProvider {
 
-public water_id;         // It variable for add-water-select-water.ts
-public water_name;   // It variable for add-water-select-water.ts
+public water_id:number;         // It variable for add-water-select-water.ts
+public water_name:string;   // It variable for add-water-select-water.ts
 
 
-public member_id:number[]=[];     // it variable for add-trip-search-member.ts
-public member_name:string[]=[];       // it variable for add-trip-search-member.ts
+public member_id:number[]   = [];     // it variable for add-trip-search-member.ts
+public member_name:string[] = [];       // it variable for add-trip-search-member.ts
 
 
 
-  private url="http://192.168.200.6/fishbite/public/api/";
+  private url="http://vps137395.vps.ovh.ca/fishbite/public/api/";
 
   constructor(public http: HttpClient) {
     console.log('Hello AddServicesProvider Provider');
 
   }
-
-  // addBaitService(name, desc, imgURI) {
-
-  //   console.log('base 64 img',base64Img)
-  //     let formData = new FormData();
-  //     formData.append('user_id','1')
-  //     formData.append('name',name)
-  //     formData.append('desc',desc)
-  //     formData.append('bait_photo',base64Img)
-
-
-  //  return this.http.post(this.url+'addBait',formData);
-
- 
-
-
-  // }
-
-  addCatchesService() {
-
-  }
-
-  // addMomentsService() {
-
-  // }
 
   addWaterWaysService(name,desc,userid, lat,lang) {
 
@@ -66,9 +41,9 @@ public member_name:string[]=[];       // it variable for add-trip-search-member.
     return this.http.post(this.url+'addWaterway',formData);
   }
 
-  addTripService() {
+  // addTripService() {
 
-  }
+  // }
 
   getLatLang() {  // Getting Latitude and longitude
     return this.http.get('http://ip-api.com/json');
@@ -137,6 +112,38 @@ public member_name:string[]=[];       // it variable for add-trip-search-member.
     data.append("social_name",social_name)
 
     return this.http.post(this.url+'sharePost',data)
+  }
+
+
+  // Getting Baits, Feed By User
+
+  getBaitData(user_id) {
+    let data = new FormData();
+    data.append('user_id',user_id);
+
+    return this.http.post(this.url+'getBait',data);
+  }
+
+
+
+  getTrip(user_id,offset) { // Get trip data
+    let data = new FormData();
+    data.append("user_id",user_id)
+    data.append("offset",offset);
+
+    return this.http.post(this.url+'getTrip',data);
+  }
+
+  getWaterways(user_id) {
+    let data = new FormData();
+    data.append('user_id',user_id);
+    return this.http.post(this.url+'getWaterway',data);
+  }
+
+  getCatch(user_id) {
+    let data = new FormData();
+    data.append('user_id',user_id); 
+    return this.http.post(this.url+'getCatch',data);
   }
 
 }

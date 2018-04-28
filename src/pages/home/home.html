@@ -57,18 +57,18 @@
           <p text-justify style="font-size:11px;padding:2px 6px;">{{post.post_name}}</p>
             <div *ngIf="post.post_files.s_filepath">
                   <div *ngIf="post.post_files.file=='image'; else video">
-                    <img class="post-img" src="http://192.168.200.6/fishbite/{{post.post_files.s_filepath}}/{{post.post_files.s_filname}}">
+                    <img class="post-img" src="http://vps137395.vps.ovh.ca/fishbite/{{post.post_files.s_filepath}}/{{post.post_files.s_filname}}">
                   </div>
                   <ng-template #video>
-                    <video controls="controls" src="http://192.168.200.6/fishbite/{{post.post_files.s_filepath}}/{{post.post_files.s_filname}}" preload="metadata"  webkit-playsinline="webkit-playsinline" class="videoPlayer">
+                    <video controls="controls" src="http://vps137395.vps.ovh.ca/fishbite/{{post.post_files.s_filepath}}/{{post.post_files.s_filname}}" preload="metadata"  webkit-playsinline="webkit-playsinline" class="videoPlayer">
                     </video>
                 </ng-template>
             </div>     
           <div>
             <button ion-button icon-only clear (click)="like(post.id)"><ion-icon name="thumbs-up"></ion-icon></button>
             <button ion-button icon-only clear (click)="goComment(post.id)"><ion-icon name="chatbubbles"></ion-icon></button>
-            <button ion-button icon-only clear (click)="whatsAppShare(post.id)" color="secondary"><ion-icon name="logo-whatsapp"></ion-icon></button>
-            <button ion-button icon-only clear (click)="fbShare(post.id)"><ion-icon name="logo-facebook"></ion-icon></button>
+            <button ion-button icon-only clear (click)="whatsAppShare(post)" color="secondary"><ion-icon name="logo-whatsapp"></ion-icon></button>
+            <button ion-button icon-only clear (click)="fbShare(post)"><ion-icon name="logo-facebook"></ion-icon></button>
             <!-- <button ion-button icon-only clear><ion-icon name="pin"></ion-icon></button> -->
             <!-- <button ion-button icon-only clear (click)="openShareOptions()"><ion-icon name="share"></ion-icon></button> -->
           </div>
@@ -91,7 +91,15 @@
   </ion-infinite-scroll> 
 
   <ion-fab bottom right>
-    <button ion-fab (click)="fabHit()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab (click)="fabHit()">
+      <div *ngIf="!isFabActive; else close">
+          <ion-icon name="add"></ion-icon>
+      </div>
+      
+      <ng-template #close>
+          <ion-icon name="close"></ion-icon>
+      </ng-template>
+    </button>
   </ion-fab>
 
   <!-- <div *ngIf="showShareOptions" class="social-sharing">

@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Countries</ion-title>
+    <ion-buttons end>
+      <button ion-button clear small (click)="done()">DONE</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-list radio-group [(ngModel)]="countryName" (ionChange)="selectCountry()">
+        <ion-item *ngFor="let country of countries">
+          <ion-label>{{country.country_name}}</ion-label>
+          <ion-radio value="{{country.country_name}}"></ion-radio>
+        </ion-item>
+    </ion-list>
+</ion-content>

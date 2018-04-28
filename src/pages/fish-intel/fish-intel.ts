@@ -47,6 +47,7 @@ export class FishIntelPage {
       }
     }
     let element: HTMLElement = document.getElementById('map'); 
+    console.log(element)
     this.map = GoogleMaps.create(element,mapOptions);
 
     // Wait the MAP_READY before using any methods.

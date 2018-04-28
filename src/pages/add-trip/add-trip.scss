@@ -2,7 +2,7 @@ page-add-trip {
     .gallery-button {
         width: 100%;  
         background-color: #EBEBEB;
-        height: 200px;  
+        height: 200px;
     }
     ion-icon[name=images] {	 
         border-radius: 50%;
@@ -11,6 +11,11 @@ page-add-trip {
         font-size: 25px;
         padding: 15px;	
         margin-top:61px;
+    }
+
+    .selectImage {
+      height: 200px !important;
+      width: 100%;
     }
    
 }

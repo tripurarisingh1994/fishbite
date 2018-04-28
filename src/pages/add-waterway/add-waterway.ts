@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, LoadingController, ToastController, NavController } from 'ionic-angular';
 import { AddServicesProvider } from '../../providers/add-services/add-services';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -12,11 +13,19 @@ export class AddWaterwayPage {
   lat:number;              // Assign the Latitude
   lang:number;            //  Assign the Logitude
 
-  user_id:number=1;
+  user_id:number;
 
-  constructor(private addServiceProvider: AddServicesProvider,
+  constructor(private navCtrl: NavController,
+              private addServiceProvider: AddServicesProvider,
               private loadingCtrl: LoadingController,
-              private toastCtrl: ToastController) {
+              private toastCtrl: ToastController,
+              private storage: Storage) {
+
+        // Or to get user_id
+        this.storage.get('user_id').then((val) => {
+          console.log('user_id', val);
+          this.user_id = val;
+        });
   }
 
   ionViewDidLoad() {
@@ -51,12 +60,13 @@ export class AddWaterwayPage {
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
-      duration: 3000,
+      duration: 1000,
       position: 'bottom'
     });
   
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
+      this.navCtrl.pop();
     });
   
     toast.present();

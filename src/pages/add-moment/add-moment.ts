@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, ViewController, ModalController, LoadingController, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, ModalController, LoadingController, ToastController, normalizeURL } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
 import { AuthenticationProvider } from '../../providers/authentication/authentication'; 
+import { Storage } from '@ionic/storage';
+import { FilePath } from '@ionic-native/file-path';
+import { Platform } from 'ionic-angular';
+
 
 @IonicPage()
 @Component({
@@ -18,6 +22,8 @@ export class AddMomentPage {
   post_img_video:any;
   isValid:boolean=true;
   mimeType:string='';
+
+  user_id:number;
   
   postDesc:string='';   // Storing post description
 
@@ -27,7 +33,16 @@ export class AddMomentPage {
               private loadingCtrl: LoadingController,
               private transfer: FileTransfer,
               private toastCtrl: ToastController,
-              private authSerPro: AuthenticationProvider) {
+              private authSerPro: AuthenticationProvider,
+              private storage: Storage,
+              private filePath: FilePath,
+              private plt: Platform) {
+
+        // Or to get user_id
+        this.storage.get('user_id').then((val) => {
+          console.log('user_id', val);
+          this.user_id = val;
+        });
  }
 
   ionViewDidLoad() {
@@ -45,6 +60,7 @@ export class AddMomentPage {
   getImage() {
     this.isValid = true;
     this.mimeType = 'image/jpeg';
+    
     const options: CameraOptions = {
       quality:50,
       destinationType: this.camera.DestinationType.FILE_URI,
@@ -53,7 +69,20 @@ export class AddMomentPage {
     }
 
     this.camera.getPicture(options).then((imageData)=> {
-      this.imgURI = imageData;
+
+      if (this.plt.is('android')) {
+        this.filePath.resolveNativePath(imageData)
+        .then(filePath =>{
+          console.log(filePath)
+          
+          this.imgURI = filePath;
+        })
+        .catch(err => console.log(err));
+      }
+      else {
+        this.imgURI = imageData;
+      }
+      
       console.log("this.imgURI",this.imgURI);
     }, (err)=> {
       console.log(err)
@@ -101,20 +130,19 @@ export class AddMomentPage {
       chunkedMode: false,
       mimeType: this.mimeType,
       headers: {Connection: "close"},
-      params: {'user_id':1,'post_name':this.postDesc,'lat':this.lat,'lng':this.lang,'location_string':'kolkta'}
+      params: {'user_id':this.user_id,'post_name':this.postDesc,'lat':this.lat,'lng':this.lang,'location_string':'kolkta'}
     }
     // console.log(this.post_img_video.substr(this.post_img_video.lastIndexOf('/')+1));
     // console.log(options);
 
-    fileTransfer.upload(this.post_img_video,'http://192.168.200.6/fishbite/public/api/addPost',options).
+    fileTransfer.upload(this.post_img_video,'http://vps137395.vps.ovh.ca/fishbite/public/api/addPost',options).
     then((data)=> {
-      // console.log(JSON.stringify(data));
       // console.log(data+" Uploaded Successfully");
-      // this.imageFileName = "http://192.168.200.6/fishbite/imfges/ii.jpg"
       loader.dismiss();
-      this.presentToast("Post uploaded successfully");
+      this.presentToast("Uploaded successfully");
+
     },(err)=> {
-      console.log("err",err);
+      console.log("error",err);
       loader.dismiss();
     })
 
@@ -124,12 +152,13 @@ export class AddMomentPage {
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
-      duration: 3000,
+      duration: 1000,
       position: 'bottom'
     });
   
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
+      this.viewCtrl.dismiss();
     });
   
     toast.present();

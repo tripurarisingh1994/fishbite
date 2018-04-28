@@ -14,7 +14,13 @@
 <ion-content>
   <ion-list>
 
-    <ion-item>
+    <ion-item (click)="selectBait(bait.name,bait.id)" *ngFor="let bait of baits">
+      <ion-icon  item-start name="bug"></ion-icon>
+      <h4>{{bait.name}}</h4>
+      <p>0 Catches</p>
+    </ion-item>
+
+    <!-- <ion-item>
       <ion-icon  item-start name="bug"></ion-icon>
       <h4>ABC</h4>
       <p>0 Catches</p>
@@ -42,13 +48,7 @@
       <ion-icon  item-start name="bug"></ion-icon>
       <h4>ABC</h4>
       <p>0 Catches</p>
-    </ion-item>
-
-    <ion-item>
-      <ion-icon  item-start name="bug"></ion-icon>
-      <h4>ABC</h4>
-      <p>0 Catches</p>
-    </ion-item>
+    </ion-item> -->
 
   </ion-list>
 

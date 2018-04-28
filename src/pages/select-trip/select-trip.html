@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Select Trip</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-list>
+  <ion-item (click)="selectTrip(trip.id, trip.name, trip.waterways)" *ngFor="let trip of trips">
+    {{trip.name}}
+  </ion-item>
+</ion-list>
+
+</ion-content>

@@ -17,3 +17,50 @@ remove imagepicker lib
       // Insert your code here
   }
 );
+
+
+
+
+  <!-- <ion-item-divider>
+          Recently used
+      </ion-item-divider>
+  <div>    
+      <ion-item>
+          <ion-icon item-start name="map"></ion-icon>
+          <ion-label>Pollock</ion-label>
+          <ion-radio value="pollock" checked></ion-radio>
+     </ion-item>
+  </div>
+
+ 
+      <ion-item-divider>
+          Waterway
+      </ion-item-divider>
+  <div>
+    <ion-list radio-group [(ngModel)]="autoManufacturers">
+      <ion-item>
+          <ion-icon item-start name="boat"></ion-icon>
+          <ion-label><p>Caboolture River</p> <p>Queenland-AU</p></ion-label>
+          <ion-icon item-end name="bug"></ion-icon>
+          <ion-radio value="caboolture"></ion-radio>
+      </ion-item>
+      <ion-item>
+          <ion-icon item-start name="boat"></ion-icon>
+          <ion-label><p>South Pine River</p> <p>Queenland-AU</p></ion-label>
+          <ion-icon item-end name="bug"></ion-icon>
+          <ion-radio value="caboolture"></ion-radio>
+      </ion-item>
+      <ion-item>
+          <ion-icon item-start name="boat"></ion-icon>
+          <ion-label><p>Caboolture River</p> <p>Queenland-AU</p></ion-label>
+          <ion-icon item-end name="bug"></ion-icon>
+          <ion-radio value="caboolture"></ion-radio>
+      </ion-item>
+      <ion-item>
+          <ion-icon item-start name="boat"></ion-icon>
+          <ion-label><p>South Pine River</p> <p>Queenland-AU</p></ion-label>
+          <ion-icon item-end name="bug"></ion-icon>
+          <ion-radio value="caboolture"></ion-radio>
+      </ion-item>
+    </ion-list>
+  </div> -->

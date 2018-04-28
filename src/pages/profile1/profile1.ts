@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ActionSheetController, ModalController} from 'ionic-angular';
 import { SettingPage } from '../setting/setting';
 import { NotificationPage } from '../notification/notification';
 import { DiscoverPage } from '../discover/discover';
 import { KyndofishingPopoverPage } from '../kyndofishing-popover/kyndofishing-popover';
 import { PopoverController } from 'ionic-angular';
 import { FishIntelPage } from '../fish-intel/fish-intel';
-import { AddTripPage } from '../add-trip/add-trip';
-import { AddWaterwayPage } from '../add-waterway/add-waterway';
-import { CatchInfoPage } from '../catch-info/catch-info';
-import { AddBaitPage } from '../add-bait/add-bait';
 import { AddMomentPage } from '../add-moment/add-moment';
-
+import { TripsPage } from '../trips/trips';
+import { BaitsPage } from '../baits/baits';
+import { WaterwaysPage } from '../waterways/waterways';
+import { EditProfilePage } from '../edit-profile/edit-profile';
+import { MyCatchesPage } from '../my-catches/my-catches';
 
 
 @IonicPage()
@@ -24,7 +24,8 @@ export class Profile1Page {
   constructor(private navCtrl: NavController, 
     private navParams: NavParams,
     private popoverCtrl:PopoverController,
-    private actionSheetCtrl: ActionSheetController) {
+    private actionSheetCtrl: ActionSheetController,
+    private modalCtrl: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -60,9 +61,9 @@ export class Profile1Page {
     console.log('working');
   }
 
-  goUserProfile(): void {
-    this.navCtrl.push(Profile1Page)
-  }
+  // goUserProfile(): void {
+  //   this.navCtrl.push(Profile1Page)
+  // }
 
   more(): void {
     let actionSheet = this.actionSheetCtrl.create({
@@ -94,23 +95,29 @@ export class Profile1Page {
   }
 
   goAddBait(): void {
-    this.navCtrl.push(AddBaitPage);
+    this.navCtrl.push(BaitsPage);
   }
 
   goAddCatch(): void {
-    this.navCtrl.push(CatchInfoPage);
+    this.navCtrl.push(MyCatchesPage);
   }
 
   goAddWaterWay(): void {
-    this.navCtrl.push(AddWaterwayPage);
+       this.navCtrl.push(WaterwaysPage)
   }
 
   goAddTrip(): void {
-    this.navCtrl.push(AddTripPage);
+    this.navCtrl.push(TripsPage);
   }
   
   goAddMoment(): void {
     this.navCtrl.push(AddMomentPage);
+  }
+
+
+  editProfileModal() {
+    let profileModal = this.modalCtrl.create(EditProfilePage);
+    profileModal.present();
   }
 
 }

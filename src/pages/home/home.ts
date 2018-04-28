@@ -10,8 +10,8 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { NativeAudio } from '@ionic-native/native-audio';
 import { FishIntelPage } from '../fish-intel/fish-intel';
 import { HomePostCommentPage } from '../home-post-comment/home-post-comment';
-
 import { AddServicesProvider } from '../../providers/add-services/add-services';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-home',
@@ -29,20 +29,22 @@ export class HomePage {
   */
 
   posts: any[] = [];        // Storing post data
-  user_id: number = 1;      // Storing logged in user id 
+  user_id: number;      // Storing logged in user id 
+
   hit_post_id:number[]=[];       // When hit like button, it stores the post id of which post
   offset: number=0;
 
   constructor(private navCtrl: NavController,
-    private popoverCtrl: PopoverController,
-    private camera: Camera,
-    private modalCtrl: ModalController,
-    private actionSheetCtrl: ActionSheetController,
-    private socialShare: SocialSharing,
-    private nativeAudio: NativeAudio,
-    private platform: Platform,
-    private addServicePro: AddServicesProvider,
-    private loadingCtrl: LoadingController) {
+              private popoverCtrl: PopoverController,
+              private camera: Camera,
+              private modalCtrl: ModalController,
+              private actionSheetCtrl: ActionSheetController,
+              private socialShare: SocialSharing,
+              private nativeAudio: NativeAudio,
+              private platform: Platform,
+              private addServicePro: AddServicesProvider,
+              private loadingCtrl: LoadingController,
+              private storage: Storage) {
 
     this.platform.ready().then(() => {
       this.nativeAudio.preloadSimple('like', 'assets/audio/like.mp3')
@@ -61,15 +63,25 @@ export class HomePage {
 
 
   ionViewDidLoad() {
-    let loading = this.loadingCtrl.create();    // starting the loader
-    loading.present();
 
-    this.addServicePro.getPostData(this.user_id, this.offset).subscribe(data => {  // @param1 user_id, @param2 offset 
-      console.log(data)
-      this.posts = data['data'];
-      loading.dismiss();
-      console.log(this.posts);
-    })
+     this.storage.get('user_id').then((val) => {
+      console.log('user_id', val);
+      this.user_id = val;
+
+      let loading = this.loadingCtrl.create({showBackdrop:false});    // starting the loader
+      loading.present();
+  
+      this.addServicePro.getPostData(this.user_id, this.offset).subscribe(data => {  // @param1 user_id, @param2 offset 
+        console.log(data)
+        this.posts = data['data'];
+        loading.dismiss();
+        console.log(this.posts);
+      })
+      
+    });  
+
+
+   
   }
 
   /**
@@ -162,14 +174,14 @@ export class HomePage {
   }
 
   /** Social Media Sharing */
-  whatsAppShare(postid): void {
-    console.log("postid",postid)
-    this.socialShare.shareViaWhatsApp('Hi')
+  whatsAppShare(post): void {
+    console.log("post",post)
+    this.socialShare.shareViaWhatsApp(post.post_name,null,`http://vps137395.vps.ovh.ca/fishbite/${post.post_files.s_filepath}/${post.post_files.s_filname}`)
       .then((data) => {
         console.log(data);
         console.log('Message Sent');
 
-        this.addServicePro.addShare(this.user_id, postid,'whatsapp').subscribe(data=> {
+        this.addServicePro.addShare(this.user_id, post.id,'whatsapp').subscribe(data=> {
           console.log(data)
         })
       })
@@ -178,14 +190,17 @@ export class HomePage {
       })
   }
 
-  fbShare(postid): void {
-    console.log("postid",postid)
-    this.socialShare.shareViaFacebook('Hi')
+  fbShare(post): void {
+    console.log("post",post)
+    // console.log("post.post_content",post.post_name)
+    // console.log(`http://vps137395.vps.ovh.ca/fishbite/${post.post_files.s_filepath}/${post.post_files.s_filname}`)
+
+    this.socialShare.shareViaFacebook(post.post_name,null,`http://vps137395.vps.ovh.ca/fishbite/${post.post_files.s_filepath}/${post.post_files.s_filname}`)
       .then((data) => {
         console.log(data);
         console.log('Message Sent');
 
-        this.addServicePro.addShare(this.user_id, postid,'facebook').subscribe(data=> {
+        this.addServicePro.addShare(this.user_id, post.id,'facebook').subscribe(data=> {
           console.log(data)
         })
       })
@@ -196,7 +211,7 @@ export class HomePage {
 
   // openShareOptions(): void {
   //   this.showShareOptions = !this.showShareOptions;
-  // }
+  // 
 
   like(postid): void {
      this.hit_post_id.push(postid);
@@ -230,33 +245,12 @@ export class HomePage {
           console.log("data['data'][i]", data['data'][i])
           this.posts.push(data['data'][i])
         }
-        // this.posts = data['data'];
+        
         console.log(this.posts);
       })
 
-      console.log('Async operation has ended');
       infiniteScroll.complete();
     }, 1000);
   }
 
-  // doInfinite(infiniteScroll) {
-  //   this.page = this.page+1;
-  //   setTimeout(() => {
-  //     this.restApi.getUsers(this.page)
-  //        .subscribe(
-  //          res => {
-  //            this.data = res;
-  //            this.perPage = this.data.per_page;
-  //            this.totalData = this.data.total;
-  //            this.totalPage = this.data.total_pages;
-  //            for(let i=0; i<this.data.data.length; i++) {
-  //              this.users.push(this.data.data[i]);
-  //            }
-  //          },
-  //          error =>  this.errorMessage = <any>error);
-
-  //     console.log('Async operation has ended');
-  //     infiniteScroll.complete();
-  //   }, 1000);
-  // }
 }

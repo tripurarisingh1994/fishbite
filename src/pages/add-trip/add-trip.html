@@ -10,9 +10,13 @@
 
 
 <ion-content>
-  <div class="gallery-button" text-center>
-    <img [src]="imgURI" />   
-    <ion-icon name="images" on-tap="openGallery()"></ion-icon>
+  <div class="gallery-button" (click)="openGallery()" text-center>
+    <div *ngIf="!imgURI; else showImage">
+        <ion-icon name="images"></ion-icon>
+    </div>
+    <ng-template #showImage>
+        <img class="selectImage" [src]="imgURI" />
+    </ng-template>
   </div>
   <div>
       <ion-item>
