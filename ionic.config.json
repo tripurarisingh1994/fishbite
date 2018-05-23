@@ -1,6 +1,6 @@
 {
   "name": "fishbite",
-  "app_id": "",
+  "app_id": "b1563aca",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

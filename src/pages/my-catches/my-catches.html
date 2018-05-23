@@ -21,36 +21,9 @@
 <ion-content>
     <ion-grid>
       <ion-row>
-        <ion-col col-4>
-          <img src="assets/imgs/fish1.jpg">
+        <ion-col col-4 *ngFor="let catch of catchData">
+          <img src="http://vps137395.vps.ovh.ca/fishbite/{{catch.post_files.s_filepath}}/{{catch.post_files.s_filname}}">
         </ion-col>
-        <ion-col col-4>
-          <img src="assets/imgs/fish3.jpg">
-        </ion-col>
-        <ion-col col-4>
-          <img src="assets/imgs/fish4.jpg">
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col col-4> 
-          <img src="assets/imgs/fish1.jpg">
-        </ion-col>
-        <ion-col col-4>
-          <img src="assets/imgs/fish3.jpg">
-        </ion-col>
-        <ion-col col-4>
-          <img src="assets/imgs/fish4.jpg">
-        </ion-col>
-      </ion-row>
-
-      <ion-row>
-        <ion-col col-4>
-          <img src="assets/imgs/fish1.jpg">
-        </ion-col>
-        <ion-col col-4>
-          <img src="assets/imgs/fish3.jpg">
-        </ion-col>
-      </ion-row>
+      </ion-row> 
     </ion-grid>
 </ion-content>

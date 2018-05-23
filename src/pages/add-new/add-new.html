@@ -1,45 +1,36 @@
-<ion-content>
-    <div class="bg">
+<ion-header>
 
-        <div padding>
-            <p text-center style="color:#fff; text-align:center">Add New</p>
+    <ion-navbar>
+      <ion-title>Add New</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+<ion-content class="bg">
+        <div class="logo">
+                <img src="assets/imgs/fishlogo.png" alt="Logo" height="80" width="150">
         </div>
-        <div>
-            <div>
-                <button ion-fab right class="trip" (click)="goAddTrip()">
-                    <img src="assets/imgs/trip.png">
+        <div text-center class="btns tripom">
+         
+                <button ion-button full  (click)="goAddTrip()">
+                    <span>TRIPS</span>
                 </button>
-            </div>
-            <div>
-                <ion-row>
-                    <ion-col>
-                        <button ion-fab class="waterway" (click)="goAddWaterWay()">
-                         
-                            <img src="assets/imgs/water-way.png">
-                        </button>
-                    </ion-col>
-                    <ion-col>
-                        <button ion-fab class="bait" (click)="goAddBait()">
-                              <img src="assets/imgs/bait.png">
-                        </button>
-                    </ion-col>
-                </ion-row>
-            </div>
-            <div>
-                <ion-row>
-                    <ion-col>
-                        <button ion-fab class="addmoment" (click)="goAddCatch()">
-                            <img src="assets/imgs/catch.png">
-                        </button>
-                    </ion-col>
-                    <ion-col>
-                        <button ion-fab class="catch" (click)="goAddMoment()">
-                            <img src="assets/imgs/add-moment.png">
-                        </button>
-                    </ion-col>
-                </ion-row>
-            </div>
 
+                <button ion-button full (click)="goAddWaterWay()">
+                    <span>WATERWAYS</span>
+                </button>
+         
+                <button ion-button full  (click)="goAddBait()">
+                    <span> BAITS</span>
+                </button>
+        
+                <button ion-button full  (click)="goAddCatch()">
+                    <span> CATCHES</span>
+                </button>
+       
+                <button ion-button full (click)="goAddMoment()">
+                    <span>  SNAPSHOTS</span>
+                </button>
+    
         </div>
-    </div>
+
 </ion-content>

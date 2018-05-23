@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <img src="assets/imgs/logo-polo.png">
     <ion-buttons end>
@@ -22,12 +22,18 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-</ion-header>
+
+</ion-header> -->
+
+<!-- <ion-header>
+
+</ion-header> -->
 
 <ion-content>
 
   <div class="home-contain" [ngClass]="{'home-bg': isFabActive}">
-    <ion-row>
+    
+    <!-- <ion-row>
         <ion-col>
           <button ion-button  small clear (click)="openGallery()">
               <img class="mt10" src="assets/imgs/log-fish.png">
@@ -40,8 +46,8 @@
               Add Moment
           </button>
         </ion-col>
-      </ion-row>
-
+      </ion-row> -->
+  
     <div *ngFor="let post of posts; let i=index">
         <ion-card>
           <ion-item>
@@ -75,8 +81,9 @@
           <div class="hr"></div>
           <ion-row>
             <ion-col col-4>
-              <div *ngIf="hit_post_id && post.id==hit_post_id[i]; else nohit">You and {{post.likes}} other</div>
-              <ng-template #nohit>{{post.likes}} likes</ng-template>
+              <!-- <div *ngIf="hit_post_id && post.id==hit_post_id[i]; else nohit">You and {{post.likes}} other</div>
+              <ng-template #nohit>{{post.likes}} likes</ng-template> -->
+              <div>{{post.likes}} likes</div>
             </ion-col>
             <ion-col col-4>{{post.comments}} comments</ion-col>
             <ion-col col-4>{{post.share}} share</ion-col>
@@ -90,17 +97,17 @@
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data..."></ion-infinite-scroll-content>
   </ion-infinite-scroll> 
 
-  <ion-fab bottom right>
-    <button ion-fab (click)="fabHit()">
-      <div *ngIf="!isFabActive; else close">
-          <ion-icon name="add"></ion-icon>
-      </div>
+  <!-- <ion-fab bottom right> -->
+    <!-- <button ion-fab (click)="fabHit()"> -->
+      <!-- <div *ngIf="!isFabActive; else close"> -->
+          <!-- <ion-icon name="add"></ion-icon> -->
+      <!-- </div> -->
       
-      <ng-template #close>
+      <!-- <ng-template #close>
           <ion-icon name="close"></ion-icon>
-      </ng-template>
-    </button>
-  </ion-fab>
+      </ng-template>-->
+    <!-- </button>  -->
+  <!-- </ion-fab> -->
 
   <!-- <div *ngIf="showShareOptions" class="social-sharing">
     <ion-row>
@@ -121,4 +128,4 @@
 
 </ion-content>
 
-<page-add-new *ngIf="isFabActive"></page-add-new>
+<!-- <page-add-new *ngIf="isFabActive"></page-add-new> -->

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ToastController  } from 'ionic-angular';
-import { ForgotPassPage } from '../../pages/forgot-pass/forgot-pass';
+import { ForgotPassPage } from '../forgot-pass/forgot-pass';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { AuthenticationProvider } from '../../providers/authentication/authentication';
-import { HomePage } from '../home/home';
 import { Storage } from '@ionic/storage';
+import { MainPage } from '../main/main';
 
 
 @IonicPage()
@@ -48,13 +48,17 @@ export class LoginPage {
       if(data['message']=='success')  {
          // set a key/value
         this.storage.set('user_id', data['data'].id);
+        this.storage.set('user_name', data['data'].name);
 
         // Or to get a key/value pair
-        this.storage.get('user_id').then((val) => {
-          console.log('user_id', val);
+        this.storage.get('user_id').then((user_id) => {
+          console.log('user_id', user_id);
+        });
+        this.storage.get('user_name').then((user_name) => {
+          console.log('user_name', user_name);
         });
 
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(MainPage);
       } 
       else if(data['message']=='fail')  this.presentToast('username or password is worng',1000,'bottom');
       else if(data['message']=='error') this.presentToast('server error',1000,'bottom');

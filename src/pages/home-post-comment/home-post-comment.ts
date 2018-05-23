@@ -31,42 +31,38 @@ export class HomePostCommentPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad HomePostCommentPage');
 
-         this.storage.get('user_id').then((val) => {
-          console.log('user_id', val);
-          this.user_id = val;
-
-          this.addServicePro.getComment(this.post_id, this.user_id).subscribe(data=> {
-            console.log(data);
-            
-            if(data['data'].length>0) {
-              this.post_comment = data['data'];
-            }
-           
-            console.log(this.post_comment)
-          })
+         this.storage.get('user_id').then((user_id) => {
+          console.log('user_id', user_id);
+          this.user_id = user_id;
           
+          this.loadComment();
         });
 
   }
+
+  loadComment() {
+    this.addServicePro.getComment(this.post_id, this.user_id).subscribe(data=> {
+      console.log(data);
+      
+      if(data['data'].length>0) {
+        this.post_comment = data['data'];
+      }
+     
+      console.log(this.post_comment)
+    })
+  }
+
 
   // post the comment
   sendComment() {
     this.addServicePro.addComment(this.user_id, this.post_id, this.comment).subscribe(data=>{
       console.log(data);
-      // if(data['data'].message=="Comment Inserted Successfully" && data['data'].status=="success"){
+      if(data['message']=='Comment Inserted Successfully') {
 
-      //   this.addServicePro.getComment(this.post_id,this.user_id).subscribe(data=> {
-      //     console.log(data);
-          
-      //     if(data['data'].length>0) {
-      //       this.post_comment = data['data'];
-      //     }
-         
-      //     console.log(this.post_comment)
-      //   }) 
-
-      //   this.comment = '';  // reset input box
-      // }
+       this.loadComment();
+       
+       this.comment=""; 
+      }
     })
   }
 

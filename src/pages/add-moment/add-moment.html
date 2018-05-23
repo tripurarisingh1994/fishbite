@@ -14,45 +14,38 @@
 
 
 <ion-content>
-  <ion-row>
-    <ion-col>
-      <ion-item>
-        <div item-start>
-            <ion-icon  name="contact"></ion-icon>
-            TripSingh
-        </div>
-            <img item-end src="assets/imgs/fb.png">
-            <ion-toggle></ion-toggle>
-      </ion-item>
-    </ion-col>
-  </ion-row>
+  <ion-item>
+    <div item-start>
+      <ion-icon class="profile" name="contact"></ion-icon>
+      <span style="vertical-align: super;">{{user_name}}</span>
+    </div>
+    <img item-end src="assets/imgs/fb.png">
+    <ion-toggle></ion-toggle>
+  </ion-item>
 
   <div class="input-ion">
-      <ion-input type="text" [(ngModel)]="postDesc" placeholder="What's on your fishbite?"></ion-input>
+    <ion-input type="text" [(ngModel)]="postDesc" placeholder="What's on your fishbite?"></ion-input>
   </div>
 
-      <div  *ngIf="isValid;else vid" class="imageV">
-          <img [src]="imgURI" />
-      </div>
+  <div *ngIf="isValid;else vid" class="imageV">
+    <img [src]="imgURI" />
+  </div>
 
-      <ng-template #vid>
-          <video controls="controls" [src]="videoURI" preload="metadata" webkit-playsinline="webkit-playsinline" class="videoPlayer">
-          </video>
-      </ng-template>
-     
- 
+  <ng-template #vid>
+    <video controls="controls" [src]="videoURI" preload="metadata" webkit-playsinline="webkit-playsinline" class="videoPlayer">
+    </video>
+  </ng-template>
+
+
   <div class="bottom-btn">
     <ion-item (click)="getImage()" class="item-border">
-        <img item-start src="assets/imgs/cam-icon.png">
-        Photo
-      </ion-item>
-      <ion-item class="item-border" (click)="getVideo()">
-          <img item-start src="assets/imgs/video-icon.png">
-          Video
-      </ion-item>
-      <ion-item class="item-border">
-          <img item-start src="assets/imgs/waterway.png">
-          Fishing Location
-      </ion-item>
+      <img item-start src="assets/imgs/cam-icon.png"> Photo
+    </ion-item>
+    <ion-item class="item-border" (click)="getVideo()">
+      <img item-start src="assets/imgs/video-icon.png"> Video
+    </ion-item>
+    <ion-item class="item-border">
+      <img item-start src="assets/imgs/waterway.png"> Fishing Location
+    </ion-item>
   </div>
 </ion-content>

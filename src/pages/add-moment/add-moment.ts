@@ -6,6 +6,7 @@ import { AuthenticationProvider } from '../../providers/authentication/authentic
 import { Storage } from '@ionic/storage';
 import { FilePath } from '@ionic-native/file-path';
 import { Platform } from 'ionic-angular';
+import { MainPage } from '../main/main';
 
 
 @IonicPage()
@@ -24,6 +25,7 @@ export class AddMomentPage {
   mimeType:string='';
 
   user_id:number;
+  user_name:string;
   
   postDesc:string='';   // Storing post description
 
@@ -38,15 +40,22 @@ export class AddMomentPage {
               private filePath: FilePath,
               private plt: Platform) {
 
-        // Or to get user_id
-        this.storage.get('user_id').then((val) => {
-          console.log('user_id', val);
-          this.user_id = val;
+        // get user_id
+        this.storage.get('user_id').then((user_id) => {
+          console.log('user_id', user_id);
+          this.user_id = user_id;
+        });
+
+        this.storage.get('user_name').then((user_name) => {
+          console.log('user_name', user_name);
+          this.user_name = user_name;
         });
  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddMomentPage');
+
+
     this.authSerPro.getLatLang().subscribe(data=> {
       this.lat = data['lat'];
       this.lang = data['lon'];
@@ -158,7 +167,9 @@ export class AddMomentPage {
   
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
-      this.viewCtrl.dismiss();
+      // this.viewCtrl.dismiss();
+      // this.navCtrl.popToRoot();
+      this.navCtrl.setRoot(MainPage);
     });
   
     toast.present();

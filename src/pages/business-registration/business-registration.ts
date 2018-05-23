@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { Profile1Page } from '../profile1/profile1';
-import { SocialSharing } from '@ionic-native/social-sharing';
+// import { SocialSharing } from '@ionic-native/social-sharing';
 import { LandingPage } from '../landing/landing';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook';
+
 
 @IonicPage()
 @Component({
@@ -15,7 +17,8 @@ export class BusinessRegistrationPage {
   countStaff=1;
   countAmbassadors=1;
   constructor(private navCtrl: NavController,
-     private socialShare: SocialSharing) {
+    //  private socialShare: SocialSharing,
+        private fb: Facebook,) {
   }
 
   // registrationType Variable is used for storing radio button values of shops,staff,ambassadors
@@ -95,12 +98,27 @@ export class BusinessRegistrationPage {
 
   fbCheckedStaff(): void {
     console.log('fb staff check');
-    this.socialShare.shareViaFacebook('FishBite Social Share')
+    // this.socialShare.shareViaFacebook('FishBite Social Share')
+    this.fb.login(['public_profile', 'email'])
+    .then((res: FacebookLoginResponse) => {
+        this.fb.api('me?fields=id,friends',[])
+        .then((data)=> {
+          console.log(data)
+        })
+        .catch(e=> console.log('Error in getting data from fb', e))
+    })
+    .catch(e=> console.log('Error logging into facebook', e))
   }
 
-  fbCheckedAmbassadors(): void {
+  fbCheckedAmbassadors(event): void {
     console.log('fb ambassador check')
-    this.socialShare.shareViaFacebook('FishBite Social Share')
+    // this.socialShare.shareViaFacebook('FishBite Social Share')
+    // .then(()=> {
+    //   console.log(event);
+    // })
+    // .catch(err=> {
+
+    // })
   }
 
   backToMainPage(): void {

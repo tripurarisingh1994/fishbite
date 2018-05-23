@@ -37,9 +37,9 @@
 
     <div>
       <ion-list radio-group [(ngModel)]="registrationType">
-        <ion-list-header class="light_blue">
+        <ion-item-divider class="light_blue">
           Nominate
-        </ion-list-header>
+        </ion-item-divider>
 
         <ion-item>
           <ion-label>Shops</ion-label>
@@ -80,17 +80,18 @@
             </ion-buttons>
 
             <ion-item>
+              <ion-input type="text" placeholder="Mobile"></ion-input>
+            </ion-item>
+            <p text-center no-margin>OR</p>
+            <ion-item>
+              <ion-input type="email" placeholder="Email"></ion-input>
+            </ion-item>
+            <!-- <ion-item>
               <ion-input type="text" placeholder="Mobile phone number"></ion-input>
             </ion-item>
             <ion-item>
               <ion-input type="email" placeholder="Email"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input type="text" placeholder="Mobile phone number"></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-input type="email" placeholder="Email"></ion-input>
-            </ion-item>
+            </ion-item> -->
           </div>
         </div>
       </div>
@@ -113,24 +114,28 @@
                 <ion-icon name="remove"></ion-icon>
               </button>
             </ion-buttons>
+
             <ion-item>
-              <ion-input type="text" placeholder="Mobile phone number"></ion-input>
+              <ion-input type="text" placeholder="Mobile"></ion-input>
             </ion-item>
+            <p text-center no-margin>OR</p>
+
             <ion-item>
               <ion-input type="email" placeholder="Email"></ion-input>
             </ion-item>
-
+            <p text-center no-margin>OR</p>
 
             <ion-item class="rm-border">
                 <ion-icon item-start color="facebook" name="logo-facebook"></ion-icon>
-                find on facebook
+                <ion-label>Find on facebook</ion-label>
+                <ion-checkbox item-end color="facebook" (ionChange)="fbCheckedStaff()"></ion-checkbox>
             </ion-item>
 
-            <ion-item class="rm-border">
+            <!-- <ion-item class="rm-border">
                 <ion-checkbox item-start color="facebook" (ionChange)="fbCheckedStaff()"></ion-checkbox>
                 <ion-label class="nomi">Nominate business share app link</ion-label>
                 <button ion-button item-end small>Prepay</button>
-              </ion-item>
+              </ion-item> -->
 
           </div>
         </div>
@@ -157,22 +162,24 @@
 
 
             <ion-item>
-              <ion-input type="text" placeholder="Mobile phone number"></ion-input>
+              <ion-input type="text" placeholder="Mobile"></ion-input>
             </ion-item>
+              <p text-center no-margin>OR</p>
             <ion-item>
               <ion-input type="email" placeholder="Email"></ion-input>
             </ion-item>
-
+              <p text-center no-margin>OR</p>
             <ion-item class="rm-border">
                 <ion-icon item-start color="facebook" name="logo-facebook"></ion-icon>
-                find on facebook
+                <ion-label>Find on facebook</ion-label>
+                <ion-checkbox item-end color="facebook" (ionChange)="fbCheckedAmbassadors($event)"></ion-checkbox>
             </ion-item>
 
-            <ion-item class="rm-border">
-                <ion-checkbox item-start color="facebook" (ionChange)="fbCheckedAmbassadors()"></ion-checkbox>
+            <!-- <ion-item class="rm-border">
+                <ion-checkbox item-start color="facebook" (ionChange)="fbCheckedAmbassadors($event)"></ion-checkbox>
                 <ion-label class="nomi">Nominate business share app link</ion-label>
                 <button ion-button item-end small>Prepay</button>
-              </ion-item>
+              </ion-item> -->
 
           </div>
         </div>

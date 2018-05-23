@@ -2,8 +2,8 @@
 <ion-header>
 
   <ion-navbar>
-    <!-- <ion-title>Setting</ion-title> -->
-    <img src="assets/imgs/logo-polo.png">
+    <ion-title>Setting</ion-title>
+    <!-- <img src="assets/imgs/logo-polo.png">
     <ion-buttons end>
         <button color="primary" ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
@@ -23,12 +23,110 @@
         <button color="primary" ion-button icon-only on-tap="popoverKyndofishing($event)">
             <ion-icon name="bug"></ion-icon>
         </button>
-      </ion-buttons>
+      </ion-buttons> -->
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <ion-item-divider>
+    PEOPLE
+  </ion-item-divider>
 
+  <ion-item>
+    <ion-icon item-start name="logo-facebook"></ion-icon>
+      Find Facebook Friends
+    <ion-icon item-end name="arrow-forward"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon item-start name="person-add"></ion-icon>
+      Invite Facebook Friends
+  </ion-item>
+
+  <ion-item-divider>
+    SETTINGS
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-icon item-start name="notifications"></ion-icon>
+    Push Notification Settings
+    <ion-icon item-end name="arrow-forward"></ion-icon>
+  </ion-item>
+
+  <ion-item-divider>
+    ACCOUNT
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-icon item-start name="logo-facebook"></ion-icon>
+    <ion-label>Link Facebook</ion-label>
+    <ion-toggle item-end></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon item-start name="key"></ion-icon>
+    Change password
+    <ion-icon item-end name="arrow-forward"></ion-icon>
+  </ion-item>
+
+  <ion-item-divider>
+    UNITIS
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-icon item-start name="cog"></ion-icon>
+    Length 
+    <p>Centimeters</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon item-start name="pint"></ion-icon>
+    Weight
+    <p>Kilos</p>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon item-start name="umbrella"></ion-icon>
+    Temperature
+    <p>Celsius</p>
+  </ion-item>
+
+
+  <ion-item-divider>
+    ABOUT
+  </ion-item-divider>
+
+  <ion-item>
+    <ion-icon item-start name="clipboard"></ion-icon>
+    Privacy policy
+    <ion-icon item-end name="arrow-forward"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon item-start name="checkbox-outline"></ion-icon>
+    Terms and Conditions
+    <ion-icon item-end name="arrow-forward"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon item-start name="chatbubbles"></ion-icon>
+    Send feedback
+    <ion-icon item-end name="arrow-forward"></ion-icon>
+  </ion-item>
+
+  <ion-item>
+    <ion-icon item-start name="star-half"></ion-icon>
+    Rate FishBite Social
+    <ion-icon item-end name="arrow-forward"></ion-icon>
+  </ion-item>
+
+  <ion-item-divider no-lines></ion-item-divider>
+  <ion-item-divider></ion-item-divider>
+
+  <ion-item (click)="logout()">
+    <ion-icon item-start name="log-out"></ion-icon>
+     Log out
+  </ion-item>
 </ion-content>

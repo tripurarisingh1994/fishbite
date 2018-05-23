@@ -13,6 +13,7 @@ import { LocationAccuracy } from '@ionic-native/location-accuracy';
 import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 import { Storage } from '@ionic/storage';
 import { FilePath } from '@ionic-native/file-path';
+import { MainPage } from '../main/main';
 
 
 @IonicPage()
@@ -238,7 +239,8 @@ export class CatchInfoPage {
 
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
-      this.viewCtrl.dismiss();
+      // this.viewCtrl.dismiss();
+      this.navCtrl.setRoot(MainPage);
     });
 
     toast.present();

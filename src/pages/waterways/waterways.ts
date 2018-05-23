@@ -21,19 +21,22 @@ export class WaterwaysPage {
     private addServicePro: AddServicesProvider,
     private storage: Storage) {
 
-      // Or to get user_id
-      this.storage.get('user_id').then((val) => {
-        console.log('user_id', val);
-        this.user_id = val;
-      });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad WaterwaysPage');
-    this.addServicePro.getWaterways(this.user_id).subscribe(data => {
-      this.waterways = data['waterway']
-      console.log("waterways",this.waterways)
-    })
+
+       this.storage.get('user_id').then((user_id) => {
+        console.log('user_id', user_id);
+        this.user_id = user_id;
+
+        this.addServicePro.getWaterways(this.user_id).subscribe(data => {
+          this.waterways = data['waterway']
+          console.log("waterways",this.waterways)
+        })
+
+      });
+
 
   }
 

@@ -19,7 +19,7 @@ import { FilePath } from '@ionic-native/file-path';
 import { AgmCoreModule } from '@agm/core';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+// import { HomePage } from '../pages/home/home';
 import { LandingPage } from '../pages/landing/landing';
 import { LoginPage } from '../pages/login/login';
 import { SelectOptnPerBusiPage } from '../pages/select-optn-per-busi/select-optn-per-busi';
@@ -28,12 +28,11 @@ import { SignupPage } from '../pages/signup/signup';
 import { ForgotPassPage } from '../pages/forgot-pass/forgot-pass';
 import { ChoosePlanPremiumTrailPage } from'../pages/choose-plan-premium-trail/choose-plan-premium-trail';
 import { AddNewPage } from '../pages/add-new/add-new';
-import { AddYourPhonePage } from '../pages/add-your-phone/add-your-phone';
 import { FishSpeciesPage } from '../pages/fish-species/fish-species';
 import { WhatMethodPage } from '../pages/what-method/what-method';
 import { WhatLocationPage } from '../pages/what-location/what-location';
-import { ProfilePage } from "../pages/profile/profile";
-import { Profile1Page } from "../pages/profile1/profile1";
+// import { ProfilePage } from "../pages/profile/profile";
+// import { Profile1Page } from "../pages/profile1/profile1";
 import { CatchInfoPage } from '../pages/catch-info/catch-info';
 import { PersonalRegistrationPage } from '../pages/personal-registration/personal-registration';
 import { SelectLanguagePage } from '../pages/select-language/select-language';
@@ -46,18 +45,18 @@ import { AddWaterwayPage } from '../pages/add-waterway/add-waterway';
 import { AddMomentPage } from '../pages/add-moment/add-moment';
 import { BaitsPage } from '../pages/baits/baits';
 import { TripsPage } from '../pages/trips/trips';
-import { DiscoverPage } from '../pages/discover/discover';
+// import { DiscoverPage } from '../pages/discover/discover';
 import { DiscoverAnglersPage } from '../pages/discover-anglers/discover-anglers';
 import { MyCatchesPage } from '../pages/my-catches/my-catches';
 import { ForumPage } from '../pages/forum/forum';
-import { NotificationPage } from '../pages/notification/notification';
+// import { NotificationPage } from '../pages/notification/notification';
 import { SettingPage } from '../pages/setting/setting';
-import { KyndofishingPopoverPage } from '../pages/kyndofishing-popover/kyndofishing-popover';
+// import { KyndofishingPopoverPage } from '../pages/kyndofishing-popover/kyndofishing-popover';
 import { PrivacyPage } from '../pages/privacy/privacy';
 import { TermsAndConditionsPage } from '../pages/terms-and-conditions/terms-and-conditions';
 import { HelpAndSupportPage } from '../pages/help-and-support/help-and-support';
 import { LoyalityCompetitionPage } from '../pages/loyality-competition/loyality-competition';
-import { FishIntelPage } from '../pages/fish-intel/fish-intel';
+// import { FishIntelPage } from '../pages/fish-intel/fish-intel';
 import { FishIntelFishSpeciesFliterPage } from '../pages/fish-intel-fish-species-fliter/fish-intel-fish-species-fliter';
 import { FishIntelCaughtInPage } from '../pages/fish-intel-caught-in/fish-intel-caught-in';
 import { SearchFishingWatersPage } from '../pages/search-fishing-waters/search-fishing-waters';
@@ -73,6 +72,9 @@ import { WaterwaysPage } from '../pages/waterways/waterways';
 import { EditProfilePage } from '../pages/edit-profile/edit-profile';
 import { FishingMethodsPage } from '../pages/fishing-methods/fishing-methods';
 import { CountriesPage } from '../pages/countries/countries';
+import { MainPage } from '../pages/main/main';
+// import { LiveStreamingPage } from '../pages/live-streaming/live-streaming';
+import { MomentsPage } from '../pages/moments/moments';
 
 import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -84,13 +86,13 @@ import { AddServicesProvider } from '../providers/add-services/add-services';
 import { CalendarWeatherProvider } from '../providers/calendar-weather/calendar-weather';
 import { CatchInfoProvider } from '../providers/catch-info/catch-info';
 import { FishSpeciesProvider } from '../providers/fish-species/fish-species';
-
-
+import { SuperTabsModule } from 'ionic2-super-tabs';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    MainPage,
+    // HomePage,
     LandingPage,
     LoginPage,
     SelectOptnPerBusiPage,
@@ -99,12 +101,11 @@ import { FishSpeciesProvider } from '../providers/fish-species/fish-species';
     ForgotPassPage,
     ChoosePlanPremiumTrailPage,
     AddNewPage,
-    AddYourPhonePage,
     FishSpeciesPage,
     WhatMethodPage,
     WhatLocationPage,
-    Profile1Page,
-    ProfilePage,
+    // Profile1Page,
+    // ProfilePage,
     CatchInfoPage,
     PersonalRegistrationPage,
     SelectLanguagePage,
@@ -117,18 +118,18 @@ import { FishSpeciesProvider } from '../providers/fish-species/fish-species';
     AddMomentPage,
     BaitsPage,
     TripsPage,
-    DiscoverPage,
+    // DiscoverPage,
     DiscoverAnglersPage,
     MyCatchesPage,
     ForumPage,
-    NotificationPage,
+    // NotificationPage,
     SettingPage,
-    KyndofishingPopoverPage,
+    // KyndofishingPopoverPage,
     PrivacyPage,
     TermsAndConditionsPage,
     HelpAndSupportPage,
     LoyalityCompetitionPage,
-    FishIntelPage,
+    // FishIntelPage,
     FishIntelFishSpeciesFliterPage,
     FishIntelCaughtInPage,
     SearchFishingWatersPage,
@@ -143,7 +144,9 @@ import { FishSpeciesProvider } from '../providers/fish-species/fish-species';
     WaterwaysPage,
     EditProfilePage,
     FishingMethodsPage,
-    CountriesPage
+    CountriesPage,
+    // LiveStreamingPage,
+    MomentsPage
   ],
   imports: [
     BrowserModule,
@@ -154,12 +157,14 @@ import { FishSpeciesProvider } from '../providers/fish-species/fish-species';
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyC_XXagixqCCe0uc72R5y38fTbwZ0iZ6io'
-    })
+    }),
+    SuperTabsModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
+    MainPage,
+    // HomePage,
     LandingPage,
     LoginPage,
     SelectOptnPerBusiPage,
@@ -168,12 +173,11 @@ import { FishSpeciesProvider } from '../providers/fish-species/fish-species';
     ForgotPassPage,
     ChoosePlanPremiumTrailPage,
     AddNewPage,
-    AddYourPhonePage,
     FishSpeciesPage,
     WhatMethodPage,
     WhatLocationPage,
-    Profile1Page,
-    ProfilePage,
+    // Profile1Page,
+    // ProfilePage,
     CatchInfoPage,
     PersonalRegistrationPage,
     SelectLanguagePage,
@@ -186,18 +190,18 @@ import { FishSpeciesProvider } from '../providers/fish-species/fish-species';
     AddMomentPage,
     BaitsPage,
     TripsPage,
-    DiscoverPage,
+    // DiscoverPage,
     DiscoverAnglersPage,
     MyCatchesPage,
     ForumPage,
-    NotificationPage,
+    // NotificationPage,
     SettingPage,
-    KyndofishingPopoverPage,
+    // KyndofishingPopoverPage,
     PrivacyPage,
     TermsAndConditionsPage,
     HelpAndSupportPage,
     LoyalityCompetitionPage,
-    FishIntelPage,
+    // FishIntelPage,
     FishIntelFishSpeciesFliterPage,
     FishIntelCaughtInPage,
     SearchFishingWatersPage,
@@ -212,7 +216,9 @@ import { FishSpeciesProvider } from '../providers/fish-species/fish-species';
     WaterwaysPage,
     EditProfilePage,
     FishingMethodsPage,
-    CountriesPage
+    CountriesPage,
+    // LiveStreamingPage,
+    MomentsPage
   ],
   providers: [
     StatusBar,

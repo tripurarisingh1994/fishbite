@@ -1,86 +1,41 @@
 page-add-new {
-   .fab {
-       width: 80px;
-       height: 80px;
-       font-size: 10px;
-   }
-    .trip {
-        left: 43%;
-        background-color: midnightblue;
-        font-weight: 500;
-        font-style: oblique;
-        font-family: monospace;
-    }
-    .waterway {
-        left:38%;
-        background-color: midnightblue;
-        font-weight: 500;
-        font-style: oblique;
-        font-family: monospace;
-    }
-    .bait {
-        left:28%;
-        background-color: midnightblue;
-        font-weight: 500;
-        font-style: oblique;
-        font-family: monospace;
-    }
-    .addmoment {
-        left:55%;
-        background-color: midnightblue;
-        font-weight: 500;
-        font-style: oblique;
-        font-family: monospace;
-    }
-    .catch {
-        left:8%;
-        background-color: midnightblue;
-        font-weight: 500;
-        font-style: oblique;
-        font-family: monospace;
+    .bg{
+            opacity: 1;
+            background: url('../assets/imgs/landing.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    .btns {
+        margin: 0 40px;
     }
 
-    .bg {
-        // background: url('../assets/imgs/landing.jpg');
-        // background-repeat: no-repeat;
-        background-color:transparent; 
-        background-size: cover;
-        position: absolute;
-        width: 100%;
-        top: 37%;
-        bottom: 0;
-        // opacity: 0.2;
-        left: -5%;
-    }
+    .logo {
+        display:block;
+        text-align:center;
+      }
+    .tripom button span{
 
-//   .logo
-//   {
-//     display:block;
-//     text-align:center;
-//   }
-  
+        background: #fff;
+        
+        color: #488aff;
+        }
+
+        .button-ios{
+            padding-top: 5px;
+        padding-bottom: 5px;
+        }
+        .button-md{
+            padding-top: 5px;
+        padding-bottom: 5px;
+        }
+        .tripom{
+            margin-top: 10%;
+        }
+
+
+
+   
 }
 
-page-add-new .trip{
-    
-    background-color: transparent;
-}
-page-add-new .bait{
-    background-color: transparent;
-}
-page-add-new .waterway{
-    background-color: transparent;
-}
-page-add-new .addmoment{
-    background-color: transparent;
-}
-page-add-new .catch{
-    background-color: transparent;
-}
-page-add-new .bg{
-    background-color:rgba(0,0,0, 0.8);
-    top: 0;
-    left: 0;
-    padding-top: 70%;
-    opacity: 1;
-}
+

@@ -1,13 +1,13 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Form } from 'ionic-angular';
+// import { Form } from 'ionic-angular';
 
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json',
-  })
-};
+// const httpOptions = {
+//   headers: new HttpHeaders({
+//     'Content-Type':  'application/json',
+//   })
+// };
 
 @Injectable()
 export class AddServicesProvider {
@@ -41,14 +41,10 @@ public member_name:string[] = [];       // it variable for add-trip-search-membe
     return this.http.post(this.url+'addWaterway',formData);
   }
 
-  // addTripService() {
-
-  // }
 
   getLatLang() {  // Getting Latitude and longitude
     return this.http.get('http://ip-api.com/json');
   }
-
 
   
   searchUser(searchkey){  // Search member
@@ -144,6 +140,14 @@ public member_name:string[] = [];       // it variable for add-trip-search-membe
     let data = new FormData();
     data.append('user_id',user_id); 
     return this.http.post(this.url+'getCatch',data);
+  }
+
+  getMoments(user_id, offset) {
+    let data = new FormData();
+    data.append("user_id",user_id);
+    data.append("offset",offset)
+    
+    return this.http.post(`${this.url}getMoment`,data);
   }
 
 }

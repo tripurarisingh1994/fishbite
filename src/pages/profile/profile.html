@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
 
   <ion-navbar>
     <img src="assets/imgs/logo-polo.png">
@@ -24,7 +24,7 @@
     </ion-buttons>
   </ion-navbar>
 
-</ion-header>
+</ion-header> -->
 
 
 <ion-content>
@@ -49,7 +49,7 @@
                 <img src="assets/imgs/profile.jpg">
               </ion-thumbnail>
               <h2 class="white_color text_center">Marty McFly</h2>
-              <button ion-button color="light" class="margin_auto" outline small>Edit Profile</button>
+              <button ion-button color="light" class="margin_auto" outline (click)="editProfileModal()" small>Edit Profile</button>
             </ion-col>
             <ion-col col-4 class="flow">
               <button ion-button icon-left clear small>
@@ -129,13 +129,15 @@
       <div>
         <ion-row>
           <ion-col>
-            <button ion-button clear small (click)="openGallery()">
+            <!-- <button ion-button clear small (click)="openGallery()"> -->
+            <button ion-button clear small>
                 <img class="mt10" src="assets/imgs/log-fish.png">
                 Log Catch
             </button>
           </ion-col>
           <ion-col>
-            <button ion-button clear small (click)="goMomentBtn()">
+            <!-- <button ion-button clear small (click)="goMomentBtn()"> -->
+            <button ion-button clear small>
                 <img class="mt10" src="assets/imgs/camera.png">
                 Add Post
             </button>
