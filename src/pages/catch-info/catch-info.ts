@@ -67,35 +67,17 @@ export class CatchInfoPage {
     private storage: Storage,
     private filePath: FilePath, ) {
 
-    // Or to get user_id
-    this.storage.get('user_id').then((val) => {
-      console.log('user_id', val);
-      this.user_id = val;
+    // get user_id
+    this.storage.get('user_id').then((user_id) => {
+      console.log('user_id', user_id);
+      this.user_id = user_id;
     });
-
-    this.platform.ready()
-      .then(() => {
-
-        this.locationAccuracy.canRequest()
-          .then((canRequest: boolean) => {
-            if (canRequest) {
-              this.locationAccuracy.request(this.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY)
-                .then(() => {
-                  console.log('Request Successful')
-
-                }, (err) => console.log(err))
-                .catch((err) => console.log(err))
-            }
-          })
-          .catch((err) => console.log(err))
-
-      })
-      .catch((err) => console.log(err))
 
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CatchInfoPage');
+
     this.addServicePro.getLatLang().subscribe(data => {
       this.lat = data['lat'];
       this.lng = data['lon'];
@@ -180,7 +162,7 @@ export class CatchInfoPage {
       fileName: this.imageSrc.substr(this.imageSrc.lastIndexOf('/') + 1),
       chunkedMode: false,
       headers: { Connection: "close" },
-      params: { 'user_id': this.user_id, 'post_name': postDesc, 'catch_length': length, 'catch_weight': weight, 'species_id': this.species_id, 'bait_id': this.bait_id, 'trip_id': this.trip_id, 'lat': this.lat, 'lng': this.lng, 'location_string': this.location_string, 'note': this.note }
+      params: { 'user_id': this.user_id, 'post_name': postDesc, 'catch_length': length, 'catch_weight': weight, 'catchDate': this.catchDate, 'species_id': this.species_id, 'bait_id': this.bait_id, 'trip_id': this.trip_id, 'lat': this.lat, 'lng': this.lng, 'location_string': this.location_string, 'note': this.note }
     }
 
 
@@ -250,6 +232,19 @@ export class CatchInfoPage {
   hitGps() {    // This function when call then click on GPS public spot
     console.log('hitGps')
 
+    this.locationAccuracy.canRequest()
+    .then((canRequest: boolean) => {
+      if (canRequest) {
+        this.locationAccuracy.request(this.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY)
+          .then(() => {
+            console.log('Request Successful')
+
+          }, (err) => console.log(err))
+          .catch((err) => console.log(err))
+      }
+    })
+    .catch((err) => console.log(err))
+
     this.geolocation.getCurrentPosition()
       .then((resp) => {
         console.log("latitude", resp.coords.latitude)
@@ -260,7 +255,7 @@ export class CatchInfoPage {
             console.log(result);
             console.log(result[0].countryName);
 
-            this.location_string = result[0].subLocality + ',' + result[0].subAdministrativeArea + ',' + result[0].locality + ',' + result[0].countryName;
+            this.location_string = result[0].subLocality + ',' + result[0].subAdministrativeArea + ',' + result[0].locality + ',' + result[0].countryName || '';
 
             console.log(this.location_string);
           })

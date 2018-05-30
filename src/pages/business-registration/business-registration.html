@@ -10,35 +10,42 @@
 <ion-content>
   <div>
     <div>
-      <form>
+      <form [formGroup]="busiRegForm">
         <ion-item>
-          <ion-input type="text" placeholder="Business Name"></ion-input>
+          <!-- <ion-input type="text" placeholder="Business Name" [(ngModel)]="businessRegFields.businessname" name="businessname" required></ion-input> -->
+          <ion-input type="text" placeholder="Business Name" formControlName="businessname"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Business Address"></ion-input>
+          <!-- <ion-input type="text" placeholder="Business Address" [(ngModel)]="businessRegFields.businessaddress" name="businessaddress" required></ion-input> -->
+          <ion-input type="text" placeholder="Business Address" formControlName="businessaddress"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Contact/ Owner"></ion-input>
+          <!-- <ion-input type="text" placeholder="Contact/ Owner" [(ngModel)]="businessRegFields.owner" name="owner" required></ion-input> -->
+          <ion-input type="text" placeholder="Contact/ Owner" formControlName="owner"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="email" placeholder="Email"></ion-input>
+          <!-- <ion-input type="email" placeholder="Email" [(ngModel)]="businessRegFields.email" name="email" required></ion-input> -->
+          <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Web Address"></ion-input>
+          <!-- <ion-input type="text" placeholder="Web Address   (Optional)" [(ngModel)]="businessRegFields.webaddress" name="webaddress"></ion-input> -->
+          <ion-input type="text" placeholder="Web Address   (Optional)" formControlName="webaddress"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="text" placeholder="Ph/ mobile"></ion-input>
+          <!-- <ion-input type="text" placeholder="Ph/ mobile   (Optional)" [(ngModel)]="businessRegFields.mobile" name="mobile"></ion-input> -->
+          <ion-input type="text" placeholder="Ph/ mobile   (Optional)" formControlName="mobile"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-input type="password" placeholder="Password"></ion-input>
+          <!-- <ion-input type="password" placeholder="Password" [(ngModel)]="businessRegFields.password" name="password" required></ion-input> -->
+          <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
         </ion-item>
       </form>
     </div>
 
     <div>
-      <ion-list radio-group [(ngModel)]="registrationType">
+      <ion-list radio-group [(ngModel)]="registrationType" (ngModelChange)="regTypeNgModelChange()">
         <ion-item-divider class="light_blue">
-          Nominate
+          <h3>Nominate</h3>
         </ion-item-divider>
 
         <ion-item>
@@ -79,12 +86,12 @@
               </button>
             </ion-buttons>
 
-            <ion-item>
-              <ion-input type="text" placeholder="Mobile"></ion-input>
+            <ion-item>  <!--   -->
+              <ion-input type="text" placeholder="Mobile" [(ngModel)]="nomineeFieldsMobile[i]" name="nomineeFieldsMobile[{{i}}]"></ion-input>
             </ion-item>
             <p text-center no-margin>OR</p>
             <ion-item>
-              <ion-input type="email" placeholder="Email"></ion-input>
+              <ion-input type="email" placeholder="Email" [(ngModel)]="nomineeFieldsEmail[i]" name="nomineeFieldsEmail[{{i}}]"></ion-input>
             </ion-item>
             <!-- <ion-item>
               <ion-input type="text" placeholder="Mobile phone number"></ion-input>
@@ -116,12 +123,12 @@
             </ion-buttons>
 
             <ion-item>
-              <ion-input type="text" placeholder="Mobile"></ion-input>
+              <ion-input type="text" placeholder="Mobile" [(ngModel)]="nomineeFieldsMobile[i]" name="nomineeFieldsMobile[{{i}}]"></ion-input>
             </ion-item>
             <p text-center no-margin>OR</p>
 
             <ion-item>
-              <ion-input type="email" placeholder="Email"></ion-input>
+              <ion-input type="email" placeholder="Email" [(ngModel)]="nomineeFieldsEmail[i]" name="nomineeFieldsEmail[{{i}}]"></ion-input>
             </ion-item>
             <p text-center no-margin>OR</p>
 
@@ -162,17 +169,18 @@
 
 
             <ion-item>
-              <ion-input type="text" placeholder="Mobile"></ion-input>
+              <ion-input type="text" placeholder="Mobile" [(ngModel)]="nomineeFieldsMobile[i]" name="nomineeFieldsMobile[{{i}}]"></ion-input>
             </ion-item>
               <p text-center no-margin>OR</p>
             <ion-item>
-              <ion-input type="email" placeholder="Email"></ion-input>
+              <ion-input type="email" placeholder="Email" [(ngModel)]="nomineeFieldsEmail[i]" name="nomineeFieldsEmail[{{i}}]"></ion-input>
             </ion-item>
               <p text-center no-margin>OR</p>
-            <ion-item class="rm-border">
+            <ion-item (click)="fbCheckedAmbassadors($event)">
                 <ion-icon item-start color="facebook" name="logo-facebook"></ion-icon>
                 <ion-label>Find on facebook</ion-label>
-                <ion-checkbox item-end color="facebook" (ionChange)="fbCheckedAmbassadors($event)"></ion-checkbox>
+                <!-- <ion-checkbox item-end color="facebook" (ionChange)="fbCheckedAmbassadors($event)"></ion-checkbox> -->
+                <ion-icon item-end name="arrow-forward"></ion-icon>
             </ion-item>
 
             <!-- <ion-item class="rm-border">
@@ -193,7 +201,7 @@
         <ion-row>
           <ion-col>
             <ion-buttons start>
-              <button ion-button small (click)="businessReg()">Submit</button>
+              <button ion-button small (click)="businessReg()" [disabled]="!busiRegForm.valid">Submit</button>
             </ion-buttons>
           </ion-col>
           <ion-col>

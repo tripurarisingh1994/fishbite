@@ -37,7 +37,7 @@
                 <ion-input type="text" [(ngModel)]="comment" placeholder="Enter your comments..."></ion-input>
             </ion-col>
             <ion-col col-2 text-center>
-                <button ion-button (click)="sendComment()"><ion-icon name="send"></ion-icon></button>
+                <button ion-button [disabled]="!comment" (click)="sendComment()"><ion-icon name="send"></ion-icon></button>
             </ion-col>
           </ion-row>
     </ion-toolbar>

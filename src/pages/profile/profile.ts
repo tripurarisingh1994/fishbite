@@ -17,6 +17,7 @@ import { WaterwaysPage } from '../waterways/waterways';
 import { EditProfilePage } from '../edit-profile/edit-profile';
 import { MyCatchesPage } from '../my-catches/my-catches';
 import { MomentsPage } from '../moments/moments';
+import { Storage } from '@ionic/storage';
 
 @IonicPage()
 @Component({
@@ -26,6 +27,7 @@ import { MomentsPage } from '../moments/moments';
 export class ProfilePage {
  
   private imageSrc:string='';
+  user_name:string=''
   
   constructor(private navCtrl: NavController, 
     private navParams: NavParams,
@@ -33,7 +35,14 @@ export class ProfilePage {
     private camera: Camera,
     private modalCtrl: ModalController,
     private actionSheetCtrl: ActionSheetController,
-    private appCtrl: App,) {
+    private appCtrl: App,
+    private storage: Storage) {
+
+      // get user_name
+      this.storage.get('user_name').then((user_name) => {
+        console.log('user_name', user_name);
+        this.user_name = user_name;
+      });
   }
 
   ionViewDidLoad() {

@@ -5,7 +5,7 @@ import { AddTripSearchMemberPage } from '../add-trip-search-member/add-trip-sear
 import { AddWaterwaySelectWaterwayPage } from '../add-waterway-select-waterway/add-waterway-select-waterway';
 import { AddServicesProvider } from '../../providers/add-services/add-services';
 import { FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
-import { Storage } from '@ionic/storage';
+import { Storage }  from '@ionic/storage';
 import { FilePath } from '@ionic-native/file-path';
 import { Platform } from 'ionic-angular';
 
@@ -49,6 +49,7 @@ export class AddTripPage {
 
 
    user_id:number;
+   user_name:string;
 
   constructor(
               private navCtrl: NavController,
@@ -61,10 +62,15 @@ export class AddTripPage {
               private filePath: FilePath,
               private plt: Platform) {
 
-        // Or to get user_id
-        this.storage.get('user_id').then((val) => {
-          console.log('user_id', val);
-          this.user_id = val;
+        // get user_id
+        this.storage.get('user_id').then((user_id) => {
+          console.log('user_id', user_id);
+          this.user_id = user_id;
+        });
+        // get user_name
+        this.storage.get('user_name').then((user_name) => {
+          console.log('user_name', user_name);
+          this.user_name = user_name;
         });
   }
 
@@ -144,7 +150,7 @@ export class AddTripPage {
     this.waterway_name='';
 
     this.members_id.push(1);
-    this.members_name.push('euphern');
+    this.members_name.push(this.user_name);
 
     this.waterway_id   = this.addServicePro.water_id;
     this.waterway_name = this.addServicePro.water_name;

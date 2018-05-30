@@ -3,7 +3,7 @@
 
   <ion-navbar>
     <ion-title>Add Trip</ion-title>
-    <ion-buttons end><button ion-button clear (click)="saveTrip(name.value, desc.value)">SAVE</button></ion-buttons>
+    <ion-buttons end><button ion-button clear [disabled]="!imgURI || !name.value || !desc.value || !startDate || !endDate || !waterway_id || !members_id" (click)="saveTrip(name.value, desc.value)">SAVE</button></ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -57,7 +57,7 @@
 
       <ion-item>
         <ion-icon item-left name="contacts"></ion-icon>
-          Member <span>{{members_id.length}}</span>
+          Member &nbsp;<span>({{members_id.length}})</span>
          <ion-icon item-right on-tap="addMember()" name="add"></ion-icon>
       </ion-item>
 

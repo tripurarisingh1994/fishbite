@@ -17,7 +17,7 @@
   <div padding class="lang-spcr">
   <ion-item>
     <ion-label>Language</ion-label>
-    <ion-select [(ngModel)]="language" (ngModelChange)="goCountry(language)">
+    <ion-select [(ngModel)]="language" (ngModelChange)="goCountry(language)" interface="action-sheet">
       <ion-option *ngFor="let lang of language_list" [value]="lang.language">{{lang.language}}</ion-option>
     </ion-select>
   </ion-item>

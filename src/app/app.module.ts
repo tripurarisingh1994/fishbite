@@ -75,6 +75,7 @@ import { CountriesPage } from '../pages/countries/countries';
 import { MainPage } from '../pages/main/main';
 // import { LiveStreamingPage } from '../pages/live-streaming/live-streaming';
 import { MomentsPage } from '../pages/moments/moments';
+import { FindFriendsOnFbPage } from '../pages/find-friends-on-fb/find-friends-on-fb';
 
 import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -146,7 +147,9 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     FishingMethodsPage,
     CountriesPage,
     // LiveStreamingPage,
-    MomentsPage
+    MomentsPage,
+    FindFriendsOnFbPage
+    
   ],
   imports: [
     BrowserModule,
@@ -218,7 +221,8 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     FishingMethodsPage,
     CountriesPage,
     // LiveStreamingPage,
-    MomentsPage
+    MomentsPage,
+    FindFriendsOnFbPage
   ],
   providers: [
     StatusBar,

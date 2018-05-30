@@ -6,7 +6,7 @@
       </button> -->
     <ion-title>Catch Info</ion-title>
     <ion-buttons end>
-      <button ion-button clear (click)="saveCatchInfo(desc.value, weight.value, length.value)">
+      <button ion-button clear [disabled]="!imageSrc || !species_id || !catchDate  || !desc.value || !weight.value || !length.value || !species_id || !bait_id || !trip_id" (click)="saveCatchInfo(desc.value, weight.value, length.value)">
         SAVE
       </button>
     </ion-buttons>

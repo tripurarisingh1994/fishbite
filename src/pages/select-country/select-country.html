@@ -17,7 +17,7 @@
       <div padding class="lang-spcr">
           <ion-item >
             <ion-label>Country</ion-label>
-            <ion-select [(ngModel)]="country" (ngModelChange)="goPesrsonOrBusin(country)">
+            <ion-select [(ngModel)]="country" (ngModelChange)="goPesrsonOrBusin(country)" interface="action-sheet">
               <ion-option *ngFor="let count of country_list"  [value]="count.country_name">{{count.country_name}}</ion-option>
             </ion-select>
           </ion-item>

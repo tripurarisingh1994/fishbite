@@ -3,6 +3,9 @@ import { IonicPage, NavController, ViewController, ModalController, LoadingContr
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject} from '@ionic-native/file-transfer';
 import { AuthenticationProvider } from '../../providers/authentication/authentication'; 
+import { Geolocation } from '@ionic-native/geolocation';
+import { LocationAccuracy } from '@ionic-native/location-accuracy';
+import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 import { Storage } from '@ionic/storage';
 import { FilePath } from '@ionic-native/file-path';
 import { Platform } from 'ionic-angular';
@@ -24,6 +27,8 @@ export class AddMomentPage {
   isValid:boolean=true;
   mimeType:string='';
 
+  location_string:string='';
+
   user_id:number;
   user_name:string;
   
@@ -38,7 +43,10 @@ export class AddMomentPage {
               private authSerPro: AuthenticationProvider,
               private storage: Storage,
               private filePath: FilePath,
-              private plt: Platform) {
+              private plt: Platform,
+              private locationAccuracy: LocationAccuracy,
+              private nativeGeocoder: NativeGeocoder,
+              private geolocation: Geolocation,) {
 
         // get user_id
         this.storage.get('user_id').then((user_id) => {
@@ -50,11 +58,11 @@ export class AddMomentPage {
           console.log('user_name', user_name);
           this.user_name = user_name;
         });
+
  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddMomentPage');
-
 
     this.authSerPro.getLatLang().subscribe(data=> {
       this.lat = data['lat'];
@@ -117,6 +125,40 @@ export class AddMomentPage {
     })
   }
 
+
+  getLocation() {
+
+    console.log('hit getLocation')
+
+    this.locationAccuracy.canRequest().then((canRequest: boolean)=> {
+      this.locationAccuracy.request(this.locationAccuracy.REQUEST_PRIORITY_HIGH_ACCURACY)
+      .then(()=> console.log('Request Successful'),
+              err=> console.log(err))
+      .catch( err=> console.log(err))
+    })
+    .catch(err=> console.log(err))
+
+   
+    this.geolocation.getCurrentPosition()
+      .then((resp) => {
+        console.log("latitude", resp.coords.latitude)
+        console.log("longitude", resp.coords.longitude)
+
+        this.nativeGeocoder.reverseGeocode(resp.coords.latitude, resp.coords.longitude)
+          .then((result: NativeGeocoderReverseResult) => {
+            console.log(result);
+            console.log(result[0].countryName);
+
+            this.location_string = result[0].subLocality + ',' + result[0].subAdministrativeArea + ',' + result[0].locality + ',' + result[0].countryName || '';
+
+            console.log(this.location_string);
+          })
+          .catch((error: any) => console.log(error));
+      })
+
+      .catch((err) => console.log(err))
+  }
+
   postData()  {
 
     if(this.imgURI){
@@ -139,7 +181,7 @@ export class AddMomentPage {
       chunkedMode: false,
       mimeType: this.mimeType,
       headers: {Connection: "close"},
-      params: {'user_id':this.user_id,'post_name':this.postDesc,'lat':this.lat,'lng':this.lang,'location_string':'kolkta'}
+      params: {'user_id':this.user_id,'post_name':this.postDesc,'lat':this.lat,'lng':this.lang,'location_string': this.location_string}
     }
     // console.log(this.post_img_video.substr(this.post_img_video.lastIndexOf('/')+1));
     // console.log(options);

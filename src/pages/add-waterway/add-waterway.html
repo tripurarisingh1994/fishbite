@@ -2,7 +2,7 @@
 
   <ion-navbar>
     <ion-title>Add Waterway</ion-title>
-    <ion-buttons end><button ion-button clear (click)="save(name.value,desc.value)">SAVE</button></ion-buttons>
+    <ion-buttons end><button ion-button clear [disabled]="!name.value || !desc.value" (click)="save(name.value,desc.value)">SAVE</button></ion-buttons>
   </ion-navbar>
 
 </ion-header>
