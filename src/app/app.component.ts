@@ -55,7 +55,9 @@ export class MyApp {
       { title: 'Privacy', component: PrivacyPage },
       { title: 'Terms and Conditions', component: TermsAndConditionsPage },
       { title: 'Help and Support', component: HelpAndSupportPage },
-      { title: 'Calendar', component: CalendarPage },
+      // { title: 'Calendar', component: CalendarPage },
+      { title: 'Home Waether', component: 'HomeWeatherPage' },
+      { title: 'World Waether', component: 'WorldCityListPage' },
 
     ];
 

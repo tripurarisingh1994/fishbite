@@ -14,13 +14,13 @@ export class CalendarPage {
     
   }
   
-  showWeather() {
-    this.navCtrl.push('HomeWeatherPage');
-  }
+  // showWeather() {
+  //   this.navCtrl.push('HomeWeatherPage');
+  // }
 
-  showWorldWeather() {
-    this.navCtrl.push('WorldCityListPage');
-  }
+  // showWorldWeather() {
+  //   this.navCtrl.push('WorldCityListPage');
+  // }
   // getTimeStamptoTime(unix_timestamp)
   // {
   //   let date = new Date(unix_timestamp*1000);
