@@ -1,0 +1,63 @@
+page-main {
+    .toolbar-background {
+        background-color: #EEEEEE !important;
+    }
+    .searchbar-input {
+        padding:0 !important;
+        font-size: 1.2rem !important;
+        text-align: center;
+    }
+    .searchbar-md .searchbar-search-icon {
+        left: 8px;
+        top: 5px;
+    }
+    .searchbar-md .searchbar-input{
+        box-shadow: inherit;
+        background: rgba(0, 0, 0, 0.08);
+        border-radius: 4px;
+    }
+
+    super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button {
+        font-size: 12px !important;
+    }
+
+    // super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button {
+    //     text-align: center;
+    //     -webkit-box-flex: 1;
+    //     -webkit-flex: 1;
+    //     -ms-flex: 1;
+    //     flex: 1;
+    //     width: 100%;
+    //     height: 28px;
+    //     font-weight: 400;
+    //     font-size: 9px;
+    //     text-transform: uppercase;
+    //     margin-left: 0;
+    //     margin-right: 0;
+    //     position: relative;
+    //     display: block; 
+    //     overflow: hidden;
+    //     text-overflow: ellipsis;
+    //     white-space: normal;
+    //     cursor: pointer;
+    //     -webkit-box-align: end;
+    //     -webkit-align-items: flex-end;
+    //     -ms-flex-align: end;
+    //     align-items: flex-end;
+    //     -webkit-align-content: flex-end;
+    //     -ms-flex-line-pack: end;
+    //     align-content: flex-end;
+    //      padding: 0 .4px; 
+    //     word-wrap: break-word;
+    //     margin-top: 5px;
+    // }
+    
+    
+    // super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button.title-only .title {
+    //     line-height: 11px;
+    // }
+
+
+
+
+}

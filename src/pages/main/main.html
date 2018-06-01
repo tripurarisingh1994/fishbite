@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar>
+    <ion-row>
+      <ion-col col-3>
+        <img src="assets/imgs/logo-polo.png">
+      </ion-col>
+      <ion-col>
+        <ion-searchbar placeholder="Fishbite Social App"></ion-searchbar>
+      </ion-col>
+      <ion-col col-2>
+        <button color="primary" ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+   
+  <super-tabs tabsPlacement="top" toolbarBackground="light" toolbarColor="dark" indicatorColor="dark" (tabSelect)="onTabSelect($event)" scrollTabs="true">
+      <super-tab *ngFor="let page of pages" [root]="page.pageName" [title]="page.title" [id]="page.id"></super-tab>
+  </super-tabs>
+
+
+
+
+  <ion-fab bottom right>
+    <button ion-fab (click)="fabHit()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

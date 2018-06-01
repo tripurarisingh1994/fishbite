@@ -17,6 +17,9 @@ import { LocationAccuracy } from '@ionic-native/location-accuracy';
 import { IonicStorageModule } from '@ionic/storage';
 import { FilePath } from '@ionic-native/file-path';
 import { AgmCoreModule } from '@agm/core';
+import { JsonpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserTab } from '@ionic-native/browser-tab';
 
 import { MyApp } from './app.component';
 // import { HomePage } from '../pages/home/home';
@@ -88,6 +91,8 @@ import { CalendarWeatherProvider } from '../providers/calendar-weather/calendar-
 import { CatchInfoProvider } from '../providers/catch-info/catch-info';
 import { FishSpeciesProvider } from '../providers/fish-species/fish-species';
 import { SuperTabsModule } from 'ionic2-super-tabs';
+import { Sql, DatabaseService, UtilService, ForecastService } from '../providers';
+import { Keyboard } from '@ionic-native/keyboard';
 
 @NgModule({
   declarations: [
@@ -153,6 +158,8 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
   ],
   imports: [
     BrowserModule,
+    JsonpModule,
+    BrowserAnimationsModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     HttpClientModule,
@@ -247,7 +254,13 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     Geolocation,
     NativeGeocoder,
     LocationAccuracy,
-    FilePath
+    FilePath,
+    Sql,
+    DatabaseService,
+    UtilService,
+    ForecastService,
+    Keyboard,
+    BrowserTab
   ]
 })
 export class AppModule {}

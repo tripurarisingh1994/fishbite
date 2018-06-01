@@ -1,0 +1,18 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Moments</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4 *ngFor="let moment of momentsData">
+        <img src="http://vps137395.vps.ovh.ca/fishbite/{{moment.post_files.s_filepath}}/{{moment.post_files.s_filname}}">
+      </ion-col>
+    </ion-row> 
+  </ion-grid>
+</ion-content>

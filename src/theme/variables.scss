@@ -41,10 +41,35 @@ $colors: (
   dark:       #222,
   facebook:   #4867AA,
   bg-color:   #31b6ff,
+  text1:      #6D6D6D,
+  text2:      #939393,
+  text3:      #a7afb2,
 );
 
 
 $toolbar-background: #0354A9;
+
+
+// $colors: (
+//   primary: #051326,
+//   danger: #f53d3d,
+//   light: #f4f4f4,
+//   text1: #6D6D6D,
+//   text2: #939393,
+//   text3: #a7afb2,
+//   white: #ffffff
+// );
+$primary-color: color($colors, primary);
+// $text-color: $primary-color;
+// $background-color: #fff;
+
+
+// $toolbar-md-background: color($colors, primary);
+
+// Change the color of the segment button text
+// $toolbar-md-active-color: #fff;
+
+
 // ion-modal {
 //   left: 11.5% !important;
 //   top: 65px !important;
